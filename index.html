@@ -1,0 +1,834 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#120D19">
+<meta name="description" content="Sophia - Estudos: História, Geografia e Química com resumos, flashcards, quizzes e jogos.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22%3E%3Crect width=%22100%22 height=%22100%22 rx=%2224%22 fill=%22%23E0479A%22/%3E%3Ctext x=%2250%22 y=%2270%22 font-size=%2260%22 text-anchor=%22middle%22 fill=%22white%22 font-family=%22Georgia%22 font-weight=%22bold%22%3ES%3C/text%3E%3C/svg%3E">
+<title>Sophia - Estudos</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,800&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{color-scheme:dark;--bg:#120D19;--card:#1D1628;--ink:#F4EEF8;--mute:#A99FBC;--mute2:#CFC6DD;--line:#2F2640;--track:#2E2540;--plum:#E0479A;--plum2:#F472B6;--pinks:#3A1A33;--h:#E0663E;--hs:#3A2119;--g:#1A9E8A;--gs:#11302B;--q:#8B5CF6;--qs:#241B3D;--gold:#F5B942;--golds:#30251A;--ok:#3DCB7E;--oks:#132D1E;--bad:#F06767;--bads:#3A1A1E;--r:20px;--sh:0 1px 0 rgba(0,0,0,.2),0 10px 28px -12px rgba(0,0,0,.6)}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:Nunito,system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.5;-webkit-tap-highlight-color:transparent;padding-bottom:84px}
+button{font:inherit;color:inherit;border:0;background:none;cursor:pointer}
+h1,h2,h3,.serif{font-family:Fraunces,Georgia,serif;letter-spacing:-.01em}
+b{font-weight:800}
+.top{position:sticky;top:0;z-index:20;background:rgba(18,13,25,.7);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.top .in{max-width:760px;margin:0 auto;display:flex;align-items:center;gap:10px;padding:10px 16px}
+.logo{display:flex;align-items:center;gap:8px;font-family:Fraunces,serif;font-weight:800;font-size:19px;color:var(--plum)}
+.logo .mk{width:30px;height:30px;border-radius:10px;background:var(--plum);color:#fff;display:grid;place-items:center;font-size:16px}
+.logo small{font-family:Nunito;font-weight:700;color:var(--mute);font-size:14px}
+.pills{margin-left:auto;display:flex;gap:6px}
+.pill{background:var(--card);border:1px solid var(--line);border-radius:99px;padding:4px 10px;font-weight:800;font-size:13px;white-space:nowrap}
+.wrap{max-width:760px;margin:0 auto;padding:18px 16px 30px}
+.hero{background:linear-gradient(135deg,#6B2A8C,#C7357F 60%,#E0479A);color:#fff;border-radius:26px;padding:24px 22px;position:relative;overflow:hidden}
+.hero:after{content:"";position:absolute;right:-60px;top:-60px;width:200px;height:200px;border-radius:50%;background:radial-gradient(circle,rgba(255,170,220,.5),transparent 70%)}
+.hero .eb{opacity:.8;font-weight:700}
+.hero h1{font-size:40px;line-height:1.05;margin:2px 0 8px}
+.hero p{opacity:.9;max-width:440px}
+.lvl{margin-top:16px;display:flex;align-items:center;gap:10px;font-weight:800;font-size:14px}
+.lvl .bar{flex:1;height:10px;background:rgba(255,255,255,.18);border-radius:9px;overflow:hidden}
+.lvl .bar i{display:block;height:100%;background:var(--gold);border-radius:9px;transition:width .6s}
+.sec{font-size:22px;margin:28px 2px 12px}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:14px}
+.big{background:var(--card);border-radius:var(--r);padding:16px;text-align:left;box-shadow:var(--sh);display:flex;flex-direction:column;gap:2px;transition:transform .15s;border:1px solid var(--line)}
+.big:active{transform:scale(.97)}
+.big .ic{font-size:26px;margin-bottom:4px}
+.big b{font-size:16px}
+.big small{color:var(--mute);font-weight:600;font-size:13px}
+.big.gold{background:var(--golds);border-color:rgba(245,185,66,.35)}
+.subj{border-radius:var(--r);padding:18px;color:#fff;text-align:left;display:flex;flex-direction:column;gap:6px;box-shadow:var(--sh);min-height:150px}
+.subj.h{background:var(--h)}.subj.g{background:var(--g)}
+.subj .ic{font-size:30px}
+.subj h3{font-size:22px}
+.subj small{opacity:.9;font-weight:700}
+.mini{height:7px;background:rgba(255,255,255,.25);border-radius:9px;overflow:hidden;margin-top:auto}
+.mini i{display:block;height:100%;background:var(--card);border-radius:9px}
+.games{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+.game{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:14px;text-align:left;box-shadow:var(--sh);display:flex;gap:12px;align-items:center}
+.game .gi{width:44px;height:44px;border-radius:14px;display:grid;place-items:center;font-size:22px;flex:none}
+.game b{display:block;font-size:15px;line-height:1.2}
+.game small{color:var(--mute);font-weight:600;font-size:12.5px;line-height:1.3;display:block}
+.tips{display:flex;flex-direction:column;gap:10px}
+details.tip{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:14px 16px}
+details.tip summary{font-weight:800;cursor:pointer;list-style:none;display:flex;gap:10px;align-items:center}
+details.tip summary::-webkit-details-marker{display:none}
+details.tip summary:after{content:"+";margin-left:auto;font-size:20px;color:var(--mute)}
+details.tip[open] summary:after{content:"–"}
+details.tip p{color:var(--mute2);margin-top:8px;font-size:15px}
+.plan{background:var(--golds);border:1px dashed rgba(245,185,66,.45);border-radius:16px;padding:14px 16px;font-size:15px}
+.plan ol{margin:6px 0 0 20px}
+.back{display:inline-flex;align-items:center;gap:6px;font-weight:800;color:var(--mute);margin-bottom:12px;padding:6px 0}
+.shead{border-radius:24px;padding:22px;color:#fff;margin-bottom:16px}
+.shead.h{background:var(--h)}.shead.g{background:var(--g)}
+.shead h1{font-size:32px}
+.shead p{opacity:.92;font-weight:600}
+.tlist{display:flex;flex-direction:column;gap:10px}
+.trow{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:14px;display:flex;gap:14px;align-items:center;text-align:left;box-shadow:var(--sh)}
+.trow .em{font-size:26px;width:46px;height:46px;border-radius:14px;display:grid;place-items:center;flex:none}
+.h .em,.trow.h .em{background:var(--hs)}.trow.g .em{background:var(--gs)}
+.trow b{display:block;line-height:1.25}
+.trow small{color:var(--mute);font-weight:600}
+.ring{margin-left:auto;flex:none;width:46px;height:46px;border-radius:50%;display:grid;place-items:center;font-size:12px;font-weight:900}
+.thead{border-radius:24px;padding:20px;margin-bottom:12px}
+.thead.h{background:var(--hs)}.thead.g{background:var(--gs)}
+.thead .k{font-weight:800;font-size:13px;text-transform:uppercase;letter-spacing:.06em}
+.thead.h .k{color:var(--h)}.thead.g .k{color:var(--g)}
+.thead h1{font-size:28px;line-height:1.15;margin-top:2px}
+.tabs{display:flex;gap:6px;overflow-x:auto;padding:4px;background:var(--card);border:1px solid var(--line);border-radius:16px;margin-bottom:14px;position:sticky;top:58px;z-index:10}
+.tab{flex:1;padding:9px 10px;border-radius:12px;font-weight:800;font-size:14px;white-space:nowrap;color:var(--mute)}
+.tab.on{background:var(--plum);color:#fff}
+.box{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:16px 18px;margin-bottom:12px}
+.box h3{font-size:18px;margin-bottom:8px}
+.box ul{list-style:none;display:flex;flex-direction:column;gap:8px}
+.box li{position:relative;padding-left:18px;font-size:15.5px}
+.box li:before{content:"";position:absolute;left:2px;top:9px;width:7px;height:7px;border-radius:50%;background:var(--gold)}
+.box.h b{color:var(--h)}.box.g b{color:var(--g)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:13px 18px;border-radius:14px;font-weight:800;background:var(--card);border:1px solid var(--line)}
+.btn.primary{background:var(--plum);color:#fff;border-color:var(--plum)}
+.btn.goldb{background:var(--gold);border-color:var(--gold);color:#3a2800}
+.full{width:100%}
+.btns{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+.btns .btn{flex:1}
+.qhead{display:flex;align-items:center;gap:12px;margin-bottom:16px}
+.ghost{width:38px;height:38px;border-radius:12px;background:var(--card);border:1px solid var(--line);font-weight:900;flex:none}
+.pbar{flex:1;height:10px;background:var(--track);border-radius:9px;overflow:hidden}
+.pbar i{display:block;height:100%;background:var(--plum2);border-radius:9px;transition:width .3s}
+.count,.timer{font-weight:900;font-size:14px;white-space:nowrap}
+.timer{background:var(--golds);padding:6px 10px;border-radius:10px}
+.timer.low{background:var(--bads);color:var(--bad)}
+.qcard{background:var(--card);border-radius:24px;padding:20px;box-shadow:var(--sh);border:1px solid var(--line)}
+.qtag{font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.06em;color:var(--mute);margin-bottom:6px}
+.q{font-size:21px;line-height:1.3;margin-bottom:16px}
+.opts{display:flex;flex-direction:column;gap:10px}
+.opt{display:flex;gap:12px;align-items:center;text-align:left;padding:13px 14px;border-radius:14px;border:2px solid var(--line);background:var(--card);font-weight:700;font-size:15.5px;transition:all .15s}
+.opt .l{width:30px;height:30px;border-radius:9px;background:var(--bg);display:grid;place-items:center;font-weight:900;flex:none;font-size:14px}
+.opt:not(:disabled):active{transform:scale(.98)}
+.opt.right{border-color:var(--ok);background:var(--oks)}.opt.right .l{background:var(--ok);color:#fff}
+.opt.wrong{border-color:var(--bad);background:var(--bads)}.opt.wrong .l{background:var(--bad);color:#fff}
+.opt:disabled{cursor:default}
+.tfrow{flex-direction:row}.tfrow .opt{flex:1;justify-content:center;font-size:16px;padding:18px 8px;white-space:nowrap;gap:6px}
+.exp{margin-top:14px;padding:14px;border-radius:14px;font-size:15px}
+.exp.ok{background:var(--oks)}.exp.bad{background:var(--bads)}
+.exp b{display:block;margin-bottom:2px}
+#fb .btn{margin-top:12px}
+.res{text-align:center;padding:10px 0}
+.score{width:150px;height:150px;border-radius:50%;margin:10px auto 14px;display:grid;place-items:center;background:conic-gradient(var(--plum2) calc(var(--p)*1%),var(--track) 0)}
+.score div{width:122px;height:122px;border-radius:50%;background:var(--bg);display:grid;place-items:center;font-family:Fraunces,serif;font-weight:800;font-size:38px}
+.res h2{font-size:26px}
+.res p{color:var(--mute);font-weight:600}
+.rev{text-align:left;margin-top:18px}
+.rev .item{background:var(--card);border:1px solid var(--line);border-left:5px solid var(--bad);border-radius:14px;padding:12px 14px;margin-bottom:10px;font-size:15px}
+.rev .item .a{color:var(--ok);font-weight:800;margin:4px 0}
+.rev .item .x{color:var(--mute2)}
+.report{display:flex;flex-direction:column;gap:8px;text-align:left;margin-top:16px}
+.report .r{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:10px 12px;display:flex;align-items:center;gap:10px;font-weight:700;font-size:14.5px}
+.report .r span{margin-left:auto;font-weight:900}
+.flip{perspective:1200px;margin:6px 0 14px;cursor:pointer}
+.flip .fc{position:relative;min-height:260px;transition:transform .5s;transform-style:preserve-3d}
+.flip.on .fc{transform:rotateY(180deg)}
+.face{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;border-radius:24px;padding:24px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;box-shadow:var(--sh)}
+.face.f{background:var(--card);border:1px solid var(--line)}
+.face.b{background:var(--plum);color:#fff;transform:rotateY(180deg)}
+.face .t{font-family:Fraunces,serif;font-size:26px;font-weight:800;line-height:1.2}
+.face .d{font-size:19px;font-weight:700;line-height:1.35}
+.face small{position:absolute;bottom:14px;font-weight:700;opacity:.6;font-size:13px}
+.face .tg{position:absolute;top:14px;font-size:12px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;opacity:.6}
+.rate{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.rate .btn{padding:15px}
+.rate .no{background:var(--bads);border-color:rgba(240,103,103,.4);color:var(--bad)}
+.rate .yes{background:var(--oks);border-color:rgba(61,203,126,.4);color:var(--ok)}
+.why{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:16px;margin-bottom:12px}
+.why h3{font-size:18px;line-height:1.3;margin-bottom:10px}
+.why textarea{width:100%;min-height:80px;border:1.5px solid var(--line);border-radius:12px;padding:10px;font:inherit;font-size:15px;background:var(--bg);resize:vertical}
+.why .ans{margin-top:10px;background:var(--golds);border-radius:12px;padding:12px;font-size:15px;display:none}
+.why.show .ans{display:block}
+.chips{display:flex;flex-direction:column;gap:10px;margin-top:14px}
+.chip{padding:16px;border-radius:16px;font-weight:800;font-size:16px;text-align:left;display:flex;align-items:center;gap:12px;background:var(--card);border:2px solid var(--line)}
+.chip .em{font-size:24px}
+.chip.h{border-color:rgba(224,102,62,.5)}.chip.g{border-color:rgba(26,158,138,.55)}
+.intro{color:var(--mute);font-weight:600}
+.tl{display:flex;flex-direction:column;gap:8px;margin:14px 0}
+.tli{background:var(--card);border:2px solid var(--line);border-radius:14px;padding:10px 10px 10px 14px;display:flex;align-items:center;gap:10px;font-weight:700;transition:all .2s}
+.tli .yr{font-family:Fraunces,serif;font-weight:800;color:var(--plum2);min-width:48px;display:none}
+.tl.done .yr{display:block}
+.tli .mv{margin-left:auto;display:flex;gap:4px}
+.tli .mv button{width:36px;height:36px;border-radius:10px;background:var(--bg);font-weight:900}
+.tli.ok{border-color:var(--ok);background:var(--oks)}.tli.bad{border-color:var(--bad);background:var(--bads)}
+.pairs{display:grid;grid-template-columns:1fr 1.25fr;gap:10px;margin-top:14px}
+.pcol{display:flex;flex-direction:column;gap:8px}
+.pc{background:var(--card);border:2px solid var(--line);border-radius:14px;padding:11px;font-weight:700;font-size:14px;text-align:left;min-height:58px;line-height:1.3;transition:all .15s}
+.pc.term{font-family:Fraunces,serif;font-weight:800;font-size:15px}
+.pc.sel{border-color:var(--plum2);background:var(--pinks)}
+.pc.ok{border-color:var(--ok);background:var(--oks);opacity:.6}
+.pc.no{animation:shake .35s;border-color:var(--bad)}
+@keyframes shake{25%{transform:translateX(-5px)}75%{transform:translateX(5px)}}
+nav.bot{position:fixed;bottom:0;left:0;right:0;background:rgba(18,13,25,.82);backdrop-filter:blur(10px);border-top:1px solid var(--line);z-index:30;padding-bottom:env(safe-area-inset-bottom)}
+nav.bot .in{max-width:760px;margin:0 auto;display:grid;grid-template-columns:repeat(5,1fr)}
+nav.bot button{padding:9px 0 10px;display:flex;flex-direction:column;align-items:center;gap:1px;font-size:12px;font-weight:800;color:var(--mute)}
+nav.bot button span{font-size:21px;filter:grayscale(1);opacity:.7}
+nav.bot button.on{color:var(--plum)}
+nav.bot button.on span{filter:none;opacity:1}
+.toast{position:fixed;left:50%;bottom:96px;transform:translateX(-50%) translateY(20px);background:var(--plum);color:#fff;padding:10px 16px;border-radius:12px;font-weight:800;opacity:0;transition:all .3s;z-index:50;pointer-events:none;white-space:nowrap}
+.toast.on{opacity:1;transform:translateX(-50%) translateY(0)}
+.conf{position:fixed;top:-20px;width:10px;height:14px;z-index:60;pointer-events:none;animation:fall linear forwards}
+@keyframes fall{to{transform:translateY(110vh) rotate(720deg)}}
+.empty{text-align:center;padding:30px 10px;color:var(--mute);font-weight:700}
+.read{display:flex;align-items:center;gap:8px;justify-content:center;font-weight:800}
+@media (max-width:420px){.games{grid-template-columns:1fr}.hero h1{font-size:34px}.q{font-size:19px}}
+
+body{position:relative}
+.bgfx{position:fixed;inset:0;z-index:-1;overflow:hidden;pointer-events:none}
+.bgfx .blob{position:absolute;border-radius:50%;filter:blur(70px);opacity:.38;mix-blend-mode:screen}
+.bgfx .b1{width:420px;height:420px;background:#EC4899;top:-120px;left:-120px;animation:drift1 22s ease-in-out infinite alternate}
+.bgfx .b2{width:360px;height:360px;background:#F472B6;bottom:-140px;right:-100px;animation:drift2 26s ease-in-out infinite alternate}
+.bgfx .b3{width:300px;height:300px;background:#C026D3;top:40%;left:55%;opacity:.22;animation:drift3 30s ease-in-out infinite alternate}
+.bgfx .b4{width:240px;height:240px;background:#FB7185;top:60%;left:-80px;opacity:.25;animation:drift2 34s ease-in-out infinite alternate-reverse}
+@keyframes drift1{to{transform:translate(45vw,35vh) scale(1.25)}}
+@keyframes drift2{to{transform:translate(-40vw,-45vh) scale(1.15)}}
+@keyframes drift3{to{transform:translate(-35vw,25vh) scale(.8)}}
+.bgfx .dot{position:absolute;bottom:-20px;border-radius:50%;background:#F9A8D4;box-shadow:0 0 10px #F472B6;animation:rise linear infinite}
+@keyframes rise{0%{transform:translateY(0) translateX(0);opacity:0}10%{opacity:.8}90%{opacity:.6}100%{transform:translateY(-110vh) translateX(40px);opacity:0}}
+.bgfx .grid{position:absolute;inset:0;background-image:radial-gradient(rgba(244,114,182,.12) 1px,transparent 1px);background-size:26px 26px;mask-image:radial-gradient(ellipse at center,#000 30%,transparent 80%);-webkit-mask-image:radial-gradient(ellipse at center,#000 30%,transparent 80%)}
+.hero,.subj,.shead{box-shadow:0 12px 34px -14px rgba(236,72,153,.55)}
+.opt.right .l,.opt.wrong .l{color:#120D19}
+@media (prefers-reduced-motion:reduce){.bgfx *{animation:none!important}}
+
+.subj.q,.shead.q{background:var(--q)}
+.thead.q{background:var(--qs)}.thead.q .k{color:#C4B5FD}
+.trow.q .em{background:var(--qs)}
+.box.q b{color:#C4B5FD}
+.chip.q{border-color:rgba(139,92,246,.6)}
+.subjs{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.subjs .subj:nth-child(3){grid-column:1/-1;min-height:auto}
+.mnem{background:linear-gradient(135deg,rgba(224,71,154,.18),rgba(139,92,246,.18));border:1px solid rgba(244,114,182,.4);border-radius:18px;padding:16px 18px;margin-bottom:12px;font-size:15.5px}
+.mnem .mt{font-weight:900;color:var(--plum2);font-size:13px;text-transform:uppercase;letter-spacing:.06em;margin-bottom:4px}
+.mnem b{color:#FBCFE8}
+nav.bot button{font-size:11px}
+</style>
+</head>
+<body>
+<div class="bgfx" aria-hidden="true"><div class="grid"></div><i class="blob b1"></i><i class="blob b2"></i><i class="blob b3"></i><i class="blob b4"></i></div>
+<header class="top"><div class="in">
+  <button class="logo" onclick="go('home')"><span class="mk">S</span>Sophia <small>Estudos</small></button>
+  <div class="pills"><span class="pill" id="pStreak">🔥 0</span><span class="pill" id="pXp">⭐ 0 XP</span></div>
+</div></header>
+<main class="wrap" id="app"></main>
+<nav class="bot"><div class="in">
+  <button data-n="home" onclick="go('home')"><span>🏠</span>Início</button>
+  <button data-n="h" onclick="go('subj','h')"><span>🏛️</span>História</button>
+  <button data-n="g" onclick="go('subj','g')"><span>🌍</span>Geografia</button>
+  <button data-n="q" onclick="go('subj','q')"><span>⚗️</span>Química</button>
+  <button data-n="games" onclick="go('games')"><span>🎮</span>Jogos</button>
+</div></nav>
+<div class="toast" id="toast"></div>
+
+<script>
+/* ================== CONTEÚDO ================== */
+const SUBJ={h:{n:'História',e:'🏛️'},g:{n:'Geografia',e:'🌍'},q:{n:'Química',e:'⚗️'}};
+const TOPICS=[
+/* ---------- HISTÓRIA ---------- */
+{id:'seg',s:'h',t:'Segundo Reinado',e:'👑',per:'1840–1889',
+sum:[
+["O começo",["Em 1840, o <b>Golpe da Maioridade</b> antecipou a maioridade de D. Pedro II, que assumiu o trono com 14 anos e encerrou o Período Regencial.","O Segundo Reinado durou quase 50 anos (1840–1889)."]],
+["Política",["Dois partidos se revezavam no poder: <b>Liberal</b> e <b>Conservador</b> — muito parecidos, pois os dois representavam a elite agrária.","<b>Parlamentarismo às avessas</b> (1847): o imperador escolhia o presidente do Conselho de Ministros. No modelo inglês, quem define o governo é o Parlamento — por isso 'às avessas'.","D. Pedro II mantinha o <b>Poder Moderador</b>, que estava acima dos outros poderes."]],
+["Economia",["O <b>café</b> virou o principal produto: primeiro no Vale do Paraíba, depois no Oeste Paulista.","<b>Tarifa Alves Branco</b> (1844): aumentou impostos sobre importados e estimulou a indústria.","<b>Barão de Mauá</b>: empresário pioneiro em ferrovias, estaleiros e bancos."]],
+["Escravidão e abolição",["1850 – <b>Lei Eusébio de Queirós</b>: proibiu o tráfico de africanos escravizados.","1850 – <b>Lei de Terras</b>: terra só por compra, dificultando o acesso dos pobres e futuros libertos.","1871 – <b>Lei do Ventre Livre</b>: filhos de escravizadas nasciam livres.","1885 – <b>Lei dos Sexagenários</b>: libertava escravizados com mais de 60 anos.","13/05/1888 – <b>Lei Áurea</b>, assinada pela Princesa Isabel: fim da escravidão. O Brasil foi o último país das Américas a abolir.","Chegada de <b>imigrantes europeus</b> (sobretudo italianos) para trabalhar nos cafezais."]],
+["Guerra do Paraguai (1864–1870)",["A <b>Tríplice Aliança</b> (Brasil, Argentina e Uruguai) lutou contra o Paraguai de <b>Solano López</b>.","O Paraguai foi devastado; o Brasil ficou endividado e o <b>Exército saiu fortalecido</b>, querendo participar da política."]],
+["A queda da monarquia",["<b>Questão Religiosa</b>: conflito entre o governo e a Igreja.","<b>Questão Militar</b>: militares insatisfeitos com o governo.","<b>Questão Abolicionista</b>: os fazendeiros perderam os escravizados sem indenização e deixaram de apoiar o imperador.","Crescimento do <b>movimento republicano</b> (Manifesto Republicano de 1870).","15/11/1889: <b>Marechal Deodoro da Fonseca</b> proclama a República."]]],
+cards:[["Golpe da Maioridade","1840: D. Pedro II assume o trono aos 14 anos"],["Parlamentarismo às avessas","O imperador escolhia o chefe do ministério, e não o Parlamento"],["Lei Eusébio de Queirós","1850: proibiu o tráfico de escravizados"],["Lei do Ventre Livre","1871: filhos de escravizadas nasciam livres"],["Lei Áurea","13/05/1888: aboliu a escravidão (Princesa Isabel)"],["Guerra do Paraguai","1864–1870: Tríplice Aliança contra Solano López"],["Proclamação da República","15/11/1889, Marechal Deodoro da Fonseca"],["Lei de Terras","1850: terras só podiam ser obtidas por compra"]],
+quiz:[
+["Qual evento colocou D. Pedro II no trono em 1840?","Golpe da Maioridade",["Proclamação da Independência","Revolução Praieira","Lei Áurea"],"Políticos liberais anteciparam a maioridade do jovem imperador para acabar com as revoltas do Período Regencial."],
+["O que era o 'parlamentarismo às avessas'?","Um sistema em que o imperador escolhia o chefe do ministério",["Um sistema em que o povo elegia o imperador","Um governo sem Parlamento","O modelo inglês copiado igualzinho"],"No modelo inglês o Parlamento define o governo; no Brasil era o imperador — por isso 'às avessas'."],
+["Qual foi o principal produto da economia no Segundo Reinado?","Café",["Açúcar","Ouro","Borracha"],"O café se espalhou pelo Vale do Paraíba e depois pelo Oeste Paulista."],
+["Qual lei proibiu o tráfico de escravizados em 1850?","Lei Eusébio de Queirós",["Lei Áurea","Lei do Ventre Livre","Lei dos Sexagenários"],"Ela acabou com a chegada de africanos escravizados, mas não libertou quem já estava escravizado."],
+["Quais países formaram a Tríplice Aliança na Guerra do Paraguai?","Brasil, Argentina e Uruguai",["Brasil, Chile e Bolívia","Brasil, Portugal e Inglaterra","Argentina, Uruguai e Paraguai"],"Os três se uniram contra o Paraguai de Solano López."],
+["Por que os grandes fazendeiros deixaram de apoiar a monarquia?","A abolição aconteceu sem indenização para eles",["O imperador proibiu o café","D. Pedro II criou a reforma agrária","A monarquia fechou os portos"],"Essa foi a Questão Abolicionista, uma das causas da queda do Império."],
+["Quem proclamou a República em 1889?","Marechal Deodoro da Fonseca",["D. Pedro II","Princesa Isabel","Getúlio Vargas"],"Em 15 de novembro de 1889, com apoio de militares e republicanos."]],
+tf:[["A Lei do Ventre Livre libertou todos os escravizados do Brasil.",false,"Ela só libertava os filhos de escravizadas nascidos a partir de 1871. A abolição total veio com a Lei Áurea (1888)."],["A Guerra do Paraguai fortaleceu o Exército brasileiro.",true,"Os militares ganharam prestígio e passaram a querer mais participação na política."],["Os partidos Liberal e Conservador tinham ideias completamente opostas.",false,"Os dois representavam a elite agrária e eram bem parecidos."],["Imigrantes italianos vieram trabalhar nas fazendas de café.",true,"Com o fim do tráfico, os fazendeiros buscaram mão de obra imigrante europeia."]],
+why:[["Por que as leis abolicionistas foram 'graduais'?","Porque a elite escravista resistia ao fim da escravidão. O governo aprovou leis aos poucos (1850, 1871, 1885) para adiar a abolição total, que só veio em 1888."],["Como a Guerra do Paraguai ajudou a derrubar a monarquia?","O Exército saiu fortalecido, mas se sentia desvalorizado pelo governo. Muitos oficiais aderiram às ideias republicanas — e foram militares que proclamaram a República em 1889."]]},
+
+{id:'var',s:'h',t:'Era Vargas',e:'🏭',per:'1930–1945',
+sum:[
+["Revolução de 1930",["Fim da <b>República Velha</b> e da política do <b>café com leite</b> (SP e MG se revezavam na presidência).","O presidente Washington Luís indicou outro paulista, Júlio Prestes, rompendo o acordo com Minas.","A <b>Aliança Liberal</b> (MG, RS e PB) lançou Getúlio Vargas. Depois da derrota nas urnas e do assassinato de João Pessoa, veio a revolução que levou Vargas ao poder."]],
+["Governo Provisório (1930–1934)",["Vargas governou por decretos e nomeou <b>interventores</b> nos estados.","1932 – <b>Revolução Constitucionalista</b>: São Paulo pegou em armas exigindo uma Constituição e foi derrotado.","Código Eleitoral de 1932: <b>voto secreto</b> e <b>voto feminino</b>."]],
+["Governo Constitucional (1934–1937)",["Constituição de 1934: direitos trabalhistas, voto secreto e voto feminino.","Disputa entre a <b>AIB</b> (Integralistas, inspirados no fascismo, liderados por Plínio Salgado) e a <b>ANL</b> (Aliança Nacional Libertadora, com Luís Carlos Prestes).","1935 – <b>Intentona Comunista</b>: tentativa fracassada de derrubar Vargas.","O falso <b>Plano Cohen</b> serviu de desculpa para o golpe de 1937."]],
+["Estado Novo (1937–1945)",["<b>Ditadura</b>: Congresso fechado, partidos proibidos e nova Constituição, apelidada de <b>'Polaca'</b>.","<b>DIP</b> (Departamento de Imprensa e Propaganda): censura e propaganda do governo.","Direitos trabalhistas: <b>salário mínimo</b> (1940) e <b>CLT</b> (1943). Vargas era chamado de 'pai dos pobres' — isso é <b>populismo</b>.","Indústria de base: <b>CSN</b> (siderúrgica de Volta Redonda) e <b>Vale do Rio Doce</b>.","Na 2ª Guerra, o Brasil entrou ao lado dos <b>Aliados</b> (1942) e enviou a <b>FEB</b> para lutar na Itália."]],
+["Fim e retorno",["Contradição: lutar contra ditaduras na Europa e ser uma ditadura em casa. Vargas foi deposto em 1945.","Voltou eleito em 1951: campanha <b>'O petróleo é nosso'</b> e criação da <b>Petrobras</b> (1953).","Em meio a uma grave crise política, morreu em agosto de 1954."]]],
+cards:[["Política do café com leite","Revezamento de SP e MG na presidência na República Velha"],["Revolução de 1930","Movimento que levou Getúlio Vargas ao poder"],["Revolução Constitucionalista","1932: São Paulo exige uma Constituição"],["Estado Novo","Ditadura de Vargas, de 1937 a 1945"],["DIP","Órgão de censura e propaganda do Estado Novo"],["CLT","Consolidação das Leis do Trabalho, 1943"],["Populismo","Líder carismático que busca apoio direto das massas"],["Petrobras","Criada em 1953, com a campanha 'O petróleo é nosso'"]],
+quiz:[
+["Qual acordo político terminou com a Revolução de 1930?","Política do café com leite",["Tríplice Aliança","Plano Marshall","Diretas Já"],"SP e MG se revezavam na presidência; a indicação de Júlio Prestes (SP) rompeu o acordo."],
+["O que São Paulo exigia na Revolução de 1932?","Uma nova Constituição",["A volta da monarquia","A independência do Brasil","O fim do voto feminino"],"Por isso o nome 'Constitucionalista'. SP perdeu, mas a Constituição veio em 1934."],
+["Qual documento falso serviu de desculpa para o golpe do Estado Novo?","Plano Cohen",["Plano Real","Plano Marshall","Carta-Testamento"],"O governo divulgou um suposto plano comunista para justificar o golpe de 1937."],
+["Qual era a função do DIP?","Censura e propaganda do governo",["Cuidar da saúde pública","Organizar eleições","Construir ferrovias"],"Controlava jornais e rádio e exaltava a imagem de Vargas."],
+["Qual destas foi uma conquista trabalhista da Era Vargas?","CLT (Consolidação das Leis do Trabalho)",["Lei Áurea","Bolsa Família","Plano Real"],"A CLT (1943) reuniu leis sobre carteira de trabalho, férias e jornada de trabalho."],
+["Por que Vargas foi deposto em 1945?","Era contraditório lutar contra ditaduras na guerra e manter uma ditadura no Brasil",["Perdeu a Guerra do Paraguai","Assinou a Lei Áurea","Foi derrotado na Revolução de 1932"],"Com o fim da 2ª Guerra, cresceu a pressão pela redemocratização e os militares o afastaram."],
+["Qual empresa foi criada no segundo governo Vargas (1953)?","Petrobras",["Embraer","Correios","Banco do Brasil"],"Resultado da campanha nacionalista 'O petróleo é nosso'."]],
+tf:[["O voto feminino foi conquistado durante a Era Vargas.",true,"O Código Eleitoral de 1932 garantiu o voto às mulheres e o voto secreto."],["Os integralistas eram inspirados no comunismo soviético.",false,"A AIB se inspirava no fascismo italiano. A ANL é que reunia comunistas e outros grupos de esquerda."],["A Constituição de 1937 era apelidada de 'Polaca'.",true,"Foi inspirada na Constituição autoritária da Polônia."],["O Brasil lutou na 2ª Guerra ao lado da Alemanha.",false,"O Brasil entrou em 1942 ao lado dos Aliados e mandou a FEB lutar na Itália."]],
+why:[["Por que Vargas é chamado de populista?","Porque governava buscando o apoio direto das massas trabalhadoras, com propaganda e leis trabalhistas, enquanto controlava os sindicatos. Isso criou a imagem de 'pai dos pobres'."],["Por que o Estado Novo investiu em indústrias de base como a CSN?","Para o Brasil depender menos de importações e se industrializar. Aço, minério e energia são a 'base' para outras indústrias existirem."]]},
+
+{id:'gf',s:'h',t:'Guerra Fria',e:'🚀',per:'1947–1991',
+sum:[
+["O que foi",["Disputa entre <b>EUA</b> (capitalismo) e <b>URSS</b> (socialismo) de 1947 a 1991.","Chamada de 'fria' porque as duas superpotências <b>nunca se enfrentaram diretamente</b> — o medo de uma guerra nuclear impedia.","O mundo ficou <b>bipolar</b>: dividido em dois blocos."]],
+["Os dois lados",["EUA: <b>Doutrina Truman</b> (conter o comunismo) e <b>Plano Marshall</b> (ajuda econômica para reconstruir a Europa Ocidental).","URSS: <b>Comecon</b> (ajuda econômica ao bloco socialista).","Alianças militares: <b>OTAN</b> (1949, EUA e aliados) x <b>Pacto de Varsóvia</b> (1955, URSS e aliados)."]],
+["Símbolos",["A Alemanha foi dividida em Ocidental (capitalista) e Oriental (socialista).","O <b>Muro de Berlim</b> (1961–1989) foi o maior símbolo da divisão.","<b>Corrida armamentista</b> (bombas atômicas) e <b>corrida espacial</b>: Sputnik (1957, URSS), Gagarin no espaço (1961, URSS) e o homem na Lua (1969, EUA)."]],
+["Conflitos indiretos",["<b>Guerra da Coreia</b> (1950–1953): Coreia dividida em Norte (socialista) e Sul (capitalista).","<b>Revolução Cubana</b> (1959) e <b>Crise dos Mísseis</b> (1962): o mundo esteve perto de uma guerra nuclear.","<b>Guerra do Vietnã</b> (até 1975): derrota dos EUA.","Na América Latina, os EUA apoiaram <b>ditaduras militares</b>, como a do Brasil (a partir de 1964)."]],
+["O fim",["Anos 1980: crise econômica na URSS.","<b>Gorbachev</b> lançou a <b>Perestroika</b> (reformas econômicas) e a <b>Glasnost</b> (abertura política).","1989: <b>queda do Muro de Berlim</b>; 1990: reunificação da Alemanha.","Dezembro de 1991: <b>fim da URSS</b>. Os EUA ficam como única superpotência."]]],
+cards:[["Bipolaridade","Mundo dividido entre EUA e URSS"],["Plano Marshall","Ajuda econômica dos EUA para reconstruir a Europa"],["OTAN","Aliança militar liderada pelos EUA (1949)"],["Pacto de Varsóvia","Aliança militar liderada pela URSS (1955)"],["Muro de Berlim","Símbolo da divisão, de 1961 a 1989"],["Crise dos Mísseis","1962: mísseis soviéticos em Cuba"],["Perestroika","Reformas econômicas de Gorbachev"],["Glasnost","Abertura política e transparência na URSS"]],
+quiz:[
+["Por que a Guerra Fria recebeu esse nome?","As superpotências não se enfrentaram diretamente",["Aconteceu só no inverno","Foi travada no Polo Norte","Não houve nenhum conflito armado no mundo"],"Houve conflitos indiretos (Coreia, Vietnã), mas EUA e URSS nunca guerrearam entre si."],
+["O que foi o Plano Marshall?","Ajuda econômica dos EUA para a Europa Ocidental",["Um plano soviético para invadir a Europa","O acordo que criou a ONU","O projeto do Muro de Berlim"],"Reconstruir a Europa também servia para impedir o avanço do socialismo."],
+["Qual aliança militar foi criada pela URSS e seus aliados?","Pacto de Varsóvia",["OTAN","Mercosul","União Europeia"],"Foi a resposta soviética à OTAN, em 1955."],
+["Qual evento de 1962 quase levou a uma guerra nuclear?","Crise dos Mísseis em Cuba",["Queda do Muro de Berlim","Guerra da Coreia","Chegada do homem à Lua"],"A URSS instalou mísseis em Cuba, muito perto dos EUA."],
+["O que foi a Perestroika?","Reformas econômicas promovidas por Gorbachev",["Uma corrida espacial","Um tratado de paz entre EUA e Cuba","Um muro construído na Alemanha"],"Junto com a Glasnost, tentou salvar a URSS, mas acelerou seu fim."],
+["Em que ano a União Soviética deixou de existir?","1991",["1945","1961","2001"],"Em dezembro de 1991, marcando o fim da Guerra Fria."],
+["Qual país saiu derrotado da Guerra do Vietnã?","Estados Unidos",["União Soviética","China","Coreia do Norte"],"Em 1975 o Vietnã foi unificado sob governo socialista."]],
+tf:[["EUA e URSS lutaram diretamente várias vezes durante a Guerra Fria.",false,"Nunca se enfrentaram diretamente: disputavam por meio de outros países."],["O primeiro ser humano a ir ao espaço era soviético.",true,"Yuri Gagarin, em 1961. O primeiro a pisar na Lua foi o americano Neil Armstrong, em 1969."],["A Coreia continua dividida em Norte e Sul até hoje.",true,"A Guerra da Coreia terminou em 1953 com um armistício, e a divisão permanece."],["O Muro de Berlim caiu em 1991.",false,"O Muro caiu em 1989. Em 1991 o que acabou foi a URSS."]],
+why:[["Por que a corrida espacial era importante na Guerra Fria?","Porque mostrava qual sistema era mais avançado. Além disso, a tecnologia de foguetes também servia para mísseis militares."],["Como a Guerra Fria afetou o Brasil?","Os EUA queriam evitar o socialismo na América Latina e apoiaram governos alinhados a eles. O golpe militar de 1964 aconteceu nesse clima de medo do comunismo."]]},
+
+{id:'glo',s:'h',t:'Globalização',e:'🌐',per:'Anos 1990 até hoje',
+sum:[
+["O que é",["Processo de <b>integração</b> entre os países nas áreas econômica, política, cultural e de comunicação.","Ganhou força depois do fim da Guerra Fria (anos 1990), com a expansão do capitalismo.","Base: <b>Terceira Revolução Industrial</b> (técnico-científico-informacional) — computadores, internet e satélites."]],
+["Fluxos",["Circulação rápida de <b>mercadorias, capitais, informações e pessoas</b>.","<b>Empresas transnacionais</b> espalham a produção pelo mundo: um celular pode ser projetado nos EUA, ter peças da Coreia e ser montado na China.","O mercado financeiro funciona 24 horas: o dinheiro muda de país em segundos."]],
+["Neoliberalismo",["Ideia de <b>pouca intervenção do Estado</b> na economia.","Privatizações, abertura de mercados e corte de gastos públicos.","Defendido por Margaret Thatcher (Reino Unido) e Ronald Reagan (EUA) nos anos 1980."]],
+["Blocos e organizações",["<b>Blocos econômicos</b>: União Europeia, Mercosul (1991), acordo EUA-México-Canadá (antigo NAFTA).","<b>OMC</b> (1995): regula o comércio internacional.","Também o FMI e o Banco Mundial."]],
+["Lados negativos",["Aumento da <b>desigualdade</b> entre países e dentro deles.","<b>Padronização cultural</b>: mesmos filmes, músicas e lanches no mundo todo.","<b>Exclusão digital</b>: nem todos têm acesso à internet.","Movimentos críticos: <b>Fórum Social Mundial</b> (Porto Alegre, 2001)."]]],
+cards:[["Globalização","Integração econômica, cultural e de comunicação entre países"],["Empresa transnacional","Empresa que atua e produz em vários países"],["Neoliberalismo","Defende pouca intervenção do Estado na economia"],["Mercosul","Bloco econômico da América do Sul, criado em 1991"],["OMC","Organização Mundial do Comércio (1995)"],["Exclusão digital","Falta de acesso à internet e à tecnologia"],["Terceira Revolução Industrial","Revolução técnico-científico-informacional: informática e telecomunicações"]],
+quiz:[
+["Qual avanço tecnológico mais impulsionou a globalização?","Internet e telecomunicações",["Máquina a vapor","Arado de ferro","Pombo-correio"],"A Terceira Revolução Industrial fez informações e capitais circularem em tempo real."],
+["O que defende o neoliberalismo?","Pouca intervenção do Estado na economia",["Estado controlando todas as empresas","Fim do comércio internacional","Volta da monarquia"],"Privatizações e abertura de mercados são marcas do neoliberalismo."],
+["O que é uma empresa transnacional?","Uma empresa que atua em vários países",["Uma empresa estatal brasileira","Uma loja que só vende pela internet","Uma cooperativa de agricultores locais"],"Ex.: grandes marcas de celulares, carros e refrigerantes."],
+["Qual é um efeito negativo da globalização?","Aumento da desigualdade social",["Fim de todas as fronteiras","Desaparecimento da internet","Fim do comércio"],"Os benefícios não se distribuem igualmente entre países e pessoas."],
+["Qual bloco econômico o Brasil integra?","Mercosul",["União Europeia","NAFTA","ASEAN"],"Criado em 1991 com Argentina, Paraguai e Uruguai."],
+["Quando a globalização se intensificou?","Após o fim da Guerra Fria, nos anos 1990",["Na Idade Média","Durante o Segundo Reinado","Na Revolução Francesa"],"Com o fim do bloco socialista, o capitalismo se espalhou pelo mundo."]],
+tf:[["A globalização distribuiu a riqueza igualmente entre todos os países.",false,"Pelo contrário: muitas vezes aumentou as desigualdades."],["Ver as mesmas marcas e músicas no mundo todo é um exemplo de padronização cultural.",true,"É um dos efeitos culturais da globalização."],["O neoliberalismo defende mais empresas estatais.",false,"Defende privatizações e menos Estado na economia."],["O Fórum Social Mundial surgiu como crítica à globalização neoliberal.",true,"A primeira edição foi em Porto Alegre, em 2001."]],
+why:[["Por que um celular pode ser 'de vários países'?","Porque as transnacionais dividem a produção onde for mais barato ou vantajoso: projeto num país, peças em outros e montagem onde a mão de obra custa menos."],["A globalização é boa ou ruim?","Tem os dois lados: facilita o acesso a informação, tecnologia e produtos, mas pode aumentar a desigualdade, o desemprego em alguns setores e a perda de culturas locais."]]},
+
+{id:'nr',s:'h',t:'Nova República',e:'🗳️',per:'1985 até hoje',
+sum:[
+["Fim da ditadura",["<b>Diretas Já</b> (1983–1984): milhões nas ruas pedindo eleição direta para presidente. A emenda Dante de Oliveira foi rejeitada.","1985: <b>Tancredo Neves</b> foi eleito de forma indireta, mas adoeceu e morreu antes da posse. O vice, <b>José Sarney</b>, assumiu."]],
+["Constituição de 1988",["Chamada de <b>'Constituição Cidadã'</b> (Ulysses Guimarães); está em vigor até hoje.","Voto direto; voto facultativo para jovens de 16 e 17 anos e para analfabetos.","Racismo virou <b>crime inafiançável</b>; criação do <b>SUS</b>; direitos dos povos indígenas."]],
+["Primeiros governos",["<b>Sarney</b> (1985–1990): <b>hiperinflação</b> e Plano Cruzado.","<b>Fernando Collor</b> (1990–1992): primeiro presidente eleito pelo voto direto desde 1960; confiscou a poupança. Após denúncias de corrupção e protestos dos <b>'caras-pintadas'</b>, sofreu processo de impeachment e renunciou.","<b>Itamar Franco</b> (1992–1994): lançou o <b>Plano Real</b> (1994), que controlou a inflação."]],
+["Os governos seguintes",["<b>Fernando Henrique Cardoso</b> (1995–2002): estabilidade econômica, privatizações e aprovação da reeleição.","<b>Lula</b> (2003–2010): programas sociais como o <b>Bolsa Família</b> e crescimento econômico.","<b>Dilma Rousseff</b> (2011–2016): primeira mulher presidente; sofreu impeachment em 2016.","<b>Michel Temer</b> (2016–2018), <b>Jair Bolsonaro</b> (2019–2022) e <b>Lula</b> novamente a partir de 2023."]]],
+cards:[["Diretas Já","1983–84: campanha por eleição direta para presidente"],["Constituição Cidadã","Constituição de 1988, em vigor até hoje"],["Tancredo Neves","Eleito indiretamente em 1985; morreu antes da posse"],["Caras-pintadas","Jovens que protestaram pelo impeachment de Collor"],["Plano Real","1994: plano que controlou a hiperinflação"],["SUS","Sistema Único de Saúde, criado pela Constituição de 1988"],["Impeachment","Processo de afastamento de um presidente pelo Congresso"]],
+quiz:[
+["O que pedia o movimento Diretas Já?","Eleições diretas para presidente",["A volta da monarquia","O fim do voto feminino","Uma nova capital"],"Apesar das enormes manifestações, a emenda foi rejeitada no Congresso em 1984."],
+["Quem assumiu a presidência em 1985 com a morte de Tancredo Neves?","José Sarney",["Fernando Collor","Ulysses Guimarães","Itamar Franco"],"Sarney era o vice-presidente eleito."],
+["Por que a Constituição de 1988 é chamada de 'Cidadã'?","Porque ampliou os direitos sociais e políticos",["Porque foi escrita por um só cidadão","Porque acabou com as eleições","Porque restaurou a monarquia"],"Garantiu voto direto, SUS, direitos trabalhistas e combate ao racismo."],
+["Qual plano econômico controlou a hiperinflação em 1994?","Plano Real",["Plano Cruzado","Plano Marshall","Plano Cohen"],"Foi lançado no governo Itamar Franco, com FHC como ministro da Fazenda."],
+["Quem foram os 'caras-pintadas'?","Jovens que protestaram contra Collor",["Soldados da Guerra do Paraguai","Integralistas dos anos 1930","Imigrantes italianos"],"Eles pintavam o rosto de verde e amarelo nas manifestações de 1992."],
+["Quem foi a primeira mulher a presidir o Brasil?","Dilma Rousseff",["Princesa Isabel","Marina Silva","Benedita da Silva"],"Governou de 2011 a 2016. A Princesa Isabel foi regente no Império, não presidente."]],
+tf:[["Na Nova República, jovens de 16 anos podem votar.",true,"A Constituição de 1988 tornou o voto facultativo para quem tem 16 e 17 anos."],["Tancredo Neves governou o Brasil por 5 anos.",false,"Ele adoeceu e morreu antes de tomar posse."],["Collor foi o primeiro presidente eleito pelo voto direto após a ditadura.",true,"Foi eleito em 1989 e tomou posse em 1990."],["O Plano Real foi lançado no governo Sarney.",false,"Foi no governo Itamar Franco, em 1994."]],
+why:[["Por que a inflação era um problema tão grave nos anos 1980?","Os preços subiam todos os dias — às vezes mais de 80% ao mês. O dinheiro perdia valor muito rápido, prejudicando principalmente os mais pobres."],["O que significa redemocratização?","É a volta da democracia depois de uma ditadura: eleições livres, liberdade de imprensa e uma nova Constituição que garante direitos."]]},
+
+{id:'xxi',s:'h',t:'Mundo no século XXI',e:'📱',per:'2001 até hoje',
+sum:[
+["Terrorismo e guerras",["<b>11 de setembro de 2001</b>: a Al-Qaeda atacou os EUA (Torres Gêmeas).","Os EUA iniciaram a <b>'Guerra ao Terror'</b>: invadiram o Afeganistão (2001) e o Iraque (2003)."]],
+["Economia",["<b>Crise financeira de 2008</b>: começou no mercado imobiliário dos EUA e se espalhou pelo mundo.","<b>Ascensão da China</b>, que virou a 2ª maior economia do mundo.","<b>BRICS</b>: Brasil, Rússia, Índia, China e África do Sul — ampliado a partir de 2024 com novos membros.","O mundo caminha para a <b>multipolaridade</b> (vários centros de poder)."]],
+["Política e conflitos",["<b>Primavera Árabe</b> (2010–2011): protestos contra ditaduras no mundo árabe, começando na Tunísia.","Guerra civil na <b>Síria</b> e grande crise de <b>refugiados</b>.","<b>Rússia x Ucrânia</b>: anexação da Crimeia (2014) e invasão em larga escala (2022).","Guerra entre <b>Israel e Hamas</b> em Gaza, a partir de outubro de 2023."]],
+["Desafios globais",["<b>Mudanças climáticas</b>: Acordo de Paris (2015); a COP30 foi realizada em Belém (2025).","<b>Pandemia de Covid-19</b> (2020).","Revolução digital: redes sociais, <b>fake news</b> e <b>inteligência artificial</b>."]]],
+cards:[["11 de setembro","Atentados da Al-Qaeda contra os EUA, em 2001"],["Guerra ao Terror","Resposta dos EUA: invasões do Afeganistão e do Iraque"],["Crise de 2008","Crise financeira iniciada no mercado imobiliário dos EUA"],["BRICS","Grupo de países emergentes: Brasil, Rússia, Índia, China, África do Sul e novos membros"],["Primavera Árabe","Onda de protestos no mundo árabe (2010–2011)"],["Multipolaridade","Mundo com vários centros de poder"],["Acordo de Paris","2015: compromisso global contra o aquecimento"]],
+quiz:[
+["Qual grupo foi responsável pelos atentados de 11 de setembro de 2001?","Al-Qaeda",["Hamas","Talibã","Estado Islâmico"],"Liderada por Osama bin Laden. Os EUA invadiram o Afeganistão, onde o Talibã abrigava o grupo."],
+["Onde começou a crise financeira de 2008?","No mercado imobiliário dos EUA",["Na China","No Brasil","Na Rússia"],"Empréstimos imobiliários de alto risco quebraram bancos e a crise se espalhou."],
+["Qual destes países faz parte do BRICS desde o início?","Índia",["Japão","Alemanha","Canadá"],"BRIC: Brasil, Rússia, Índia e China; a África do Sul entrou em 2011."],
+["Em qual país começou a Primavera Árabe?","Tunísia",["Egito","Arábia Saudita","Irã"],"Começou no fim de 2010 e se espalhou por Egito, Líbia, Síria e outros."],
+["O que significa um mundo 'multipolar'?","Vários países ou blocos dividem o poder mundial",["Só uma superpotência manda","O mundo dividido em dois blocos","Um mundo sem países"],"É diferente da bipolaridade da Guerra Fria."],
+["Qual acordo de 2015 trata do combate às mudanças climáticas?","Acordo de Paris",["Acordos de Oslo","Tratado de Versalhes","Plano Marshall"],"Os países se comprometeram a limitar o aquecimento global."]],
+tf:[["A Rússia invadiu a Ucrânia em larga escala em 2022.",true,"Em 2014 já havia anexado a Crimeia."],["A Primavera Árabe foi uma onda de protestos contra governos autoritários.",true,"Derrubou governos na Tunísia, no Egito e na Líbia e levou à guerra na Síria."],["A COP30, conferência do clima da ONU, foi realizada em Belém.",true,"Aconteceu em novembro de 2025, na Amazônia."],["A pandemia de Covid-19 começou em 2015.",false,"Foi declarada pela OMS em 2020."]],
+why:[["Por que se diz que a China desafia a liderança dos EUA?","Porque cresceu muito rápido, virou a 2ª maior economia, lidera em várias tecnologias e investe no mundo todo (Nova Rota da Seda). As duas potências disputam comércio e influência."],["Como as fake news afetam a sociedade?","Espalham informações falsas muito rápido, podendo influenciar eleições, causar pânico ou prejudicar a saúde (como na pandemia). Por isso é importante checar a fonte."]]},
+
+/* ---------- GEOGRAFIA ---------- */
+{id:'eu1',s:'g',t:'Europa: natureza e sociedade',e:'⛰️',per:'Características naturais e socioeconômicas',
+sum:[
+["Localização",["Fica no <b>Hemisfério Norte</b> e forma com a Ásia um único bloco de terra: a <b>Eurásia</b>.","Limites com a Ásia: <b>Montes Urais</b>, Rio Ural, Mar Cáspio, Montes Cáucaso e Mar Negro.","É o <b>2º menor continente</b> (só é maior que a Oceania)."]],
+["Relevo",["Centro e leste: <b>planícies</b> (Grande Planície Europeia), ótimas para a agricultura.","Sul: <b>montanhas recentes</b> (dobramentos modernos): Alpes, Pireneus, Apeninos, Cárpatos e Cáucaso.","Norte: <b>montanhas antigas</b> e desgastadas (Alpes Escandinavos) e os <b>fiordes</b> da Noruega."]],
+["Clima",["<b>Temperado oceânico</b> (oeste): chuvas o ano todo e invernos amenos, graças à <b>Corrente do Golfo</b>, uma corrente marítima quente.","<b>Temperado continental</b> (leste): invernos muito frios e verões quentes.","<b>Mediterrâneo</b> (sul): verão quente e seco, inverno chuvoso.","<b>Frio e polar</b> no extremo norte."]],
+["Vegetação e rios",["Do norte para o sul: <b>tundra</b>, <b>taiga</b> (coníferas), floresta temperada e <b>vegetação mediterrânea</b>. Grande parte da vegetação original foi devastada.","<b>Volga</b>: maior rio da Europa (Rússia).","<b>Danúbio</b>: atravessa ou banha 10 países.","<b>Reno</b>: muito usado para o transporte de cargas."]],
+["Sociedade e economia",["Berço da <b>Revolução Industrial</b> (Inglaterra, século XVIII).","Muitos países com <b>IDH alto</b>, população urbana e economia de serviços e tecnologia.","População <b>envelhecida</b> e com baixa natalidade.","Diferenças entre a <b>Europa Ocidental</b> (mais rica) e a <b>Oriental</b> (ex-socialista, em média menos desenvolvida).","<b>União Europeia</b>: moeda comum (euro) em parte dos países e livre circulação de pessoas (<b>Espaço Schengen</b>)."]]],
+cards:[["Eurásia","Bloco de terra formado pela Europa e pela Ásia"],["Montes Urais","Principal limite natural entre Europa e Ásia"],["Corrente do Golfo","Corrente marítima quente que deixa o oeste europeu mais ameno"],["Clima mediterrâneo","Verão quente e seco, inverno chuvoso"],["Taiga","Floresta de coníferas das áreas frias do norte"],["Rio Volga","Maior rio da Europa"],["Espaço Schengen","Livre circulação de pessoas entre países europeus"],["Alpes","Cadeia de montanhas recentes no centro-sul da Europa"]],
+quiz:[
+["Qual cadeia de montanhas é o principal limite entre Europa e Ásia?","Montes Urais",["Alpes","Pireneus","Andes"],"Junto com o Rio Ural, o Mar Cáspio, o Cáucaso e o Mar Negro."],
+["Por que o oeste da Europa tem invernos mais amenos?","Por causa da Corrente do Golfo, uma corrente marítima quente",["Porque fica na Linha do Equador","Por causa do deserto do Saara","Porque é cercado de montanhas"],"Ela leva calor do Golfo do México até a costa europeia."],
+["Como é o clima mediterrâneo?","Verão quente e seco, inverno chuvoso",["Frio o ano todo","Quente e chuvoso o ano todo","Seco o ano todo, como um deserto"],"É típico de Portugal, Espanha, sul da França, Itália e Grécia."],
+["Qual é o maior rio da Europa?","Volga",["Danúbio","Reno","Nilo"],"O Volga corre na Rússia e deságua no Mar Cáspio."],
+["Onde começou a Revolução Industrial?","Inglaterra",["Rússia","Grécia","Portugal"],"No século XVIII, com as máquinas a vapor e a indústria têxtil."],
+["Qual característica da população europeia é um desafio?","Envelhecimento e baixa natalidade",["Explosão de natalidade","Maioria vivendo no campo","População muito jovem"],"Há cada vez mais idosos e menos jovens para trabalhar."],
+["As montanhas do sul da Europa, como Alpes e Pireneus, são:","Dobramentos modernos (recentes e altos)",["Montanhas antigas e desgastadas","Planícies","Depressões"],"Formaram-se pelo choque de placas tectônicas e ainda são altas e pontiagudas."]],
+tf:[["A Europa é o maior continente do mundo.",false,"É o 2º menor. O maior é a Ásia."],["O Rio Danúbio passa por vários países europeus.",true,"Atravessa ou banha 10 países, como Alemanha, Áustria, Hungria e Romênia."],["A Europa Oriental, em geral, é mais rica que a Ocidental.",false,"A Ocidental costuma ser mais rica; o leste passou décadas sob o socialismo e ainda tem renda menor em média."],["A tundra aparece no extremo norte da Europa.",true,"É uma vegetação rasteira (musgos e liquens) das áreas muito frias."]],
+why:[["Por que a Grande Planície Europeia é importante?","Por ser plana e ter solos férteis, facilita a agricultura e a construção de cidades, estradas e ferrovias. Por isso concentra muita gente e produção."],["Como o clima muda do oeste para o leste da Europa?","Quanto mais longe do oceano, menor a influência do mar: o oeste é oceânico (ameno e úmido) e o leste é continental (invernos rigorosos e verões quentes)."]]},
+
+{id:'eu2',s:'g',t:'Europa: desafios da atualidade',e:'🇪🇺',per:'Continente europeu hoje',
+sum:[
+["População",["<b>Envelhecimento</b> e baixa natalidade: faltam trabalhadores e as aposentadorias pesam mais.","Muitos países incentivam as famílias a ter filhos e dependem de <b>imigrantes</b>."]],
+["Imigração e refugiados",["Chegada de imigrantes e refugiados da África, do Oriente Médio e da Ásia — grande crise em 2015 (guerra na Síria).","Muitos atravessam o <b>Mar Mediterrâneo</b> em barcos precários.","Crescimento da <b>xenofobia</b> (aversão a estrangeiros) e de partidos nacionalistas."]],
+["União Europeia em teste",["<b>Brexit</b>: o Reino Unido votou em 2016 para sair da UE e saiu em 2020.","Crise econômica depois de 2008, muito forte na <b>Grécia</b>.","<b>Separatismos</b>: Catalunha (Espanha), Escócia (Reino Unido) e País Basco."]],
+["Guerra e energia",["A <b>guerra na Ucrânia</b> (2022) trouxe milhões de refugiados e uma <b>crise energética</b>, pois muitos países dependiam do gás russo.","A <b>OTAN</b> cresceu: Finlândia (2023) e Suécia (2024) entraram."]],
+["Meio ambiente",["Ondas de calor e eventos extremos mais frequentes.","<b>Pacto Ecológico Europeu</b>: meta de neutralidade de carbono até 2050 e investimento em energia renovável."]]],
+cards:[["Brexit","Saída do Reino Unido da União Europeia (2020)"],["Xenofobia","Aversão ou preconceito contra estrangeiros"],["Catalunha","Região da Espanha com forte movimento separatista"],["Crise dos refugiados","Chegada em massa de refugiados, sobretudo em 2015"],["Envelhecimento populacional","Aumento da proporção de idosos na população"],["Crise energética","Falta e alta do gás após a guerra na Ucrânia"]],
+quiz:[
+["O que foi o Brexit?","A saída do Reino Unido da União Europeia",["A entrada da Turquia na UE","A criação do euro","Uma guerra entre Inglaterra e França"],"Decidida em referendo em 2016 e concluída em 2020."],
+["Por que o envelhecimento da população é um problema para a Europa?","Faltam trabalhadores e aumentam os gastos com aposentadorias",["Porque os idosos não podem votar","Porque a natalidade explode","Porque as cidades ficam lotadas de crianças"],"Menos jovens trabalhando sustentam mais idosos aposentados."],
+["Qual região espanhola tem forte movimento separatista?","Catalunha",["Andaluzia","Baviera","Toscana"],"Barcelona é a capital da Catalunha. (Baviera é alemã e Toscana é italiana.)"],
+["Por que a guerra na Ucrânia causou uma crise energética na Europa?","Muitos países dependiam do gás natural russo",["A Ucrânia era a maior produtora de energia solar","A guerra destruiu todas as usinas europeias","A Europa parou de usar eletricidade"],"Com sanções e cortes, o gás ficou escasso e caro."],
+["Qual mar muitos imigrantes atravessam para chegar à Europa?","Mar Mediterrâneo",["Mar do Norte","Mar Báltico","Mar Vermelho"],"A travessia é perigosa e muitos morrem no caminho."],
+["Que países entraram na OTAN após a invasão da Ucrânia?","Finlândia e Suécia",["Rússia e Bielorrússia","Brasil e Argentina","Suíça e Áustria"],"Finlândia em 2023 e Suécia em 2024."]],
+tf:[["O Reino Unido ainda faz parte da União Europeia.",false,"Saiu oficialmente em 2020, com o Brexit."],["Xenofobia é o preconceito contra estrangeiros.",true,"Ela cresceu na Europa junto com a chegada de imigrantes."],["A Grécia foi um dos países mais afetados pela crise econômica após 2008.",true,"Precisou de empréstimos e passou por uma forte crise de dívida."],["A Escócia não tem movimento separatista.",false,"A Escócia fez um referendo de independência em 2014 (o 'não' venceu), e o debate continua."]],
+why:[["Por que a Europa precisa de imigrantes, mas há resistência a eles?","Precisa por causa do envelhecimento e da falta de trabalhadores. A resistência vem do medo de perder empregos, de diferenças culturais e de discursos nacionalistas — o que alimenta a xenofobia."],["Como a guerra na Ucrânia mudou a Europa?","Trouxe milhões de refugiados, crise de energia, aumento dos gastos militares e a entrada de novos países na OTAN."]]},
+
+{id:'af1',s:'g',t:'África: natureza e sociedade',e:'🦒',per:'Características naturais e socioeconômicas',
+sum:[
+["Localização",["<b>3º maior continente</b>, com <b>54 países</b>.","Cortado pela <b>Linha do Equador</b> e pelos trópicos de Câncer e Capricórnio — por isso a maior parte é quente.","Banhado pelos oceanos Atlântico e Índico e pelo Mar Mediterrâneo."]],
+["Relevo",["Predomínio de <b>planaltos</b>.","<b>Monte Kilimanjaro</b> (Tanzânia): ponto mais alto, com quase 5.900 m.","<b>Vale do Rift</b> (leste): enorme fenda causada pelo afastamento de placas tectônicas.","<b>Montes Atlas</b>, no noroeste."]],
+["Clima e vegetação",["<b>Equatorial</b> (centro): quente e chuvoso → floresta equatorial do Congo.","<b>Tropical</b>: estação seca e chuvosa → <b>savanas</b> (leões, girafas, zebras).","<b>Desértico</b>: <b>Saara</b> (maior deserto quente do mundo, no norte) e <b>Kalahari</b> (no sul).","<b>Sahel</b>: faixa semiárida ao sul do Saara, que sofre com a <b>desertificação</b>.","<b>Mediterrâneo</b> nos extremos norte e sul."]],
+["Rios",["<b>Nilo</b>: um dos rios mais longos do mundo, essencial para o Egito.","<b>Congo</b>: enorme volume de água e potencial hidrelétrico.","Também o Níger e o Zambeze. O <b>Lago Vitória</b> é o maior lago da África."]],
+["Sociedade e economia",["Divisão: <b>África do Norte</b> (árabe e islâmica) e <b>África Subsaariana</b>.","População <b>jovem</b> e de <b>crescimento rápido</b>.","Muitos países com <b>IDH baixo</b>, mas com enorme diversidade cultural e de línguas.","Economia baseada na exportação de <b>commodities</b>: petróleo (Nigéria, Angola), minérios (ouro, diamantes, cobalto) e cacau (Costa do Marfim).","Maiores economias: Nigéria, África do Sul e Egito."]]],
+cards:[["Saara","Maior deserto quente do mundo, no norte da África"],["Sahel","Faixa semiárida ao sul do Saara, ameaçada pela desertificação"],["Savana","Vegetação de gramíneas e árvores esparsas do clima tropical"],["Rio Nilo","Um dos rios mais longos do mundo, vital para o Egito"],["Kilimanjaro","Ponto mais alto da África, na Tanzânia"],["Vale do Rift","Grande fenda no leste africano causada por placas tectônicas"],["África Subsaariana","Parte da África ao sul do deserto do Saara"],["Commodities","Produtos primários vendidos em grande quantidade: petróleo, minérios, grãos"]],
+quiz:[
+["Qual é o maior deserto quente do mundo?","Saara",["Kalahari","Gobi","Atacama"],"Ocupa grande parte do norte da África."],
+["O que é o Sahel?","Uma faixa semiárida ao sul do Saara",["O maior rio da África","Uma floresta equatorial","Uma cadeia de montanhas"],"É a transição entre o deserto e a savana, muito afetada pela desertificação."],
+["Qual rio é vital para o Egito?","Nilo",["Congo","Níger","Amazonas"],"A civilização egípcia nasceu às margens do Nilo, em pleno deserto."],
+["Qual é o ponto mais alto da África?","Monte Kilimanjaro",["Monte Everest","Montes Atlas","Mont Blanc"],"Fica na Tanzânia e tem neve no topo, mesmo perto do Equador."],
+["Qual vegetação predomina nas áreas de clima tropical da África?","Savana",["Tundra","Taiga","Floresta temperada"],"É o habitat de leões, zebras, girafas e elefantes."],
+["Qual característica marca a população africana?","É jovem e cresce rapidamente",["É a mais envelhecida do mundo","Está diminuindo muito","Vive quase toda em cidades europeias"],"A África tem as maiores taxas de natalidade do mundo."],
+["A economia de muitos países africanos depende principalmente de:","Exportação de matérias-primas (commodities)",["Exportação de softwares","Indústria automobilística de ponta","Turismo espacial"],"Petróleo, minérios e produtos agrícolas — herança do período colonial."]],
+tf:[["A Linha do Equador atravessa a África.",true,"Por isso grande parte do continente tem clima quente."],["O norte da África é predominantemente árabe e islâmico.",true,"Países como Egito, Marrocos, Argélia e Tunísia."],["A floresta equatorial africana fica no deserto do Saara.",false,"Fica na região central, na bacia do Rio Congo."],["A África tem menos de 20 países.",false,"Tem 54 países."]],
+why:[["Por que a desertificação do Sahel é um problema grave?","Porque a terra perde a capacidade de produzir alimentos e reter água, gerando fome, migrações e conflitos por recursos. É causada por secas, desmatamento e uso excessivo do solo."],["Por que a África é rica em recursos, mas muitos países são pobres?","Porque exportam matérias-primas baratas e importam produtos industrializados caros. O legado colonial, conflitos e corrupção também dificultam que a riqueza chegue à população."]]},
+
+{id:'af2',s:'g',t:'África: o legado colonial',e:'📜',per:'Continente africano e o legado colonial',
+sum:[
+["A partilha",["No século XIX, potências europeias buscavam matérias-primas e mercados: é o <b>imperialismo</b> (neocolonialismo).","<b>Conferência de Berlim</b> (1884–1885): os europeus dividiram a África entre si, sem nenhum africano presente.","As <b>fronteiras</b> foram traçadas como se fosse com régua, sem respeitar os povos e etnias locais.","Só a <b>Etiópia</b> e a <b>Libéria</b> mantiveram a independência."]],
+["Exploração",["Extração de minérios, borracha e marfim; plantações para exportação (<b>plantation</b>).","Trabalho forçado e violência — como no Congo sob o rei Leopoldo II, da Bélgica.","Ferrovias e portos feitos para levar riquezas até o litoral, e não para ligar as regiões entre si."]],
+["Independências",["Depois da 2ª Guerra, as metrópoles enfraqueceram e cresceram os movimentos de libertação.","<b>1960, o 'Ano da África'</b>: 17 países ficaram independentes.","As colônias portuguesas (Angola, Moçambique, Guiné-Bissau, Cabo Verde, São Tomé e Príncipe) só se libertaram em <b>1974–1975</b>, após a Revolução dos Cravos em Portugal."]],
+["O legado",["<b>Conflitos étnicos e guerras civis</b> por causa das fronteiras artificiais — ex.: o <b>genocídio em Ruanda</b> (1994), envolvendo hutus e tutsis.","Economias <b>dependentes da exportação de matérias-primas</b>.","Línguas europeias como oficiais (francês, inglês, português).","<b>Apartheid</b> na África do Sul (1948–1994): segregação racial oficial; terminou com a eleição de <b>Nelson Mandela</b> (1994).","Hoje: <b>União Africana</b> (2002) e grande presença de investimentos da China."]]],
+cards:[["Conferência de Berlim","1884–85: europeus dividem a África entre si"],["Fronteiras artificiais","Limites traçados sem respeitar povos e etnias"],["Ano da África","1960: 17 países africanos ficam independentes"],["Apartheid","Regime de segregação racial na África do Sul (1948–1994)"],["Nelson Mandela","Líder contra o apartheid, presidente da África do Sul em 1994"],["Genocídio em Ruanda","1994: massacre de tutsis por extremistas hutus"],["Plantation","Grande propriedade de monocultura para exportação"]],
+quiz:[
+["O que foi decidido na Conferência de Berlim (1884–1885)?","A partilha da África entre potências europeias",["A independência dos países africanos","O fim do apartheid","A criação da União Africana"],"Nenhum representante africano participou."],
+["Por que as fronteiras africanas causam conflitos até hoje?","Foram traçadas pelos europeus sem respeitar os povos locais",["Porque são rios que secaram","Porque a ONU proibiu fronteiras","Porque não existem fronteiras na África"],"Povos rivais ficaram no mesmo país e povos aliados foram separados."],
+["Por que 1960 é chamado de 'Ano da África'?","17 países conquistaram a independência",["Foi o ano da Conferência de Berlim","Começou o apartheid","A África sediou a Copa do Mundo"],"A maioria eram colônias francesas."],
+["O que foi o apartheid?","Um regime de segregação racial na África do Sul",["Um rio do Egito","Um acordo comercial","Um tipo de vegetação"],"Separava legalmente brancos e negros. Terminou em 1994."],
+["Quando as colônias portuguesas na África se tornaram independentes?","Em 1974–1975",["Em 1822","Em 1885","Em 2002"],"Depois da Revolução dos Cravos, que derrubou a ditadura em Portugal."],
+["Qual destes é um legado colonial na África?","Economias dependentes da exportação de matérias-primas",["Indústria de alta tecnologia em todos os países","Fronteiras definidas pelos próprios povos","Ausência de línguas europeias"],"As colônias foram organizadas para fornecer matérias-primas às metrópoles."]],
+tf:[["Representantes africanos participaram ativamente da Conferência de Berlim.",false,"Nenhum africano participou: os europeus decidiram tudo sozinhos."],["A Etiópia conseguiu manter sua independência durante a partilha.",true,"Venceu a Itália na Batalha de Adwa (1896)."],["As ferrovias coloniais foram feitas para integrar as regiões africanas.",false,"Ligavam minas e plantações aos portos, para levar as riquezas à Europa."],["Angola e Moçambique foram colônias de Portugal.",true,"Por isso falam português, como o Brasil."]],
+why:[["Como fronteiras artificiais geram guerras?","Quando povos com histórias, línguas e rivalidades diferentes são colocados à força no mesmo país, a disputa pelo poder pode virar guerra civil. Ruanda é um exemplo trágico."],["O que o Brasil tem em comum com países africanos?","Ambos foram colônias exploradas para exportar produtos primários. Com Angola, Moçambique e outros, o Brasil também compartilha a língua portuguesa e uma forte herança cultural trazida pelos africanos escravizados."]]},
+
+{id:'as1',s:'g',t:'Ásia: natureza e sociedade',e:'🏔️',per:'Características naturais e socioeconômicas',
+sum:[
+["Gigante",["<b>Maior continente</b> em área e em população (cerca de 60% da humanidade).","Abriga os dois países mais populosos: <b>Índia</b> (1º lugar desde 2023) e <b>China</b>."]],
+["Relevo",["<b>Cordilheira do Himalaia</b>, com o <b>Monte Everest</b> (8.849 m), o ponto mais alto da Terra.","O Himalaia se formou pelo choque da placa Indo-Australiana com a Euroasiática — e continua subindo.","<b>Planalto do Tibete</b>: o mais alto do mundo.","<b>Mar Morto</b>: o ponto mais baixo da superfície terrestre."]],
+["Clima",["<b>Monções</b> (sul e sudeste): ventos que trazem chuvas fortíssimas no verão e seca no inverno — essenciais para o cultivo de <b>arroz</b>.","<b>Desertos</b>: Gobi (China/Mongólia) e o da Península Arábica.","<b>Frio</b> na Sibéria, com taiga e tundra."]],
+["Rios",["<b>Yangtzé</b> (maior da Ásia), com a usina de <b>Três Gargantas</b>, uma das maiores do mundo.","<b>Huang He</b> (Rio Amarelo), na China.","<b>Ganges</b>: sagrado para os hindus (Índia).","<b>Tigre e Eufrates</b>: berço da Mesopotâmia (atual Iraque)."]],
+["Sociedade e economia",["Grandes <b>contrastes</b>: Japão, Coreia do Sul e Singapura têm IDH muito alto; Afeganistão e Iêmen estão entre os mais pobres.","Berço de grandes religiões: hinduísmo, budismo, judaísmo, cristianismo e islamismo.","Regiões: Oriente Médio, Ásia Central, Sul da Ásia, Sudeste Asiático e Extremo Oriente."]]],
+cards:[["Monções","Ventos que causam verão muito chuvoso e inverno seco no sul da Ásia"],["Monte Everest","Ponto mais alto da Terra, no Himalaia"],["Himalaia","Cordilheira formada pelo choque das placas Indo-Australiana e Euroasiática"],["Rio Ganges","Rio sagrado para os hindus, na Índia"],["Três Gargantas","Uma das maiores hidrelétricas do mundo, no Rio Yangtzé"],["Mar Morto","Ponto mais baixo da superfície terrestre"],["Índia","País mais populoso do mundo desde 2023"]],
+quiz:[
+["Qual é o país mais populoso do mundo atualmente?","Índia",["China","Estados Unidos","Indonésia"],"A Índia ultrapassou a China em 2023, segundo a ONU."],
+["Onde fica o ponto mais alto da Terra?","No Himalaia (Monte Everest)",["Nos Alpes","Nos Andes","No Kilimanjaro"],"O Everest tem 8.849 m, na fronteira entre Nepal e China."],
+["O que são as monções?","Ventos que trazem chuvas intensas no verão e seca no inverno",["Terremotos frequentes no Japão","Desertos gelados da Sibéria","Rios sagrados da Índia"],"São fundamentais para a agricultura, especialmente do arroz."],
+["Como se formou o Himalaia?","Pelo choque entre placas tectônicas",["Pela erosão de rios","Por vulcões no fundo do mar","Pelo derretimento de geleiras"],"A placa Indo-Australiana empurra a Euroasiática."],
+["Qual rio é sagrado para os hindus?","Ganges",["Yangtzé","Eufrates","Mekong"],"Milhões de pessoas se banham nele em rituais religiosos."],
+["Qual destes países asiáticos tem IDH muito alto?","Japão",["Afeganistão","Iêmen","Nepal"],"A Ásia tem enormes contrastes de desenvolvimento."]],
+tf:[["A Ásia é o continente mais populoso do mundo.",true,"Concentra cerca de 60% da população mundial."],["O Mar Morto é o ponto mais alto da Ásia.",false,"É o ponto MAIS BAIXO da superfície terrestre, cerca de 430 m abaixo do nível do mar."],["O cultivo de arroz depende muito das chuvas de monção.",true,"O arroz precisa de muita água, e as monções trazem chuvas fortes no verão."],["O Rio Yangtzé fica na Índia.",false,"Fica na China e é o maior rio da Ásia."]],
+why:[["Por que as monções podem ser boas e ruins?","Boas porque trazem a água das plantações e enchem os rios. Ruins porque, quando muito fortes, causam enchentes e deslizamentos que atingem milhões de pessoas."],["Por que a Ásia é tão diversa?","Por ser enorme, tem todos os tipos de clima e relevo, além de muitas civilizações antigas, religiões e níveis de desenvolvimento diferentes."]]},
+
+{id:'as2',s:'g',t:'Ásia: crescimento econômico',e:'📈',per:'Continente asiático e crescimento econômico',
+sum:[
+["Japão",["Destruído na 2ª Guerra, se reconstruiu com ajuda dos EUA: o <b>'milagre japonês'</b>.","Investiu em <b>educação</b> e <b>tecnologia</b> (eletrônicos, carros, robôs).","Criou o <b>toyotismo</b>: produção enxuta e <i>just in time</i> (produzir só o necessário, sem grandes estoques).","Desde os anos 1990: crescimento lento e população muito envelhecida."]],
+["Tigres Asiáticos",["<b>Coreia do Sul, Taiwan, Singapura e Hong Kong</b>.","Industrializaram-se rápido a partir dos anos 1960–70, com indústria voltada para a <b>exportação</b>, mão de obra barata no início e muito investimento em <b>educação</b>.","Hoje são economias desenvolvidas (ex.: Samsung e Hyundai, da Coreia do Sul).","<b>Novos Tigres</b>: Malásia, Tailândia, Indonésia, Filipinas e Vietnã."]],
+["China",["Revolução Socialista em 1949 (Mao Tsé-tung).","A partir de 1978, <b>Deng Xiaoping</b> fez reformas e abriu a economia: <b>socialismo de mercado</b> (economia com empresas privadas sob governo do Partido Comunista).","<b>Zonas Econômicas Especiais (ZEEs)</b>, como Shenzhen, atraíram empresas estrangeiras.","Virou a <b>'fábrica do mundo'</b> e a 2ª maior economia do planeta.","<b>Nova Rota da Seda</b> (2013): investimentos em infraestrutura pelo mundo.","Problemas: poluição, desigualdade entre campo e cidade, falta de liberdade política."]],
+["Índia",["Economia em rápido crescimento.","Forte em <b>tecnologia da informação</b> e serviços (Bangalore é o 'Vale do Silício indiano').","Ainda tem muita pobreza e desigualdade."]]],
+cards:[["Tigres Asiáticos","Coreia do Sul, Taiwan, Singapura e Hong Kong"],["Toyotismo","Produção flexível e just in time, criada no Japão"],["Socialismo de mercado","Economia com mercado sob governo do Partido Comunista chinês"],["Deng Xiaoping","Líder chinês que abriu a economia a partir de 1978"],["ZEE","Zona Econômica Especial: áreas chinesas abertas ao capital estrangeiro"],["Nova Rota da Seda","Projeto chinês de infraestrutura pelo mundo (2013)"],["Milagre japonês","Rápido crescimento do Japão após a 2ª Guerra"]],
+quiz:[
+["Quais são os Tigres Asiáticos originais?","Coreia do Sul, Taiwan, Singapura e Hong Kong",["China, Índia, Japão e Rússia","Vietnã, Laos, Camboja e Tailândia","Irã, Iraque, Síria e Turquia"],"Industrializaram-se rapidamente a partir dos anos 1960–70."],
+["O que é o 'socialismo de mercado' chinês?","Economia com mercado e empresas privadas, sob governo do Partido Comunista",["O fim do Partido Comunista","A proibição total de empresas privadas","A volta do imperador"],"Mistura características capitalistas com controle político do Partido."],
+["Quem iniciou as reformas econômicas na China em 1978?","Deng Xiaoping",["Mao Tsé-tung","Gorbachev","Kim Jong-un"],"Ele abriu a economia e criou as Zonas Econômicas Especiais."],
+["O que é o toyotismo?","Um sistema de produção flexível e sem grandes estoques (just in time)",["Uma religião japonesa","Um tipo de clima","Uma aliança militar"],"Criado na fábrica da Toyota, foi copiado no mundo todo."],
+["Qual foi um fator comum no crescimento dos Tigres Asiáticos?","Investimento em educação e indústria para exportação",["Exportação apenas de petróleo","Isolamento do comércio mundial","Fechamento das escolas"],"Mão de obra qualificada e foco no mercado externo."],
+["Qual é um problema causado pelo rápido crescimento da China?","Poluição ambiental",["Fim da indústria","Queda das exportações","Excesso de florestas"],"A China é a maior emissora de gases do efeito estufa, mas também lidera em energia solar."]],
+tf:[["As Zonas Econômicas Especiais atraíram empresas estrangeiras para a China.",true,"Shenzhen, por exemplo, passou de vila de pescadores a metrópole."],["O Japão cresceu rápido após a 2ª Guerra com ajuda dos EUA.",true,"Na Guerra Fria, os EUA queriam um aliado forte na Ásia."],["A Índia se destaca no setor de tecnologia da informação.",true,"Bangalore é chamada de 'Vale do Silício indiano'."],["A China é hoje a 5ª maior economia do mundo.",false,"É a 2ª maior, atrás apenas dos EUA."]],
+why:[["Por que a China virou a 'fábrica do mundo'?","Ofereceu mão de obra numerosa e barata, infraestrutura, incentivos nas ZEEs e um mercado enorme. Muitas empresas levaram suas fábricas para lá."],["Por que a educação foi tão importante para os Tigres Asiáticos?","Trabalhadores bem formados produzem produtos mais tecnológicos e valiosos. Assim esses países deixaram de ser só mão de obra barata e criaram suas próprias marcas."]]},
+
+{id:'om',s:'g',t:'Oriente Médio e conflitos',e:'🛢️',per:'Oriente Médio e conflitos contemporâneos',
+sum:[
+["Localização e natureza",["Região entre <b>Ásia, África e Europa</b> (sudoeste da Ásia e Egito).","Clima predominantemente <b>árido</b>: a <b>escassez de água</b> é um grande problema.","Rios importantes: <b>Tigre e Eufrates</b>, <b>Jordão</b> e <b>Nilo</b>."]],
+["Petróleo",["Tem as <b>maiores reservas de petróleo</b> do mundo (Arábia Saudita, Irã, Iraque, Kuwait, Emirados Árabes).","<b>OPEP</b> (1960): Organização dos Países Exportadores de Petróleo.","<b>Estreito de Ormuz</b>: passagem estratégica por onde sai boa parte do petróleo mundial.","O petróleo atrai o interesse das potências e alimenta conflitos."]],
+["Religiões e povos",["Berço do <b>judaísmo, cristianismo e islamismo</b>; <b>Jerusalém</b> é sagrada para as três religiões.","O islamismo se divide em <b>sunitas</b> (maioria; ex.: Arábia Saudita) e <b>xiitas</b> (ex.: Irã).","Os <b>curdos</b> são o maior povo sem Estado próprio (divididos entre Turquia, Iraque, Irã e Síria)."]],
+["Israel e Palestina",["1947: a ONU propõe dividir a Palestina. 1948: criação de <b>Israel</b> e primeira guerra árabe-israelense — centenas de milhares de palestinos se tornam refugiados.","1967: <b>Guerra dos Seis Dias</b>: Israel ocupa Cisjordânia, Faixa de Gaza, Colinas de Golã e Sinai.","<b>Intifadas</b> (revoltas palestinas) e <b>Acordos de Oslo</b> (1993), tentativa de paz.","Outubro de 2023: ataque do <b>Hamas</b> a Israel e guerra em Gaza, com grave crise humanitária."]],
+["Outros conflitos",["Guerra Irã–Iraque (1980–1988).","<b>Guerra do Golfo</b> (1991): coalizão liderada pelos EUA expulsa o Iraque do Kuwait.","<b>Guerra do Iraque</b> (2003): os EUA derrubam Saddam Hussein.","<b>Primavera Árabe</b> (2011), <b>guerra civil na Síria</b> e surgimento do <b>Estado Islâmico</b> (2014).","Guerra civil no <b>Iêmen</b>."]]],
+cards:[["OPEP","Organização dos Países Exportadores de Petróleo (1960)"],["Estreito de Ormuz","Passagem estratégica do petróleo no Golfo Pérsico"],["Sunitas e xiitas","Os dois principais ramos do islamismo"],["Curdos","Maior povo do mundo sem um Estado próprio"],["Guerra dos Seis Dias","1967: Israel ocupa Cisjordânia, Gaza, Golã e Sinai"],["Jerusalém","Cidade sagrada para judeus, cristãos e muçulmanos"],["Guerra do Golfo","1991: coalizão expulsa o Iraque do Kuwait"],["Primavera Árabe","Protestos de 2010–2011 contra ditaduras no mundo árabe"]],
+quiz:[
+["Qual recurso natural torna o Oriente Médio tão estratégico?","Petróleo",["Ouro","Madeira","Café"],"A região tem as maiores reservas do mundo."],
+["Qual é o maior povo do mundo sem Estado próprio?","Curdos",["Árabes","Persas","Turcos"],"São dezenas de milhões de pessoas espalhadas por Turquia, Iraque, Irã e Síria."],
+["Quais são os dois principais ramos do islamismo?","Sunitas e xiitas",["Católicos e protestantes","Hindus e budistas","Ortodoxos e anglicanos"],"A Arábia Saudita é majoritariamente sunita; o Irã, xiita."],
+["Por que Jerusalém é tão disputada?","É sagrada para judeus, cristãos e muçulmanos",["Tem as maiores reservas de petróleo","É a capital da Arábia Saudita","Fica no deserto do Saara"],"Lá ficam o Muro das Lamentações, a Igreja do Santo Sepulcro e a Mesquita de Al-Aqsa."],
+["O que aconteceu na Guerra dos Seis Dias (1967)?","Israel ocupou Cisjordânia, Gaza, Golã e Sinai",["Criação da OPEP","Fim do Império Otomano","Invasão do Kuwait pelo Iraque"],"Essas ocupações estão no centro do conflito até hoje (o Sinai foi devolvido ao Egito depois)."],
+["Qual país foi invadido pelo Iraque, levando à Guerra do Golfo?","Kuwait",["Irã","Israel","Egito"],"O Iraque invadiu o Kuwait em 1990; uma coalizão liderada pelos EUA o expulsou em 1991."],
+["Qual é um grande problema natural do Oriente Médio?","Escassez de água",["Excesso de florestas","Frio extremo o ano todo","Falta de petróleo"],"O clima árido torna a água um recurso disputado."]],
+tf:[["O Oriente Médio tem clima predominantemente árido.",true,"Grande parte da região é desértica ou semiárida."],["O Irã é um país de maioria sunita.",false,"O Irã é de maioria xiita."],["A OPEP reúne países exportadores de petróleo.",true,"Criada em 1960, influencia o preço do petróleo no mundo."],["Os Acordos de Oslo (1993) foram uma tentativa de paz entre israelenses e palestinos.",true,"Criaram a Autoridade Palestina, mas a paz definitiva não foi alcançada."]],
+why:[["Por que o petróleo alimenta conflitos no Oriente Médio?","Por ser muito valioso, gera disputas internas pelo poder e atrai a interferência de potências estrangeiras interessadas em garantir o abastecimento."],["Por que o conflito entre Israel e Palestina é tão difícil de resolver?","Os dois povos reivindicam a mesma terra, há locais sagrados em disputa (Jerusalém), refugiados, ocupações, assentamentos e décadas de violência e desconfiança."]]}
+,
+/* ---------- QUÍMICA ---------- */
+{id:'cin',s:'q',t:'Rapidez das reações',e:'🔥',per:'Química A · Fatores que alteram a rapidez',
+mnem:"Os 5 fatores: <b>'Todo Cientista Sabe Preparar Café'</b> = <b>T</b>emperatura, <b>C</b>oncentração, <b>S</b>uperfície de contato, <b>P</b>ressão e <b>C</b>atalisador. Todos aceleram a reação quando aumentam!",
+sum:[
+["O que é rapidez de reação",["É a <b>variação da quantidade</b> de reagente consumido (ou de produto formado) num intervalo de tempo.","v = |Δquantidade| ÷ Δt (ex.: mol/L·s).","<b>Teoria das Colisões</b>: para reagir, as partículas precisam se <b>chocar</b> com <b>energia suficiente</b> e na <b>orientação certa</b> (choque efetivo)."]],
+["Energia de ativação",["<b>Energia de ativação (Ea)</b>: energia mínima para a reação começar.","No topo do gráfico de energia fica o <b>complexo ativado</b>, um estado intermediário instável.","Quanto <b>menor a Ea</b>, <b>mais rápida</b> a reação."]],
+["Os 5 fatores",["<b>Temperatura</b>: ↑ temperatura → partículas mais agitadas → mais choques efetivos → mais rapidez.","<b>Concentração</b>: ↑ concentração dos reagentes → mais partículas → mais choques → mais rapidez.","<b>Superfície de contato</b>: sólido mais dividido (em pó) = maior superfície = mais rapidez. Ex.: comprimido efervescente triturado.","<b>Pressão</b> (gases): ↑ pressão → partículas mais próximas → mais rapidez.","<b>Catalisador</b>: <b>diminui a energia de ativação</b> criando um caminho alternativo e <b>não é consumido</b>. Ex.: enzimas do corpo, catalisador do escapamento do carro."]],
+["Lei da velocidade",["v = k·[A]ᵃ·[B]ᵇ (k = constante de velocidade).","Em reações de uma etapa (elementares), os expoentes são os coeficientes da equação.","Em reações com várias etapas, quem manda é a <b>etapa lenta</b>."]],
+["Atenção na prova",["O catalisador <b>não altera</b> o ΔH nem a quantidade de produto formado: só acelera.","<b>Inibidor</b>: diminui a rapidez (ex.: conservantes de alimentos).","A geladeira conserva alimentos porque a <b>baixa temperatura</b> deixa as reações de decomposição mais lentas."]]],
+cards:[["Energia de ativação","Energia mínima para a reação começar"],["Catalisador","Diminui a energia de ativação e não é consumido"],["Superfície de contato","Quanto mais dividido o sólido, mais rápida a reação"],["Teoria das Colisões","A reação exige choques com energia e orientação adequadas"],["Complexo ativado","Estado intermediário instável no topo do gráfico de energia"],["Inibidor","Substância que diminui a rapidez de uma reação"],["Etapa lenta","Determina a velocidade de uma reação com várias etapas"],["Enzimas","Catalisadores biológicos"]],
+quiz:[
+["Por que os alimentos duram mais na geladeira?","A baixa temperatura diminui a rapidez das reações de decomposição",["O frio elimina a energia de ativação","O frio funciona como catalisador","A geladeira aumenta a superfície de contato"],"Com temperatura menor, as partículas se chocam menos e com menos energia."],
+["Qual é o papel de um catalisador?","Diminuir a energia de ativação, acelerando a reação",["Aumentar a energia de ativação","Aumentar a quantidade de produto formado","Ser consumido como reagente"],"Ele cria um caminho alternativo com Ea menor e é recuperado no final."],
+["Um comprimido efervescente reage mais rápido quando está:","Triturado em pó",["Inteiro","Em água gelada","Embrulhado no papel"],"Em pó, a superfície de contato com a água é muito maior."],
+["Aumentar a concentração dos reagentes faz a reação:","Ficar mais rápida, pois aumenta o número de choques",["Ficar mais lenta","Parar completamente","Não mudar nada"],"Mais partículas no mesmo espaço = mais colisões."],
+["O que um catalisador NÃO altera?","O ΔH (variação de entalpia) da reação",["A energia de ativação","A rapidez da reação","O caminho da reação"],"A energia dos reagentes e dos produtos continua a mesma; só o 'caminho' muda."],
+["Numa reação com várias etapas, qual etapa determina a velocidade?","A etapa mais lenta",["A etapa mais rápida","Sempre a primeira","Sempre a última"],"É como um gargalo: a reação toda anda na velocidade da etapa lenta."],
+["Pela Teoria das Colisões, um choque efetivo precisa ter:","Energia suficiente e orientação adequada",["Apenas muita velocidade","Apenas a presença de luz","Partículas do mesmo tamanho"],"Sem energia mínima ou na posição errada, as partículas só batem e se afastam."]],
+tf:[["O catalisador é consumido durante a reação.",false,"Ele participa, mas é regenerado no final e pode ser reaproveitado."],["Aumentar a temperatura geralmente aumenta a rapidez das reações.",true,"As partículas ficam mais agitadas e os choques efetivos aumentam."],["Lenha em lascas queima mais rápido que um tronco inteiro.",true,"As lascas têm maior superfície de contato com o oxigênio."],["Quanto maior a energia de ativação, mais rápida é a reação.",false,"É o contrário: Ea maior = mais difícil começar = reação mais lenta."]],
+why:[["Por que mastigar bem ajuda na digestão?","Mastigar divide o alimento em pedaços menores, aumentando a superfície de contato com as enzimas (catalisadores). Assim as reações da digestão ficam mais rápidas."],["Por que o palito de fósforo precisa ser riscado para acender?","O atrito fornece a energia de ativação. Depois que a reação começa, ela mesma libera calor suficiente para continuar."]]},
+
+{id:'iso',s:'q',t:'Isomeria',e:'🪞',per:'Química A · Isomeria plana e espacial',
+mnem:"Isomeria plana: <b>'Cada Posição Funciona Muito Tranquila'</b> = <b>C</b>adeia, <b>P</b>osição, <b>F</b>unção, <b>M</b>etameria, <b>T</b>automeria. Óptica: procure o carbono com <b>4 vizinhos diferentes</b> (C*). Cis = <b>mesmo lado</b>; Trans = <b>atravessado</b>.",
+sum:[
+["O que é",["<b>Isômeros</b>: compostos com a <b>mesma fórmula molecular</b>, mas <b>estruturas diferentes</b> — por isso têm propriedades diferentes.","Ex.: C₂H₆O pode ser o <b>etanol</b> (CH₃–CH₂–OH, um álcool) ou o <b>metoximetano</b> (CH₃–O–CH₃, um éter).","Dois grandes tipos: <b>plana</b> (estrutural) e <b>espacial</b> (geométrica e óptica)."]],
+["Isomeria plana",["<b>De cadeia</b>: muda o tipo de cadeia (aberta x fechada, normal x ramificada). Ex.: butano x metilpropano.","<b>De posição</b>: mesma função e cadeia, mas muda a posição de um grupo, ramificação ou ligação dupla. Ex.: propan-1-ol x propan-2-ol.","<b>De função</b>: funções orgânicas diferentes. Ex.: álcool x éter; aldeído x cetona; ácido carboxílico x éster.","<b>Metameria (compensação)</b>: muda a posição do <b>heteroátomo</b> (O, N ou S entre carbonos). Ex.: CH₃–O–CH₂–CH₂–CH₃ x CH₃–CH₂–O–CH₂–CH₃.","<b>Tautomeria</b>: isômeros que se transformam um no outro em equilíbrio. Ex.: enol ⇌ aldeído ou cetona."]],
+["Isomeria geométrica (cis-trans)",["Ocorre em <b>dupla ligação</b> (C=C) ou em <b>cadeia fechada</b>, onde os carbonos não giram livremente.","Condição: cada carbono da dupla precisa ter <b>dois ligantes diferentes</b> entre si.","<b>Cis</b>: ligantes iguais do <b>mesmo lado</b>. <b>Trans</b>: ligantes iguais em <b>lados opostos</b>.","Ex.: cis-but-2-eno e trans-but-2-eno."]],
+["Isomeria óptica",["Ocorre quando há <b>carbono quiral</b> (assimétrico, C*): carbono ligado a <b>4 ligantes diferentes</b>.","A molécula e sua imagem no espelho <b>não se sobrepõem</b>, como as mãos direita e esquerda: são os <b>enantiômeros</b>.","Desviam a luz polarizada: <b>dextrogiro (+)</b> para a direita e <b>levogiro (–)</b> para a esquerda.","Mistura com 50% de cada: <b>mistura racêmica</b>, que não desvia a luz (opticamente inativa).","Número de isômeros ópticos ativos = <b>2ⁿ</b> (n = número de carbonos quirais diferentes)."]]],
+cards:[["Isômeros","Mesma fórmula molecular, estruturas diferentes"],["Isomeria de função","Funções orgânicas diferentes (ex.: álcool x éter)"],["Isomeria de posição","Muda a posição de um grupo, ramificação ou ligação dupla"],["Metameria","Muda a posição do heteroátomo na cadeia"],["Tautomeria","Isômeros em equilíbrio dinâmico (ex.: enol ⇌ cetona)"],["Cis / Trans","Ligantes iguais do mesmo lado / em lados opostos"],["Carbono quiral","Carbono ligado a 4 ligantes diferentes"],["Mistura racêmica","50% dextrogiro + 50% levogiro; não desvia a luz"]],
+quiz:[
+["O que dois isômeros têm em comum?","A mesma fórmula molecular",["A mesma estrutura","As mesmas propriedades físicas","O mesmo nome"],"Mesma fórmula, mas os átomos estão organizados de jeitos diferentes."],
+["Etanol (CH₃–CH₂–OH) e metoximetano (CH₃–O–CH₃) são isômeros de:","Função",["Cadeia","Posição","Tautomeria"],"Um é álcool e o outro é éter: funções diferentes."],
+["Propan-1-ol e propan-2-ol são isômeros de:","Posição",["Função","Metameria","Cadeia"],"A função (álcool) é a mesma; muda só a posição do –OH."],
+["Qual a condição para existir isomeria cis-trans em alcenos?","Cada carbono da dupla ter dois ligantes diferentes",["Ter um carbono com 4 ligantes diferentes","Ter apenas ligações simples","Ter um heteroátomo"],"Se um carbono da dupla tiver dois ligantes iguais, não existe cis-trans."],
+["O que é um carbono quiral?","Um carbono ligado a 4 ligantes diferentes",["Um carbono com dupla ligação","Um carbono ligado só a hidrogênios","Qualquer carbono de um anel"],"Ele é a causa da isomeria óptica."],
+["Uma molécula com 2 carbonos quirais diferentes tem quantos isômeros ópticos ativos?","4",["2","6","8"],"Pela fórmula 2ⁿ: 2² = 4."],
+["Qual tipo de isomeria envolve isômeros em equilíbrio dinâmico?","Tautomeria",["Metameria","Isomeria de cadeia","Isomeria cis-trans"],"Ex.: o enol se converte em aldeído ou cetona, e vice-versa."]],
+tf:[["Isômeros sempre têm as mesmas propriedades físicas e químicas.",false,"Como as estruturas são diferentes, as propriedades também mudam."],["Na forma trans, os ligantes iguais ficam em lados opostos da dupla ligação.",true,"Trans = 'através', do outro lado. Cis = do mesmo lado."],["Uma mistura racêmica desvia a luz polarizada para a direita.",false,"Ela é opticamente inativa: um enantiômero cancela o desvio do outro."],["Butano e metilpropano são isômeros de cadeia.",true,"Os dois são C₄H₁₀; um tem cadeia normal e o outro, ramificada."]],
+why:[["Por que a isomeria óptica é importante para os remédios?","Os dois enantiômeros podem agir de forma diferente no corpo: um pode tratar a doença e o outro não ter efeito ou até fazer mal. Por isso a indústria farmacêutica separa os isômeros."],["Por que alcenos podem ter cis-trans, mas alcanos de cadeia aberta não?","Porque a dupla ligação impede que os carbonos girem, deixando os ligantes 'presos' de um lado ou do outro. Na ligação simples, os carbonos giram livremente."]]},
+
+{id:'adsub',s:'q',t:'Reações de adição e substituição',e:'🔄',per:'Química A · Reações orgânicas',
+mnem:"<b>Adição</b> = 'abre a dupla e soma' (nada sai). <b>Substituição</b> = 'sai um, entra outro'. Regra de Markovnikov: <b>'o rico fica mais rico'</b> — o H vai para o carbono da dupla que já tem mais hidrogênios.",
+sum:[
+["Reações de substituição",["Um átomo ou grupo <b>sai</b> da molécula e <b>outro entra</b> no lugar.","Típicas de <b>alcanos</b> e de <b>aromáticos</b> (benzeno), compostos mais estáveis.","<b>Halogenação de alcanos</b>: CH₄ + Cl₂ → CH₃Cl + HCl (com luz ou calor).","Em alcanos maiores, o H substituído preferencialmente é o do carbono <b>terciário > secundário > primário</b>."]],
+["Substituição em aromáticos",["<b>Halogenação</b>: benzeno + Cl₂ → clorobenzeno + HCl (catalisador FeCl₃).","<b>Nitração</b>: benzeno + HNO₃ → nitrobenzeno + H₂O (catalisador H₂SO₄).","<b>Sulfonação</b>: benzeno + H₂SO₄ → ácido benzenossulfônico + H₂O.","<b>Friedel-Crafts</b> (alquilação e acilação): entra um grupo alquila ou acila (catalisador AlCl₃).","Grupos já presentes no anel orientam a entrada do novo: –OH, –NH₂, –CH₃ e halogênios → <b>orto e para</b>; –NO₂, –COOH, –SO₃H → <b>meta</b>."]],
+["Reações de adição",["A <b>ligação dupla ou tripla se quebra</b> e átomos se <b>somam</b> à molécula — nada sai.","Típicas de <b>alcenos</b> e <b>alcinos</b> (compostos insaturados).","<b>Hidrogenação</b>: CH₂=CH₂ + H₂ → CH₃–CH₃ (catalisador Ni, Pt ou Pd). Usada para fazer margarina.","<b>Halogenação</b>: CH₂=CH₂ + Br₂ → CH₂Br–CH₂Br. A água de bromo (avermelhada) <b>perde a cor</b>: é o teste para identificar duplas e triplas.","<b>Hidratação</b>: alceno + H₂O → álcool (em meio ácido).","<b>Adição de HX</b> (HCl, HBr): forma haleto orgânico."]],
+["Regra de Markovnikov",["Na adição de HX ou H₂O a um alceno assimétrico, o <b>H vai para o carbono da dupla mais hidrogenado</b>.","Ex.: CH₂=CH–CH₃ + HCl → CH₃–CHCl–CH₃ (2-cloropropano).","Exceção: HBr na presença de peróxidos faz o contrário (<b>anti-Markovnikov</b>, efeito Kharasch)."]]],
+cards:[["Reação de substituição","Um átomo ou grupo sai e outro entra no lugar"],["Reação de adição","A ligação dupla/tripla se quebra e átomos são somados"],["Hidrogenação","Adição de H₂ a alceno ou alcino (catalisador Ni, Pt ou Pd)"],["Regra de Markovnikov","O H se liga ao carbono da dupla mais hidrogenado"],["Nitração do benzeno","Benzeno + HNO₃ → nitrobenzeno (catalisador H₂SO₄)"],["Água de bromo","Perde a cor na presença de ligações duplas ou triplas"],["Orto e para dirigentes","–OH, –NH₂, –CH₃ e halogênios"],["Meta dirigentes","–NO₂, –COOH, –SO₃H"]],
+quiz:[
+["Qual tipo de reação é típica dos alcanos?","Substituição",["Adição","Hidrogenação","Hidratação"],"Alcanos só têm ligações simples, então trocam um H por outro átomo."],
+["Qual tipo de reação é típica dos alcenos?","Adição",["Substituição","Nitração","Sulfonação"],"A dupla ligação se abre e recebe novos átomos."],
+["CH₂=CH₂ + H₂ → CH₃–CH₃ é uma reação de:","Hidrogenação (adição)",["Nitração","Sulfonação","Substituição"],"O H₂ se soma à dupla ligação, formando etano."],
+["Pela regra de Markovnikov, em CH₂=CH–CH₃ + HCl o produto principal é:","2-cloropropano",["1-cloropropano","Cloroeteno","Propano"],"O H vai para o CH₂ (mais hidrogenado) e o Cl fica no carbono do meio."],
+["Qual o produto da nitração do benzeno?","Nitrobenzeno",["Clorobenzeno","Tolueno","Fenol"],"Benzeno + HNO₃ (com H₂SO₄) → nitrobenzeno + H₂O."],
+["O grupo –NO₂ no anel benzênico orienta uma nova substituição para a posição:","Meta",["Orto e para","Somente orto","Somente para"],"–NO₂ é meta dirigente."],
+["Qual teste identifica a presença de ligação dupla numa substância?","A água de bromo perde a cor",["A água de bromo fica azul","A substância pega fogo","A substância vira sólido"],"O Br₂ avermelhado é consumido na adição à dupla e a solução descora."]],
+tf:[["O benzeno prefere reações de substituição, mesmo tendo duplas ligações.",true,"O anel aromático é muito estável (ressonância), então prefere trocar átomos a quebrar as duplas."],["Na reação de adição, um átomo sai da molécula.",false,"Na adição nada sai: átomos são somados. 'Sai um, entra outro' é a substituição."],["A hidrogenação de óleos vegetais é usada para produzir margarina.",true,"A adição de H₂ diminui as duplas ligações e o óleo fica sólido."],["CH₄ + Cl₂ → CH₃Cl + HCl é uma reação de adição.",false,"É substituição: um H do metano foi trocado por um Cl."]],
+why:[["Por que alcanos fazem substituição e alcenos fazem adição?","Alcanos só têm ligações simples (saturados): não há como somar átomos, então eles trocam um H. Alcenos têm a dupla ligação, cuja parte mais fraca (ligação pi) se quebra facilmente para receber novos átomos."],["Como lembrar a regra de Markovnikov?","Pense em 'o rico fica mais rico': o hidrogênio do HX vai para o carbono da dupla que já tem mais hidrogênios."]]},
+
+{id:'eq',s:'q',t:'Equilíbrio químico',e:'⚖️',per:'Química B · Equilíbrio e Le Chatelier',
+mnem:"Le Chatelier é <b>do contra</b>: o equilíbrio sempre 'foge' da mudança. <b>Colocou</b> substância? Ele consome. <b>Tirou</b>? Ele repõe. <b>Esquentou</b>? Vai pro lado <b>endo</b>. <b>Apertou</b> (pressão)? Vai pro lado com <b>menos mols</b> de gás. <b>Catalisador</b>? Não desloca nada.",
+sum:[
+["O que é",["Acontece em <b>reações reversíveis</b> (⇌), em sistema fechado.","No equilíbrio, a <b>velocidade da reação direta = velocidade da inversa</b>.","As concentrações ficam <b>constantes</b> (mas não necessariamente iguais!). O equilíbrio é <b>dinâmico</b>: as reações continuam acontecendo."]],
+["Constante de equilíbrio (Kc)",["Para aA + bB ⇌ cC + dD: <b>Kc = [C]ᶜ·[D]ᵈ ÷ [A]ᵃ·[B]ᵇ</b> — produtos em cima, reagentes embaixo, elevados aos coeficientes.","<b>Sólidos e líquidos puros não entram</b> na expressão.","Kc > 1: favorece os <b>produtos</b>. Kc < 1: favorece os <b>reagentes</b>.","Para gases também se usa <b>Kp</b>, com pressões parciais.","O valor de Kc <b>só muda com a temperatura</b>."]],
+["Princípio de Le Chatelier",["Quando um equilíbrio sofre uma perturbação, ele se <b>desloca para diminuir</b> essa perturbação.","<b>Concentração</b>: adicionar uma substância desloca para o lado <b>oposto</b> a ela; retirar desloca para o <b>lado dela</b>.","<b>Pressão</b> (gases): ↑ pressão desloca para o lado com <b>menos mols</b> de gás; ↓ pressão, para o lado com mais mols.","<b>Temperatura</b>: ↑ temperatura favorece a reação <b>endotérmica</b> (ΔH > 0); ↓ temperatura favorece a <b>exotérmica</b> (ΔH < 0).","<b>Catalisador NÃO desloca</b> o equilíbrio: só faz chegar a ele mais rápido."]],
+["pH (equilíbrio iônico da água)",["Na água pura a 25 °C: [H⁺] = [OH⁻] = 10⁻⁷ mol/L, e Kw = 10⁻¹⁴.","<b>pH = –log[H⁺]</b>. pH < 7: ácido; pH = 7: neutro; pH > 7: básico.","pH + pOH = 14 (a 25 °C)."]]],
+cards:[["Equilíbrio químico","Velocidade direta = velocidade inversa; concentrações constantes"],["Equilíbrio dinâmico","As reações continuam acontecendo nos dois sentidos"],["Kc","Produtos sobre reagentes, elevados aos coeficientes"],["Kc > 1","Equilíbrio favorece a formação de produtos"],["Princípio de Le Chatelier","O equilíbrio se desloca para diminuir a perturbação"],["Aumento de pressão","Desloca para o lado com menos mols de gás"],["Aumento de temperatura","Favorece a reação endotérmica"],["Catalisador no equilíbrio","Não desloca; só acelera a chegada ao equilíbrio"]],
+quiz:[
+["O que caracteriza o estado de equilíbrio químico?","Velocidade da reação direta igual à da inversa",["A reação para completamente","Reagentes e produtos ficam com concentrações iguais","Todos os reagentes foram consumidos"],"As concentrações ficam constantes, não necessariamente iguais, e as reações continuam."],
+["Em N₂(g) + 3 H₂(g) ⇌ 2 NH₃(g), aumentar a pressão desloca o equilíbrio para:","A direita (formação de NH₃)",["A esquerda","Não desloca","Os dois lados ao mesmo tempo"],"À esquerda há 4 mols de gás (1 + 3) e à direita 2. A pressão favorece o lado com menos mols."],
+["Se a reação direta é exotérmica, aumentar a temperatura desloca o equilíbrio para:","Os reagentes (sentido inverso)",["Os produtos (sentido direto)","Nenhum lado","Os dois lados"],"O aumento de temperatura favorece o sentido endotérmico, que aqui é o inverso."],
+["O que acontece ao adicionar um catalisador a um sistema em equilíbrio?","O equilíbrio não muda; só é atingido mais rápido",["Desloca para os produtos","Desloca para os reagentes","Aumenta o valor de Kc"],"O catalisador acelera igualmente as reações direta e inversa."],
+["Um Kc muito maior que 1 indica que:","No equilíbrio há predomínio de produtos",["Há predomínio de reagentes","A reação não acontece","A reação é sempre rápida"],"Kc grande = numerador (produtos) grande."],
+["Qual fator altera o valor numérico de Kc?","Temperatura",["Concentração","Pressão","Catalisador"],"Concentração e pressão deslocam o equilíbrio, mas o Kc só muda com a temperatura."],
+["Uma solução com pH = 3 é:","Ácida",["Básica","Neutra","Impossível de existir"],"pH menor que 7 indica solução ácida."]],
+tf:[["No equilíbrio, as concentrações de reagentes e produtos são sempre iguais.",false,"Elas são constantes, mas podem ser bem diferentes entre si."],["Sólidos puros não entram na expressão de Kc.",true,"A concentração de um sólido puro é constante, por isso fica fora."],["Retirar um produto desloca o equilíbrio no sentido de formar mais produto.",true,"O equilíbrio tenta repor o que foi retirado."],["O catalisador aumenta o rendimento de uma reação em equilíbrio.",false,"Ele não desloca o equilíbrio; só faz chegar a ele mais rápido."]],
+why:[["Por que o equilíbrio é chamado de dinâmico?","Porque as reações não param: reagentes continuam virando produtos e produtos continuam virando reagentes, na mesma velocidade. Por isso as quantidades ficam constantes."],["Na produção de amônia, por que se usa pressão alta?","Porque a reação N₂ + 3 H₂ ⇌ 2 NH₃ vai de 4 mols de gás para 2. Pressão alta desloca o equilíbrio para o lado com menos mols, formando mais amônia."]]},
+
+{id:'hc',s:'q',t:'Hidrocarbonetos',e:'⛽',per:'Química B · Estudo dos hidrocarbonetos',
+mnem:"Prefixos: <b>'Mãe, Eu Prometo Buscar Pão'</b> = Met (1), Et (2), Prop (3), But (4), Pent (5). Depois vem Hex (6), Hept (7), Oct (8), Non (9), Dec (10). Infixos: <b>an</b> = só simples, <b>en</b> = dupla, <b>in</b> = tripla. Nome = prefixo + infixo + <b>o</b>.",
+sum:[
+["O que são",["Compostos formados <b>apenas por carbono e hidrogênio</b>.","Principais fontes: <b>petróleo</b> e gás natural.","São <b>apolares</b>, insolúveis em água e menos densos que ela (por isso o petróleo boia)."]],
+["Nomenclatura (IUPAC)",["<b>Prefixo</b> (nº de carbonos) + <b>infixo</b> (tipo de ligação) + <b>sufixo</b> (função; para hidrocarbonetos é <b>-o</b>).","Prefixos: 1 <b>met</b>, 2 <b>et</b>, 3 <b>prop</b>, 4 <b>but</b>, 5 <b>pent</b>, 6 <b>hex</b>, 7 <b>hept</b>, 8 <b>oct</b>, 9 <b>non</b>, 10 <b>dec</b>.","Infixos: <b>an</b> (só simples), <b>en</b> (uma dupla), <b>in</b> (uma tripla), <b>dien</b> (duas duplas).","Ex.: prop + en + o = <b>propeno</b> (CH₂=CH–CH₃)."]],
+["Classes",["<b>Alcanos</b>: só ligações simples, cadeia aberta. Fórmula <b>CₙH₂ₙ₊₂</b>. Ex.: metano CH₄ (gás natural); propano e butano (gás de cozinha).","<b>Alcenos</b>: uma dupla ligação. Fórmula <b>CₙH₂ₙ</b>. Ex.: eteno (etileno), que ajuda a amadurecer frutas.","<b>Alcinos</b>: uma tripla ligação. Fórmula <b>CₙH₂ₙ₋₂</b>. Ex.: etino (acetileno), usado em maçaricos de solda.","<b>Alcadienos</b>: duas duplas. Fórmula CₙH₂ₙ₋₂.","<b>Cicloalcanos</b>: cadeia fechada só com ligações simples. Fórmula CₙH₂ₙ. Ex.: ciclo-hexano.","<b>Aromáticos</b>: têm o anel benzênico. Ex.: benzeno C₆H₆, tolueno, naftaleno (naftalina)."]],
+["Ramificações",["<b>Cadeia principal</b>: a maior sequência de carbonos que contenha as duplas ou triplas.","Numera-se a partir da ponta mais próxima da insaturação (ou das ramificações).","Radicais: <b>metil</b> (–CH₃), <b>etil</b> (–CH₂–CH₃), <b>propil</b>, <b>isopropil</b>, <b>fenil</b> (anel benzênico).","Ex.: 2-metilbutano."]],
+["Petróleo",["Mistura de hidrocarbonetos separada por <b>destilação fracionada</b> (pontos de ebulição diferentes).","Frações: gás (GLP), gasolina, querosene, óleo diesel, óleos lubrificantes, parafina e asfalto.","Quanto <b>maior a cadeia</b>, <b>maior o ponto de ebulição</b>.","A queima de combustíveis fósseis libera CO₂, que intensifica o efeito estufa."]]],
+cards:[["Hidrocarboneto","Composto formado apenas por C e H"],["Alcano","Só ligações simples; CₙH₂ₙ₊₂"],["Alceno","Uma ligação dupla; CₙH₂ₙ"],["Alcino","Uma ligação tripla; CₙH₂ₙ₋₂"],["Aromático","Possui anel benzênico"],["Prefixo 'but'","4 carbonos"],["Infixo 'en'","Indica uma ligação dupla"],["Destilação fracionada","Separa as frações do petróleo pelo ponto de ebulição"],["Metano","CH₄, principal componente do gás natural"]],
+quiz:[
+["Hidrocarbonetos são formados por:","Apenas carbono e hidrogênio",["Carbono, hidrogênio e oxigênio","Apenas carbono","Carbono e nitrogênio"],"Se aparecer outro elemento (O, N, Cl...), já não é hidrocarboneto."],
+["Qual é o nome de CH₃–CH₂–CH₃?","Propano",["Etano","Propeno","Butano"],"3 carbonos (prop) + só ligações simples (an) + hidrocarboneto (o)."],
+["Qual fórmula geral representa os alcenos?","CₙH₂ₙ",["CₙH₂ₙ₊₂","CₙH₂ₙ₋₂","CₙHₙ"],"Ex.: eteno C₂H₄ (n = 2, H = 4)."],
+["O acetileno, usado em maçaricos, é um:","Alcino",["Alcano","Alceno","Aromático"],"Acetileno = etino, HC≡CH, com ligação tripla."],
+["O que indica o infixo 'en' no nome but-1-eno?","Uma ligação dupla",["Uma ligação tripla","Só ligações simples","Um anel aromático"],"an = simples, en = dupla, in = tripla."],
+["Qual hidrocarboneto é o principal componente do gás natural?","Metano",["Butano","Benzeno","Octano"],"CH₄ — o hidrocarboneto mais simples."],
+["Como as frações do petróleo são separadas?","Destilação fracionada",["Filtração","Decantação","Peneiração"],"Cada fração tem uma faixa de ponto de ebulição diferente."],
+["O benzeno (C₆H₆) é classificado como:","Hidrocarboneto aromático",["Alcano","Alcino","Cicloalcano"],"Tem o anel benzênico, com duplas ligações alternadas (ressonância)."]],
+tf:[["Hidrocarbonetos são muito solúveis em água.",false,"São apolares e a água é polar; por isso óleo e petróleo não se misturam com a água."],["O gás de cozinha (GLP) é formado principalmente por propano e butano.",true,"É o gás liquefeito de petróleo."],["C₂H₂ é um alcano.",false,"C₂H₂ é o etino (alcino), com ligação tripla. O alcano de 2 carbonos é o etano, C₂H₆."],["Quanto maior a cadeia carbônica, maior o ponto de ebulição.",true,"Moléculas maiores interagem mais entre si e precisam de mais energia para ferver."]],
+why:[["Por que o petróleo derramado no mar boia?","Porque os hidrocarbonetos são menos densos que a água e não se misturam com ela (são apolares, e a água é polar)."],["Como saber se é alcano, alceno ou alcino só pela fórmula?","Compare com as fórmulas gerais: CₙH₂ₙ₊₂ = alcano; CₙH₂ₙ = alceno (ou cicloalcano); CₙH₂ₙ₋₂ = alcino (ou alcadieno). Ex.: C₃H₈ → 2·3 + 2 = 8 → alcano."]]},
+
+{id:'fun',s:'q',t:'Funções orgânicas',e:'🔍',per:'Química B · Identificação de funções',
+mnem:"Olhe a <b>carbonila (C=O)</b>: <b>na ponta</b> = aldeído (-al); <b>no meio</b> = cetona (-ona). C=O com <b>OH</b> junto = <b>ácido</b> (COOH). C=O com O ligado a <b>carbono</b> = <b>éster</b> (COO–C). Oxigênio 'sanduíche' entre carbonos = <b>éter</b>. Tem <b>N</b>? Sem C=O = amina; com C=O = amida.",
+sum:[
+["Como identificar",["Cada função tem um <b>grupo funcional</b>: o 'pedaço' da molécula que define suas propriedades.","Dica: procure primeiro o <b>oxigênio</b> e o <b>nitrogênio</b> e veja a quem eles estão ligados."]],
+["Funções oxigenadas",["<b>Álcool</b>: –OH ligado a carbono <b>saturado</b>. Sufixo <b>-ol</b>. Ex.: etanol CH₃–CH₂–OH.","<b>Fenol</b>: –OH ligado <b>direto ao anel benzênico</b>.","<b>Enol</b>: –OH ligado a carbono de <b>dupla ligação</b> (instável).","<b>Aldeído</b>: carbonila (C=O) na <b>ponta</b> da cadeia: –CHO. Sufixo <b>-al</b>. Ex.: metanal (formol).","<b>Cetona</b>: carbonila <b>no meio</b> da cadeia, entre dois carbonos. Sufixo <b>-ona</b>. Ex.: propanona (acetona).","<b>Ácido carboxílico</b>: –COOH. Nome: ácido ...<b>oico</b>. Ex.: ácido etanoico (vinagre).","<b>Éster</b>: –COO– entre carbonos. Nome: ...<b>ato de</b> ...<b>ila</b>. Ex.: etanoato de etila. Dá aroma a frutas.","<b>Éter</b>: oxigênio <b>entre dois carbonos</b> (C–O–C). Ex.: metoximetano."]],
+["Funções nitrogenadas",["<b>Amina</b>: derivada da amônia (NH₃), com N ligado a carbono. Ex.: metilamina CH₃–NH₂. Cheiro de peixe.","<b>Amida</b>: N ligado a uma carbonila (–CO–NH₂). Ex.: ureia.","<b>Nitrila</b>: –C≡N.","<b>Nitrocomposto</b>: –NO₂. Ex.: TNT."]],
+["Outras",["<b>Haletos orgânicos</b>: possuem halogênio (F, Cl, Br, I). Ex.: clorometano, CFCs.","Moléculas grandes (remédios, hormônios) têm <b>várias funções ao mesmo tempo</b> — a prova costuma pedir para circular e nomear cada uma."]]],
+cards:[["Álcool","–OH ligado a carbono saturado (sufixo -ol)"],["Fenol","–OH ligado diretamente ao anel benzênico"],["Aldeído","Carbonila na ponta da cadeia: –CHO (sufixo -al)"],["Cetona","Carbonila no meio da cadeia (sufixo -ona)"],["Ácido carboxílico","Grupo –COOH (ácido ...oico)"],["Éster","Grupo –COO– entre carbonos; aromas de frutas"],["Éter","Oxigênio entre dois carbonos: C–O–C"],["Amina","Nitrogênio ligado a carbono, derivada da amônia"],["Amida","Nitrogênio ligado a uma carbonila: –CONH₂"]],
+quiz:[
+["Qual função tem o grupo –OH ligado a um carbono saturado?","Álcool",["Fenol","Enol","Ácido carboxílico"],"Se o –OH estiver no anel benzênico é fenol; se estiver em carbono de dupla, é enol."],
+["A acetona (propanona, CH₃–CO–CH₃) pertence à função:","Cetona",["Aldeído","Éster","Éter"],"A carbonila está no meio da cadeia, entre dois carbonos."],
+["O vinagre contém ácido acético (ácido etanoico). Qual é o grupo funcional dele?","–COOH (carboxila)",["–CHO","–OH no anel benzênico","C–O–C"],"É o grupo dos ácidos carboxílicos."],
+["Os aromas artificiais de frutas costumam ser:","Ésteres",["Aminas","Éteres","Hidrocarbonetos"],"Ex.: o acetato de isoamila tem aroma de banana."],
+["A fórmula CH₃–O–CH₃ representa um:","Éter",["Álcool","Cetona","Aldeído"],"O oxigênio está entre dois carbonos."],
+["Qual função tem um nitrogênio ligado a uma carbonila (C=O)?","Amida",["Amina","Nitrila","Nitrocomposto"],"Ex.: a ureia. Na amina, o N não está ligado a carbonila."],
+["O grupo –CHO caracteriza qual função?","Aldeído",["Cetona","Ácido carboxílico","Álcool"],"Carbonila na ponta da cadeia, com um H ligado."],
+["O cheiro característico de peixe vem de compostos da função:","Amina",["Éster","Cetona","Álcool"],"Aminas de cadeia curta têm cheiro forte de peixe."]],
+tf:[["O fenol tem o –OH ligado diretamente ao anel benzênico.",true,"É isso que diferencia o fenol do álcool."],["Aldeídos e cetonas possuem o grupo carbonila (C=O).",true,"A diferença é a posição: na ponta (aldeído) ou no meio (cetona)."],["O etanol pertence à função éter.",false,"O etanol (CH₃–CH₂–OH) é um álcool."],["O sufixo '-ona' indica um aldeído.",false,"'-ona' é cetona; aldeído usa o sufixo '-al'."]],
+why:[["Como diferenciar aldeído de cetona olhando a fórmula?","Veja onde está o C=O: se o carbono da carbonila estiver na ponta (ligado a um H), é aldeído; se estiver entre dois carbonos, é cetona."],["Como diferenciar ácido carboxílico de éster?","Os dois têm –COO–. No ácido, o segundo oxigênio está ligado a um H (–COOH). No éster, está ligado a um carbono (–COO–C)."]]},
+
+{id:'pol',s:'q',t:'Polímeros',e:'🧴',per:'Química B · Polímeros',
+mnem:"<b>Adição</b> = 'abre a dupla e gruda' (nada sobra). <b>Condensação</b> = 'gruda e solta água' (sobra uma molécula pequena). Termo<b>plástico</b> = moldável como massinha (recicla); termo<b>fixo</b> = fica fixo para sempre.",
+sum:[
+["O que são",["<b>Macromoléculas</b> formadas pela união de muitas moléculas pequenas, os <b>monômeros</b>.","<b>Polimerização</b> é a reação que une os monômeros. 'Poli' = muitos; 'mero' = partes.","Podem ser <b>naturais</b> (amido, celulose, proteínas, borracha natural, DNA) ou <b>sintéticos</b> (plásticos, náilon)."]],
+["Polímeros de adição",["Monômeros com <b>dupla ligação</b> (C=C) se unem abrindo a dupla. <b>Nenhuma molécula sobra</b>.","<b>Polietileno (PE)</b>: monômero eteno. Sacolas e garrafas.","<b>Polipropileno (PP)</b>: monômero propeno. Potes e para-choques.","<b>PVC</b>: monômero cloreto de vinila. Canos e tubos.","<b>Poliestireno (PS)</b>: monômero estireno. Isopor e copos descartáveis.","<b>Teflon (PTFE)</b>: monômero tetrafluoroeteno. Antiaderente de panelas.","<b>Borracha natural</b> (poli-isopreno): a <b>vulcanização</b> (adição de enxofre) deixa a borracha mais resistente."]],
+["Polímeros de condensação",["Os monômeros se unem <b>liberando uma molécula pequena</b>, geralmente <b>água</b>.","<b>PET</b> (poliéster): garrafas de refrigerante e tecidos.","<b>Náilon</b> (poliamida): tecidos, cordas e cerdas de escova.","<b>Baquelite</b>: cabos de panela e tomadas.","Naturais: proteínas (formadas por aminoácidos), amido e celulose (formados por glicose)."]],
+["Propriedades e meio ambiente",["<b>Termoplásticos</b>: amolecem com o calor e podem ser <b>remoldados e reciclados</b> (PE, PP, PVC, PET).","<b>Termofixos</b>: não amolecem depois de prontos e <b>não podem ser remoldados</b> (baquelite).","Plásticos comuns demoram centenas de anos para se decompor: acúmulo de lixo e <b>microplásticos</b> nos oceanos.","Soluções: <b>reciclagem</b>, redução do uso e <b>plásticos biodegradáveis</b>."]]],
+cards:[["Monômero","Molécula pequena que se repete para formar o polímero"],["Polímero de adição","Monômeros com dupla ligação se unem sem liberar moléculas"],["Polímero de condensação","Monômeros se unem liberando uma molécula pequena (ex.: água)"],["PVC","Polímero do cloreto de vinila; usado em canos"],["Teflon","Polímero do tetrafluoroeteno; antiaderente"],["PET","Poliéster de condensação; garrafas de refrigerante"],["Termoplástico","Amolece com o calor e pode ser reciclado"],["Termofixo","Não amolece nem pode ser remoldado (ex.: baquelite)"],["Vulcanização","Adição de enxofre à borracha, deixando-a mais resistente"]],
+quiz:[
+["O que é um monômero?","A unidade pequena que se repete para formar o polímero",["Um polímero muito grande","Um tipo de plástico reciclado","Um catalisador da polimerização"],"Polímero = muitos monômeros unidos."],
+["Qual é o monômero do polietileno?","Eteno (etileno)",["Propeno","Cloreto de vinila","Estireno"],"Poli + etileno: muitos etilenos unidos pela abertura da dupla ligação."],
+["Na polimerização por condensação:","Há liberação de uma molécula pequena, como a água",["Nenhuma molécula é liberada","Os monômeros precisam ter ligação tripla","Forma-se apenas gás carbônico"],"É a principal diferença em relação à polimerização por adição."],
+["O isopor é feito de qual polímero?","Poliestireno expandido",["PVC","Teflon","Náilon"],"O poliestireno recebe gás durante a fabricação e vira espuma."],
+["Por que os termoplásticos podem ser reciclados?","Porque amolecem com o calor e podem ser remoldados",["Porque são biodegradáveis","Porque nunca derretem","Porque são feitos de metal"],"Já os termofixos não amolecem depois de prontos."],
+["Qual destes é um polímero natural?","Celulose",["PVC","Polietileno","Teflon"],"A celulose é formada por glicose e está nas plantas, no papel e no algodão."],
+["Os canos de água costumam ser feitos de:","PVC",["PET","Teflon","Baquelite"],"PVC = policloreto de vinila."]],
+tf:[["Na polimerização por adição, os monômeros possuem dupla ligação.",true,"A dupla se abre para que os monômeros se liguem uns aos outros."],["A baquelite é um termoplástico fácil de reciclar.",false,"A baquelite é um termofixo: depois de pronta, não amolece."],["Proteínas e amido são exemplos de polímeros naturais.",true,"Proteínas são formadas por aminoácidos e o amido, por glicose."],["O PET é usado em garrafas de refrigerante.",true,"É um poliéster obtido por condensação."]],
+why:[["Por que os plásticos são um problema ambiental?","A maioria demora centenas de anos para se decompor, se acumula em lixões e oceanos e se quebra em microplásticos, que entram na cadeia alimentar."],["Qual a diferença entre polimerização por adição e por condensação?","Na adição, monômeros com dupla ligação se unem sem perder nada. Na condensação, cada ligação entre monômeros libera uma molécula pequena, como a água."]]}
+];
+
+const TL=[[1840,"Golpe da Maioridade",'h'],[1850,"Lei Eusébio de Queirós",'h'],[1864,"Início da Guerra do Paraguai",'h'],[1871,"Lei do Ventre Livre",'h'],[1884,"Conferência de Berlim",'g'],[1888,"Lei Áurea",'h'],[1889,"Proclamação da República",'h'],[1930,"Revolução de 1930",'h'],[1932,"Revolução Constitucionalista",'h'],[1937,"Golpe do Estado Novo",'h'],[1943,"Criação da CLT",'h'],[1948,"Criação do Estado de Israel",'g'],[1949,"Criação da OTAN",'h'],[1953,"Criação da Petrobras",'h'],[1957,"Lançamento do Sputnik",'h'],[1960,"Ano da África",'g'],[1961,"Construção do Muro de Berlim",'h'],[1962,"Crise dos Mísseis",'h'],[1967,"Guerra dos Seis Dias",'g'],[1969,"Homem pisa na Lua",'h'],[1975,"Independência de Angola e Moçambique",'g'],[1978,"Reformas de Deng Xiaoping na China",'g'],[1984,"Campanha Diretas Já",'h'],[1988,"Constituição Cidadã",'h'],[1989,"Queda do Muro de Berlim",'h'],[1991,"Fim da União Soviética",'h'],[1993,"Acordos de Oslo",'g'],[1994,"Plano Real",'h'],[2001,"Atentados de 11 de setembro",'h'],[2003,"EUA invadem o Iraque",'g'],[2008,"Crise financeira mundial",'h'],[2010,"Início da Primavera Árabe",'h'],[2013,"China lança a Nova Rota da Seda",'g'],[2015,"Acordo de Paris",'h'],[2016,"Referendo do Brexit",'g'],[2020,"Pandemia de Covid-19",'h'],[2022,"Rússia invade a Ucrânia",'g'],[2023,"Índia se torna o país mais populoso",'g']];
+
+const TIPS=[
+["🧠","Teste-se em vez de só reler","Tentar lembrar (com flashcards e quizzes) fixa muito mais do que reler o caderno. Pesquisas mostram que essa 'prática de recuperação' está entre as técnicas mais eficazes que existem. Errar faz parte — é no erro que o cérebro ajusta."],
+["📅","Estude um pouco todo dia","20 minutos por dia durante uma semana valem mais que 3 horas na véspera. É o efeito do espaçamento. A 'Revisão do dia' faz isso por você: mostra de novo os cartões no momento certo."],
+["🔀","Misture os assuntos","Alternar temas (intercalação) treina o cérebro a escolher a resposta certa, como na prova de verdade. Por isso o Simulado e o Quiz Relâmpago misturam tudo."],
+["💬","Explique com suas palavras","Perguntar 'por quê?' e responder sozinha (elaboração) conecta as ideias. Use a aba 'Explique' de cada assunto — se conseguir explicar, você aprendeu."],
+["🗓️","Ligue datas a histórias","Em vez de decorar números soltos, monte a sequência: o que veio antes, o que causou o quê. O jogo da Linha do Tempo treina exatamente isso."],
+["🧪","Química: entenda a regra e pratique","Em vez de decorar tudo, entenda a lógica (ex.: Le Chatelier sempre 'foge' da mudança) e use os Macetes de cada resumo. Depois resolva muitas questões: errar e ler a explicação ensina mais do que reler."],
+["😴","Durma bem antes da prova","É durante o sono que a memória se organiza. Virar a noite estudando atrapalha mais do que ajuda."]];
+
+/* ================== ESTADO ================== */
+const KEY='sophia-estudos-v1';
+const def=()=>({xp:0,streak:0,last:null,best:{},box:{},read:{}});
+let S=(()=>{try{return Object.assign(def(),JSON.parse(localStorage.getItem(KEY)||'{}'))}catch(e){return def()}})();
+function save(){try{localStorage.setItem(KEY,JSON.stringify(S))}catch(e){}}
+const today=()=>Math.floor((Date.now()-new Date().getTimezoneOffset()*60000)/86400000);
+function touch(){const t=today();if(S.last===t)return;S.streak=(S.last===t-1)?S.streak+1:1;S.last=t;}
+function addXP(n){S.xp+=n;touch();save();bar();}
+const lvl=()=>Math.floor(Math.sqrt(S.xp/60))+1;
+const lvlMin=l=>60*(l-1)*(l-1);
+const $=s=>document.querySelector(s);
+const app=$('#app');
+const shuffle=a=>{a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a};
+const T=id=>TOPICS.find(t=>t.id===id);
+const bySubj=s=>s==='all'?TOPICS:TOPICS.filter(t=>t.s===s);
+function bar(){$('#pStreak').textContent='🔥 '+(S.last!=null&&S.last>=today()-1?S.streak:0);$('#pXp').textContent='⭐ '+S.xp+' XP';}
+function toast(m){const t=$('#toast');t.textContent=m;t.classList.add('on');clearTimeout(t._t);t._t=setTimeout(()=>t.classList.remove('on'),1600)}
+function confetti(){const c=['#F5B942','#F472B6','#E0479A','#C084FC','#FBCFE8'];for(let i=0;i<70;i++){const e=document.createElement('i');e.className='conf';e.style.left=Math.random()*100+'vw';e.style.background=c[i%c.length];e.style.animationDuration=(1.6+Math.random()*1.6)+'s';e.style.animationDelay=Math.random()*.4+'s';e.style.borderRadius=Math.random()>.5?'50%':'2px';document.body.appendChild(e);setTimeout(()=>e.remove(),3800)}}
+const praise=()=>shuffle(['Isso aí!','Mandou bem!','Arrasou!','Exato!','Perfeito!','Boa, Sophia!'])[0];
+const topicPct=t=>S.best[t.id]||0;
+const subjPct=s=>{const ts=bySubj(s);return Math.round(ts.reduce((a,t)=>a+topicPct(t),0)/ts.length)};
+
+/* ================== NAVEGAÇÃO ================== */
+let view='home',arg=null,Q=null;
+function go(v,a){stopQ();view=v;arg=a;window.scrollTo(0,0);render();}
+function stopQ(){if(Q&&Q.timer)clearInterval(Q.timer);Q=null;}
+function navOn(){const n=view==='home'?'home':view==='subj'?arg:view==='topic'?T(arg.id||arg).s:['games','pick'].includes(view)?'games':'';document.querySelectorAll('nav.bot button').forEach(b=>b.classList.toggle('on',b.dataset.n===n));}
+function render(){bar();const f={home:vHome,subj:vSubj,topic:vTopic,games:vGames,pick:vPick}[view]||vHome;app.innerHTML=f();navOn();}
+
+/* ================== TELAS ================== */
+function vHome(){
+  const l=lvl(),a=lvlMin(l),b=lvlMin(l+1),p=Math.round((S.xp-a)/(b-a)*100);
+  const due=dueKeys().length;
+  return `
+  <section class="hero"><p class="eb">Bons estudos,</p><h1>Sophia ✦</h1>
+   <p>História, Geografia e Química do jeito que o cérebro aprende melhor: lembrando, revisando e jogando.</p>
+   <div class="lvl">Nível ${l}<div class="bar"><i style="width:${p}%"></i></div>${S.xp-a}/${b-a}</div></section>
+  <div class="row2">
+   <button class="big" onclick="startReview(dueKeys(),'Revisão do dia')"><span class="ic">🧠</span><b>Revisão do dia</b><small>${due} cartões para hoje</small></button>
+   <button class="big gold" onclick="go('pick','sim')"><span class="ic">📝</span><b>Simulado</b><small>10 questões misturadas, com relatório</small></button>
+  </div>
+  <h2 class="sec">Matérias</h2>
+  <div class="subjs">
+   ${['h','g','q'].map(s=>`<button class="subj ${s}" onclick="go('subj','${s}')"><span class="ic">${SUBJ[s].e}</span><h3>${SUBJ[s].n}</h3><small>${bySubj(s).length} assuntos · ${subjPct(s)}% dominado</small><div class="mini"><i style="width:${subjPct(s)}%"></i></div></button>`).join('')}
+  </div>
+  <h2 class="sec">Jogos</h2>${gamesGrid()}
+  <h2 class="sec">Como estudar melhor</h2>
+  <div class="plan"><b>Rotina de 25 minutos 💡</b><ol><li>5 min — leia o <b>Resumo</b> de um assunto</li><li>10 min — <b>Flashcards</b> (tente lembrar antes de virar!)</li><li>10 min — <b>Quiz</b> e leia as explicações dos erros</li></ol>No dia seguinte, comece pela <b>Revisão do dia</b>.</div>
+  <div class="tips" style="margin-top:10px">${TIPS.map(t=>`<details class="tip"><summary><span>${t[0]}</span>${t[1]}</summary><p>${t[2]}</p></details>`).join('')}</div>`;
+}
+const GAMES=[
+ ['flash','⚡','Quiz Relâmpago','60 segundos, quantas você acerta?','#30251A'],
+ ['vf','✅','Verdadeiro ou Falso','Ache as pegadinhas','#132D1E'],
+ ['linha','🗓️','Linha do Tempo','Coloque os fatos em ordem','var(--pinks)'],
+ ['pares','🧩','Ligue os Pares','Conceito ↔ significado','#3A2119'],
+ ['sim','📝','Simulado','10 questões + relatório','#11302B'],
+ ['cards','🃏','Flashcards','Todos os cartões de uma matéria','#2A2236']];
+function gamesGrid(){return `<div class="games">${GAMES.map(g=>`<button class="game" onclick="go('pick','${g[0]}')"><span class="gi" style="background:${g[4]}">${g[1]}</span><span><b>${g[2]}</b><small>${g[3]}</small></span></button>`).join('')}</div>`}
+function vGames(){return `<h1 class="serif" style="font-size:30px;margin:6px 2px 4px">Jogos 🎮</h1><p class="intro" style="margin:0 2px 16px">Aprender jogando é praticar a memória sem perceber.</p>${gamesGrid()}`}
+function vPick(){
+  const g=GAMES.find(x=>x[0]===arg);
+  return `<button class="back" onclick="go('games')">← Jogos</button>
+  <h1 class="serif" style="font-size:30px">${g[1]} ${g[2]}</h1><p class="intro">${g[3]}. Escolha o conteúdo:</p>
+  <div class="chips">
+   <button class="chip" onclick="startGame('${arg}','all')"><span class="em">✨</span>Tudo misturado</button>
+   <button class="chip h" onclick="startGame('${arg}','h')"><span class="em">🏛️</span>Só História</button>
+   <button class="chip g" onclick="startGame('${arg}','g')"><span class="em">🌍</span>Só Geografia</button>
+   ${arg==='linha'?'':`<button class="chip q" onclick="startGame('${arg}','q')"><span class="em">⚗️</span>Só Química</button>`}
+  </div>`;
+}
+function vSubj(){
+  const s=arg;
+  return `<div class="shead ${s}"><h1>${SUBJ[s].e} ${SUBJ[s].n}</h1><p>${subjPct(s)}% dominado · toque em um assunto para estudar</p></div>
+  <div class="tlist">${bySubj(s).map(t=>{const p=topicPct(t);return `<button class="trow ${s}" onclick="go('topic',{id:'${t.id}',tab:'sum'})"><span class="em">${t.e}</span><span><b>${t.t}</b><small>${t.per}${S.read[t.id]?' · ✓ lido':''}</small></span><span class="ring" style="background:conic-gradient(var(--${s}) ${p}%,var(--track) 0)"><span style="background:var(--card);width:36px;height:36px;border-radius:50%;display:grid;place-items:center">${p}%</span></span></button>`}).join('')}</div>
+  <div class="btns"><button class="btn primary" onclick="startGame('sim','${s}')">📝 Simulado de ${SUBJ[s].n}</button></div>`;
+}
+function vTopic(){
+  const t=T(arg.id),tab=arg.tab||'sum';
+  const tabs=[['sum','📖 Resumo'],['cards','🃏 Flashcards'],['quiz','❓ Quiz'],['why','💬 Explique']];
+  let body='';
+  if(tab==='sum'){
+    body=(t.mnem?`<div class="mnem"><p class="mt">🧩 Macete para lembrar</p>${t.mnem}</div>`:'')+t.sum.map(([h,l])=>`<div class="box ${t.s}"><h3>${h}</h3><ul>${l.map(x=>`<li>${x}</li>`).join('')}</ul></div>`).join('')+
+    `<div class="box" style="background:var(--golds);border-color:rgba(245,185,66,.35)"><b style="color:var(--ink)">Agora feche o resumo e tente lembrar!</b><p style="font-size:15px;margin-top:4px">Ler de novo dá a sensação de que aprendeu, mas é tentando lembrar que a memória fica forte.</p>
+    <div class="btns"><button class="btn primary" onclick="markRead('${t.id}');go('topic',{id:'${t.id}',tab:'cards'})">Já li → Flashcards</button><button class="btn" onclick="markRead('${t.id}');go('topic',{id:'${t.id}',tab:'quiz'})">Ir pro Quiz</button></div></div>`;
+  } else if(tab==='cards'){
+    body=`<div class="box"><p>São <b>${t.cards.length} cartões</b>. Olhe o termo, <b>tente lembrar o significado</b> e só depois vire o cartão. Seja sincera: os que você errar voltam mais cedo na Revisão do dia.</p>
+    <div class="btns"><button class="btn primary full" onclick="startReview(${JSON.stringify(t.cards.map((c,i)=>t.id+':'+i)).replace(/"/g,"'")},'${t.t}')">Começar flashcards</button></div></div>
+    <div class="box"><h3>Lista de termos</h3><ul>${t.cards.map(c=>`<li><b>${c[0]}</b> — ${c[1]}</li>`).join('')}</ul></div>`;
+  } else if(tab==='quiz'){
+    const p=topicPct(t);
+    body=`<div class="box"><p><b>${t.quiz.length} questões</b> de múltipla escolha + <b>${t.tf.length}</b> de verdadeiro ou falso. Cada erro vem com explicação.</p><p style="margin-top:6px;color:var(--mute);font-weight:700">Seu recorde: ${p}%</p>
+    <div class="btns"><button class="btn primary full" onclick="topicQuiz('${t.id}')">Começar quiz</button></div></div>`;
+  } else {
+    body=`<p class="intro" style="margin-bottom:10px">Responda com suas palavras (pode ser só de cabeça) e depois compare com a resposta modelo.</p>`+
+    t.why.map((w,i)=>`<div class="why" id="w${i}"><h3>${w[0]}</h3><textarea placeholder="Escreva sua explicação aqui..."></textarea><div class="btns"><button class="btn" onclick="this.closest('.why').classList.add('show');addXP(5)">Ver resposta modelo</button></div><div class="ans">✍️ ${w[1]}</div></div>`).join('');
+  }
+  return `<button class="back" onclick="go('subj','${t.s}')">← ${SUBJ[t.s].n}</button>
+  <div class="thead ${t.s}"><p class="k">${SUBJ[t.s].n} · ${t.per}</p><h1>${t.e} ${t.t}</h1></div>
+  <div class="tabs">${tabs.map(([k,n])=>`<button class="tab ${k===tab?'on':''}" onclick="go('topic',{id:'${t.id}',tab:'${k}'})">${n}</button>`).join('')}</div>${body}`;
+}
+function markRead(id){if(!S.read[id]){S.read[id]=1;addXP(5);}}
+
+/* ================== QUIZ ================== */
+const mkQ=(tid,x)=>({q:x[0],a:x[1],opts:shuffle([x[1],...x[2]]),exp:x[3],tid});
+const mkTF=(tid,x)=>({q:x[0],a:x[1]?'Verdadeiro':'Falso',opts:['Verdadeiro','Falso'],exp:x[2],tid,tf:1});
+const allQ=s=>bySubj(s).flatMap(t=>t.quiz.map(x=>mkQ(t.id,x)));
+const allTF=s=>bySubj(s).flatMap(t=>t.tf.map(x=>mkTF(t.id,x)));
+function topicQuiz(id){const t=T(id);startQuiz({title:t.t,tid:id,qs:[...shuffle(t.quiz.map(x=>mkQ(id,x))),...shuffle(t.tf.map(x=>mkTF(id,x)))],back:()=>go('topic',{id,tab:'quiz'})});}
+function startGame(g,s){
+  view='games';navOn();const back=()=>go('pick',g);
+  if(g==='flash')startQuiz({title:'Quiz Relâmpago',mode:'flash',qs:shuffle([...allQ(s),...allTF(s)]),back});
+  else if(g==='vf')startQuiz({title:'Verdadeiro ou Falso',qs:shuffle(allTF(s)).slice(0,10),back});
+  else if(g==='sim'){const ts=shuffle(bySubj(s));let qs=[];let k=0;while(qs.length<10){const t=ts[k%ts.length];const pool=t.quiz.filter(x=>!qs.some(q=>q.q===x[0]));if(pool.length)qs.push(mkQ(t.id,shuffle(pool)[0]));k++;}startQuiz({title:'Simulado',qs:shuffle(qs),report:1,back});}
+  else if(g==='linha')startLine(s);
+  else if(g==='pares')startPairs(s);
+  else if(g==='cards')startReview(bySubj(s).flatMap(t=>t.cards.map((c,i)=>t.id+':'+i)),'Flashcards');
+}
+function startQuiz(o){stopQ();Q=Object.assign({i:0,score:0,wrong:[],combo:0},o);
+  if(Q.mode==='flash'){Q.time=60;Q.timer=setInterval(()=>{if(!Q)return;Q.time--;const e=$('#tm');if(e){e.textContent=Q.time;if(Q.time<=10)e.parentNode.classList.add('low')}if(Q.time<=0)endQuiz();},1000);}
+  drawQ();window.scrollTo(0,0);}
+const tagOf=id=>{const t=T(id);return SUBJ[t.s].e+' '+t.t};
+function drawQ(){
+  if(!Q)return;if(Q.i>=Q.qs.length)return endQuiz();
+  const q=Q.qs[Q.i];Q.ans=false;const n=Q.qs.length;
+  app.innerHTML=`<div class="qhead"><button class="ghost" onclick="quitQ()">✕</button><div class="pbar"><i style="width:${Q.mode==='flash'?Q.time/60*100:Q.i/n*100}%"></i></div>${Q.mode==='flash'?`<span class="timer ${Q.time<=10?'low':''}">⏱ <b id="tm">${Q.time}</b>s</span>`:`<span class="count">${Q.i+1}/${n}</span>`}</div>
+  <div class="qcard"><p class="qtag">${q.tf?'Verdadeiro ou falso? · ':''}${tagOf(q.tid)}</p><h2 class="q">${q.q}</h2>
+  <div class="opts ${q.tf?'tfrow':''}">${q.opts.map((o,k)=>`<button class="opt" onclick="answer(${k})">${q.tf?(k?'❌ ':'✅ '):`<span class="l">${'ABCD'[k]}</span>`}${o}</button>`).join('')}</div><div id="fb"></div></div>
+  ${Q.mode==='flash'?`<p class="intro" style="text-align:center;margin-top:12px">Acertos: <b>${Q.score}</b>${Q.combo>1?` · combo x${Q.combo} 🔥`:''}</p>`:''}`;
+}
+function answer(k){
+  if(!Q||Q.ans)return;Q.ans=true;const q=Q.qs[Q.i],ok=q.opts[k]===q.a;
+  document.querySelectorAll('.opt').forEach((b,j)=>{b.disabled=true;if(q.opts[j]===q.a)b.classList.add('right');else if(j===k)b.classList.add('wrong');});
+  if(ok){Q.score++;Q.combo++;addXP(Q.mode==='flash'?4+Math.min(Q.combo,6):10);}else{Q.combo=0;Q.wrong.push(q);}
+  if(Q.mode==='flash'){Q.i++;setTimeout(()=>{if(Q&&!Q.ended)drawQ()},ok?420:1000);return;}
+  const last=Q.i+1>=Q.qs.length;
+  $('#fb').innerHTML=`<div class="exp ${ok?'ok':'bad'}"><b>${ok?praise():'Quase! A resposta é: '+q.a}</b>${q.exp}</div><button class="btn primary full" onclick="Q.i++;drawQ();window.scrollTo(0,0)">${last?'Ver resultado':'Próxima →'}</button>`;
+  setTimeout(()=>{const f=$('#fb');if(f)f.scrollIntoView({behavior:'smooth',block:'nearest'})},50);
+}
+function quitQ(){const b=Q&&Q.back;stopQ();b?b():go('home');}
+function endQuiz(){
+  if(!Q||Q.ended)return;Q.ended=true;clearInterval(Q.timer);
+  const n=Q.mode==='flash'?Q.i:Q.qs.length,pct=n?Math.round(Q.score/n*100):0;
+  if(Q.tid){S.best[Q.tid]=Math.max(S.best[Q.tid]||0,pct);save();}
+  if(Q.report){const by={};Q.qs.forEach(q=>{(by[q.tid]=by[q.tid]||{n:0,ok:0}).n++});Q.qs.forEach(q=>{if(!Q.wrong.includes(q))by[q.tid].ok++});
+    Object.keys(by).forEach(id=>{const v=Math.round(by[id].ok/by[id].n*100);S.best[id]=Math.max(S.best[id]||0,Math.min(v,(S.best[id]||0)+20));});save();Q.by=by;}
+  if(pct>=70&&n>=3)confetti();
+  const msg=Q.mode==='flash'?(Q.score>=12?'Velocidade da luz! ⚡':Q.score>=6?'Muito bom!':'Bora treinar mais um pouco!'):pct===100?'Gabaritou! 🏆':pct>=70?'Mandou muito bem! 🎉':pct>=50?'Tá no caminho certo 💪':'Bora revisar e tentar de novo 📚';
+  let rep='';
+  if(Q.by){const arr=Object.entries(Q.by).map(([id,v])=>[id,v,v.ok/v.n]).sort((a,b)=>a[2]-b[2]);const weak=arr[0];
+    rep=`<div class="report">${arr.map(([id,v])=>`<div class="r">${tagOf(id)}<span style="color:${v.ok===v.n?'var(--ok)':v.ok?'var(--ink)':'var(--bad)'}">${v.ok}/${v.n}</span></div>`).join('')}</div>
+    ${weak[2]<1?`<div class="btns"><button class="btn goldb full" onclick="go('topic',{id:'${weak[0]}',tab:'sum'})">Revisar o ponto fraco: ${T(weak[0]).t}</button></div>`:''}`;}
+  const B=Q.back;window._back=B;
+  app.innerHTML=`<div class="res"><p class="qtag">${Q.title}</p><div class="score" style="--p:${pct}"><div>${Q.mode==='flash'?Q.score:pct+'%'}</div></div>
+  <h2 class="serif">${msg}</h2><p>${Q.mode==='flash'?`${Q.score} acertos em ${n} respostas`:`${Q.score} de ${n} corretas`}</p>${rep}
+  <div class="btns"><button class="btn primary" onclick="window._back()">Jogar de novo</button><button class="btn" onclick="go('home')">Início</button></div>
+  ${Q.wrong.length?`<div class="rev"><h2 class="sec" style="margin-top:20px">Revise seus erros</h2>${Q.wrong.map(q=>`<div class="item"><b>${q.q}</b><div class="a">✓ ${q.a}</div><div class="x">${q.exp}</div></div>`).join('')}</div>`:''}</div>`;
+  Q=null;window.scrollTo(0,0);
+}
+
+/* ================== FLASHCARDS (repetição espaçada) ================== */
+const INT=[0,1,2,4,7,14];
+const card=k=>{const[id,i]=k.split(':');const t=T(id);return{t,f:t.cards[+i][0],b:t.cards[+i][1]}};
+function dueKeys(){const d=today(),all=TOPICS.flatMap(t=>t.cards.map((c,i)=>t.id+':'+i));const due=all.filter(k=>S.box[k]&&S.box[k].d<=d);const fresh=shuffle(all.filter(k=>!S.box[k])).slice(0,Math.max(0,12-due.length));return shuffle(due).concat(fresh);}
+let R=null;
+function startReview(keys,title){stopQ();if(!keys.length){app.innerHTML=`<div class="empty"><p style="font-size:44px">🎉</p><h2 class="serif">Tudo revisado por hoje!</h2><p>Volte amanhã para a próxima revisão — ou jogue um quiz enquanto isso.</p><div class="btns"><button class="btn primary" onclick="go('games')">Ir para os jogos</button></div></div>`;return;}
+  R={keys:shuffle(keys),i:0,ok:0,title};drawCard();window.scrollTo(0,0);}
+function drawCard(){
+  if(R.i>=R.keys.length){const p=Math.round(R.ok/R.keys.length*100);if(p>=70)confetti();
+    app.innerHTML=`<div class="res"><p class="qtag">${R.title}</p><div class="score" style="--p:${p}"><div>${R.ok}/${R.keys.length}</div></div><h2 class="serif">${p>=70?'Memória afiada! 🧠':'Cada repetição fortalece a memória 💪'}</h2><p>Os cartões que você não lembrou vão aparecer de novo amanhã.</p><div class="btns"><button class="btn primary" onclick="go('home')">Início</button><button class="btn" onclick="go('games')">Jogos</button></div></div>`;R=null;return;}
+  const c=card(R.keys[R.i]);
+  app.innerHTML=`<div class="qhead"><button class="ghost" onclick="go('home')">✕</button><div class="pbar"><i style="width:${R.i/R.keys.length*100}%"></i></div><span class="count">${R.i+1}/${R.keys.length}</span></div>
+  <div class="flip" id="fl" onclick="flipC()"><div class="fc"><div class="face f"><span class="tg">${SUBJ[c.t.s].e} ${c.t.t}</span><div class="t">${c.f}</div><small>Tente lembrar · toque para virar</small></div><div class="face b"><span class="tg">${c.f}</span><div class="d">${c.b}</div></div></div></div>
+  <div id="rt"><button class="btn primary full" onclick="flipC()">Virar cartão</button></div>`;
+}
+function flipC(){const f=$('#fl');if(f.classList.contains('on'))return;f.classList.add('on');$('#rt').innerHTML=`<p class="intro" style="text-align:center;margin-bottom:8px">Você lembrou?</p><div class="rate"><button class="btn no" onclick="rate(0)">😕 Não lembrei</button><button class="btn yes" onclick="rate(1)">😄 Lembrei!</button></div>`;}
+function rate(ok){const k=R.keys[R.i],b=S.box[k]?S.box[k].b:0,nb=ok?Math.min(b+1,5):1;S.box[k]={b:nb,d:today()+(ok?INT[nb]:1)};if(ok){R.ok++;addXP(4)}else save();R.i++;drawCard();}
+
+/* ================== LINHA DO TEMPO ================== */
+let L=null;
+function startLine(s){stopQ();const pool=shuffle(TL.filter(e=>s==='all'||e[2]===s));const pick=[];for(const e of pool){if(pick.length>=5)break;if(!pick.some(p=>p[0]===e[0]))pick.push(e);}L={s,items:shuffle(pick),done:false};drawLine();window.scrollTo(0,0);}
+function drawLine(){
+  const sorted=L.items.slice().sort((a,b)=>a[0]-b[0]);let right=0;
+  const rows=L.items.map((e,i)=>{const ok=L.done&&sorted[i]===e;if(ok)right++;return `<div class="tli ${L.done?(ok?'ok':'bad'):''}"><span class="yr">${e[0]}</span><span>${e[1]}</span>${L.done?'':`<span class="mv"><button onclick="mvL(${i},-1)" ${i?'':'disabled style="opacity:.3"'}>▲</button><button onclick="mvL(${i},1)" ${i<L.items.length-1?'':'disabled style="opacity:.3"'}>▼</button></span>`}</div>`}).join('');
+  if(L.done&&!L.paid){L.paid=1;addXP(right*5);if(right===5)confetti();}
+  app.innerHTML=`<div class="qhead"><button class="ghost" onclick="go('pick','linha')">✕</button><h2 class="serif" style="font-size:22px">🗓️ Linha do Tempo</h2></div>
+  <p class="intro">Organize do <b>mais antigo (topo)</b> para o <b>mais recente</b> usando as setas.</p>
+  <div class="tl ${L.done?'done':''}">${rows}</div>
+  ${L.done?`<div class="exp ${right===5?'ok':'bad'}"><b>${right===5?'Ordem perfeita! 🎉':right+' de 5 na posição certa'}</b>Ordem correta: ${sorted.map(e=>e[0]+' – '+e[1]).join(' → ')}</div><div class="btns"><button class="btn primary" onclick="startLine(L.s)">Nova rodada</button><button class="btn" onclick="go('home')">Início</button></div>`:`<button class="btn primary full" onclick="L.done=true;drawLine()">Conferir ordem</button>`}`;
+}
+function mvL(i,d){const j=i+d;[L.items[i],L.items[j]]=[L.items[j],L.items[i]];drawLine();}
+
+/* ================== LIGUE OS PARES ================== */
+let P=null;
+function startPairs(s){stopQ();const all=bySubj(s).flatMap(t=>t.cards.map(c=>({f:c[0],b:c[1]})));const items=shuffle(all).slice(0,5).map((x,i)=>Object.assign(x,{id:i}));P={s,items,left:shuffle(items),right:shuffle(items),sel:null,done:{},err:0};drawPairs();window.scrollTo(0,0);}
+function drawPairs(){
+  const n=Object.keys(P.done).length,fin=n===P.items.length;
+  app.innerHTML=`<div class="qhead"><button class="ghost" onclick="go('pick','pares')">✕</button><div class="pbar"><i style="width:${n/5*100}%"></i></div><span class="count">${n}/5</span></div>
+  <p class="intro">Toque em um <b>conceito</b> e depois no <b>significado</b> certo.</p>
+  <div class="pairs"><div class="pcol">${P.left.map(x=>`<button class="pc term ${P.done[x.id]?'ok':''} ${P.sel===x.id?'sel':''}" ${P.done[x.id]?'disabled':''} onclick="selP(${x.id})">${x.f}</button>`).join('')}</div>
+  <div class="pcol">${P.right.map(x=>`<button class="pc ${P.done[x.id]?'ok':''}" id="pr${x.id}" ${P.done[x.id]?'disabled':''} onclick="matchP(${x.id})">${x.b}</button>`).join('')}</div></div>
+  ${fin?`<div class="exp ok" style="margin-top:16px"><b>${P.err===0?'Sem nenhum erro! 🏆':'Completou!'}</b>${P.err} erro(s) nesta rodada.</div><div class="btns"><button class="btn primary" onclick="startPairs(P.s)">Nova rodada</button><button class="btn" onclick="go('home')">Início</button></div>`:''}`;
+}
+function selP(id){P.sel=id;drawPairs();}
+function matchP(id){if(P.sel===null){toast('Escolha primeiro um conceito à esquerda');return;}
+  if(id===P.sel){P.done[id]=1;P.sel=null;addXP(5);const fin=Object.keys(P.done).length===P.items.length;drawPairs();if(fin&&P.err<=1)confetti();}
+  else{P.err++;const e=$('#pr'+id);e.classList.remove('no');void e.offsetWidth;e.classList.add('no');}}
+
+(function(){const f=document.querySelector('.bgfx');for(let i=0;i<22;i++){const d=document.createElement('i');d.className='dot';const z=2+Math.random()*4;d.style.cssText=`left:${Math.random()*100}%;width:${z}px;height:${z}px;animation-duration:${10+Math.random()*14}s;animation-delay:-${Math.random()*20}s`;f.appendChild(d);}})();
+render();
+</script>
+</body>
+</html>
