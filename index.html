@@ -2,22 +2,28 @@
 <html lang="pt-BR">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Sophia">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="manifest" href="manifest.json">
 <meta name="theme-color" content="#120D19">
-<meta name="description" content="Sophia - Estudos: História, Geografia e Química com resumos, flashcards, quizzes e jogos.">
+<meta name="description" content="Sophia - Estudos: História, Geografia, Química e Inglês com resumos, flashcards, quizzes e jogos.">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22%3E%3Crect width=%22100%22 height=%22100%22 rx=%2224%22 fill=%22%23E0479A%22/%3E%3Ctext x=%2250%22 y=%2270%22 font-size=%2260%22 text-anchor=%22middle%22 fill=%22white%22 font-family=%22Georgia%22 font-weight=%22bold%22%3ES%3C/text%3E%3C/svg%3E">
 <title>Sophia - Estudos</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,800&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
 <style>
-:root{color-scheme:dark;--bg:#120D19;--card:#1D1628;--ink:#F4EEF8;--mute:#A99FBC;--mute2:#CFC6DD;--line:#2F2640;--track:#2E2540;--plum:#E0479A;--plum2:#F472B6;--pinks:#3A1A33;--h:#E0663E;--hs:#3A2119;--g:#1A9E8A;--gs:#11302B;--q:#8B5CF6;--qs:#241B3D;--gold:#F5B942;--golds:#30251A;--ok:#3DCB7E;--oks:#132D1E;--bad:#F06767;--bads:#3A1A1E;--r:20px;--sh:0 1px 0 rgba(0,0,0,.2),0 10px 28px -12px rgba(0,0,0,.6)}
+:root{color-scheme:dark;--bg:#120D19;--card:#1D1628;--ink:#F4EEF8;--mute:#A99FBC;--mute2:#CFC6DD;--line:#2F2640;--track:#2E2540;--plum:#E0479A;--plum2:#F472B6;--pinks:#3A1A33;--h:#E0663E;--hs:#3A2119;--g:#1A9E8A;--gs:#11302B;--q:#8B5CF6;--qs:#241B3D;--i:#3B82F6;--is:#16233F;--gold:#F5B942;--golds:#30251A;--ok:#3DCB7E;--oks:#132D1E;--bad:#F06767;--bads:#3A1A1E;--r:20px;--sh:0 1px 0 rgba(0,0,0,.2),0 10px 28px -12px rgba(0,0,0,.6)}
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-body{font-family:Nunito,system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.5;-webkit-tap-highlight-color:transparent;padding-bottom:84px}
+body{font-family:Nunito,system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.5;-webkit-tap-highlight-color:transparent;padding-bottom:calc(88px + env(safe-area-inset-bottom));font-size:16px;-webkit-text-size-adjust:100%}
 button{font:inherit;color:inherit;border:0;background:none;cursor:pointer}
 h1,h2,h3,.serif{font-family:Fraunces,Georgia,serif;letter-spacing:-.01em}
 b{font-weight:800}
-.top{position:sticky;top:0;z-index:20;background:rgba(18,13,25,.7);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.top{position:sticky;top:0;z-index:20;background:rgba(18,13,25,.7);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
 .top .in{max-width:760px;margin:0 auto;display:flex;align-items:center;gap:10px;padding:10px 16px}
 .logo{display:flex;align-items:center;gap:8px;font-family:Fraunces,serif;font-weight:800;font-size:19px;color:var(--plum)}
 .logo .mk{width:30px;height:30px;border-radius:10px;background:var(--plum);color:#fff;display:grid;place-items:center;font-size:16px}
@@ -103,7 +109,7 @@ details.tip p{color:var(--mute2);margin-top:8px;font-size:15px}
 .timer.low{background:var(--bads);color:var(--bad)}
 .qcard{background:var(--card);border-radius:24px;padding:20px;box-shadow:var(--sh);border:1px solid var(--line)}
 .qtag{font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.06em;color:var(--mute);margin-bottom:6px}
-.q{font-size:21px;line-height:1.3;margin-bottom:16px}
+h2.q{font-size:21px;line-height:1.3;margin-bottom:16px}
 .opts{display:flex;flex-direction:column;gap:10px}
 .opt{display:flex;gap:12px;align-items:center;text-align:left;padding:13px 14px;border-radius:14px;border:2px solid var(--line);background:var(--card);font-weight:700;font-size:15.5px;transition:all .15s}
 .opt .l{width:30px;height:30px;border-radius:9px;background:var(--bg);display:grid;place-items:center;font-weight:900;flex:none;font-size:14px}
@@ -167,8 +173,8 @@ details.tip p{color:var(--mute2);margin-top:8px;font-size:15px}
 .pc.ok{border-color:var(--ok);background:var(--oks);opacity:.6}
 .pc.no{animation:shake .35s;border-color:var(--bad)}
 @keyframes shake{25%{transform:translateX(-5px)}75%{transform:translateX(5px)}}
-nav.bot{position:fixed;bottom:0;left:0;right:0;background:rgba(18,13,25,.82);backdrop-filter:blur(10px);border-top:1px solid var(--line);z-index:30;padding-bottom:env(safe-area-inset-bottom)}
-nav.bot .in{max-width:760px;margin:0 auto;display:grid;grid-template-columns:repeat(5,1fr)}
+nav.bot{position:fixed;bottom:0;left:0;right:0;background:rgba(18,13,25,.82);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border-top:1px solid var(--line);z-index:30;padding-bottom:env(safe-area-inset-bottom)}
+nav.bot .in{max-width:760px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr)}
 nav.bot button{padding:9px 0 10px;display:flex;flex-direction:column;align-items:center;gap:1px;font-size:12px;font-weight:800;color:var(--mute)}
 nav.bot button span{font-size:21px;filter:grayscale(1);opacity:.7}
 nav.bot button.on{color:var(--plum)}
@@ -179,7 +185,7 @@ nav.bot button.on span{filter:none;opacity:1}
 @keyframes fall{to{transform:translateY(110vh) rotate(720deg)}}
 .empty{text-align:center;padding:30px 10px;color:var(--mute);font-weight:700}
 .read{display:flex;align-items:center;gap:8px;justify-content:center;font-weight:800}
-@media (max-width:420px){.games{grid-template-columns:1fr}.hero h1{font-size:34px}.q{font-size:19px}}
+@media (max-width:420px){.games{grid-template-columns:1fr}.hero h1{font-size:34px}h2.q{font-size:19px}}
 
 body{position:relative}
 .bgfx{position:fixed;inset:0;z-index:-1;overflow:hidden;pointer-events:none}
@@ -204,32 +210,131 @@ body{position:relative}
 .box.q b{color:#C4B5FD}
 .chip.q{border-color:rgba(139,92,246,.6)}
 .subjs{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-.subjs .subj:nth-child(3){grid-column:1/-1;min-height:auto}
+.subjs .subj:nth-child(odd):last-child{grid-column:1/-1;min-height:auto}
 .mnem{background:linear-gradient(135deg,rgba(224,71,154,.18),rgba(139,92,246,.18));border:1px solid rgba(244,114,182,.4);border-radius:18px;padding:16px 18px;margin-bottom:12px;font-size:15.5px}
 .mnem .mt{font-weight:900;color:var(--plum2);font-size:13px;text-transform:uppercase;letter-spacing:.06em;margin-bottom:4px}
 .mnem b{color:#FBCFE8}
 nav.bot button{font-size:11px}
+
+.subj.i,.shead.i{background:var(--i)}
+.thead.i{background:var(--is)}.thead.i .k{color:#93C5FD}
+.trow.i .em{background:var(--is)}
+.box.i b{color:#93C5FD}
+.chip.i{border-color:rgba(59,130,246,.6)}
+.pass{background:var(--bg);border:1px solid var(--line);border-left:4px solid var(--i);border-radius:14px;padding:12px 14px;font-size:14.5px;line-height:1.55;margin-bottom:14px;color:var(--mute2)}
+.pass b{color:var(--ink)}
+.vbase{font-family:Fraunces,serif;font-size:40px;font-weight:800;text-align:center}
+.vpt{text-align:center;color:var(--mute);font-weight:700;margin-bottom:16px}
+.vin{width:100%;font:inherit;font-size:22px;font-weight:800;text-align:center;padding:14px;border-radius:14px;border:2px solid var(--line);background:var(--bg);color:var(--ink);outline:none}
+.vin:focus{border-color:var(--plum2)}
+.vin.ok{border-color:var(--ok);background:var(--oks)}.vin.bad{border-color:var(--bad);background:var(--bads)}
+
+.top{padding-top:env(safe-area-inset-top)}
+.top .in,.wrap{padding-left:max(16px,env(safe-area-inset-left));padding-right:max(16px,env(safe-area-inset-right))}
+.gear{width:34px;height:34px;border-radius:11px;display:grid;place-items:center;background:var(--card);border:1px solid var(--line);color:var(--mute2)}
+nav.bot button{gap:3px;font-size:12px;padding:8px 0 9px;min-height:56px}
+nav.bot button svg{width:24px;height:24px}
+nav.bot button.on{color:var(--plum2)}
+.box li{font-size:16.5px}
+.muted{color:var(--mute);font-weight:700;font-size:14px}
+.pt{font-family:Fraunces,Georgia,serif;font-size:32px;margin:4px 2px 6px}
+.greet{margin:2px 2px 14px}.greet p{color:var(--mute);font-weight:800;font-size:15px}.greet h1{font-size:40px;line-height:1.05}
+.stack{display:flex;flex-direction:column;gap:14px}
+.homegrid{display:grid;gap:14px}
+.examcard{border-radius:26px;padding:20px;background:linear-gradient(135deg,#6B2A8C,#C7357F 65%,#E0479A);color:#fff;display:flex;flex-direction:column;gap:14px;box-shadow:0 14px 36px -14px rgba(236,72,153,.6)}
+.exhead{display:flex;justify-content:space-between;align-items:flex-start;gap:12px}
+.examcard .lb{font-size:12px;font-weight:900;letter-spacing:.08em;text-transform:uppercase;color:#FCE7F3}
+.examcard .nm{font-family:Fraunces,Georgia,serif;font-size:28px;font-weight:800;line-height:1.15}
+.examcard .exsub{color:#FCE7F3;font-weight:700;font-size:14.5px;margin-top:4px}
+.examcard .num{font-family:Fraunces,Georgia,serif;font-size:46px;line-height:1;font-weight:800;text-align:right;white-space:nowrap}
+.examcard .num small{display:block;font-family:Nunito,sans-serif;font-size:13px;font-weight:800;color:#FCE7F3;margin-top:2px}
+.chips2{display:flex;gap:6px;flex-wrap:wrap}.chips2 span{background:rgba(255,255,255,.18);padding:5px 10px;border-radius:99px;font-size:13px;font-weight:800}
+.cta{display:flex;align-items:center;justify-content:space-between;gap:10px;background:#fff;color:#3B1238;border-radius:16px;padding:14px 16px;text-align:left;width:100%;min-height:56px}
+.cta b{display:block;font-size:17px;font-weight:900}.cta small{color:#7A3E6E;font-weight:700;font-size:14px}
+.cta2{display:flex;align-items:center;justify-content:center;gap:8px;background:#fff;color:#3B1238;border-radius:16px;padding:14px;font-weight:900;font-size:16px;min-height:52px}
+.cta2 svg{stroke:#C7357F}
+.plan2{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:14px 12px;display:flex;flex-direction:column;gap:2px}
+.plan2 .hd{display:flex;justify-content:space-between;align-items:center;font-weight:900;font-size:17px;padding:2px 6px 8px}
+.pi{display:flex;align-items:center;gap:12px;padding:10px 6px;border-radius:14px;text-align:left;font-weight:800;width:100%;font-size:16px;min-height:52px}
+.pi:active{background:rgba(255,255,255,.04)}
+.pi .ck{width:24px;height:24px;border-radius:50%;border:2px solid #4A3F5E;flex:none;display:grid;place-items:center;box-sizing:border-box}
+.pi.next .ck{border-color:var(--plum2)}
+.pi.done .ck{background:var(--ok);border-color:var(--ok)}
+.pi.done .tx{text-decoration:line-through;color:var(--mute)}
+.pi small{display:block;color:var(--mute);font-weight:700;font-size:13.5px;text-decoration:none}
+.pi .chev,.row .chev{margin-left:auto;color:var(--mute);display:flex}
+.subj4{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.sc{border-radius:20px;padding:14px 16px;color:#fff;text-align:left;display:flex;flex-direction:column;gap:6px;min-height:118px}
+.sc.h{background:var(--h)}.sc.g{background:var(--g)}.sc.q{background:#7C4DE8}.sc.i{background:#2F6FE0}
+.sct{display:flex;justify-content:space-between;align-items:center}.sce{font-size:24px}
+.scd{background:rgba(0,0,0,.22);padding:3px 9px;border-radius:99px;font-size:12.5px;font-weight:900}
+.sc b{font-family:Fraunces,Georgia,serif;font-size:20px}.sc small{font-weight:800;opacity:.92;font-size:13px}
+.sc .mini{margin-top:auto}
+.subj4.big .sc{min-height:150px}
+.row{display:flex;align-items:center;gap:12px;background:var(--card);border:1px solid var(--line);border-radius:18px;padding:12px 14px;text-align:left;width:100%;min-height:64px}
+.row .ri{width:42px;height:42px;border-radius:13px;display:grid;place-items:center;flex:none}
+.row b{display:block;font-weight:900}.row small{color:var(--mute);font-weight:700;font-size:14px}
+.thead .exchip{display:inline-block;margin-top:8px;background:rgba(255,255,255,.08);border:1px solid var(--line);padding:4px 10px;border-radius:99px;font-weight:800;font-size:13.5px}
+.field{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 0;border-bottom:1px solid var(--line)}
+.field:last-of-type{border-bottom:0}
+.field label,.field>span:first-child{display:flex;flex-direction:column}
+.field small{color:var(--mute);font-weight:700;font-size:13.5px}
+.fr{display:flex;align-items:center;gap:6px}
+input[type=date]{-webkit-appearance:none;appearance:none;background:var(--bg);color:var(--ink);border:1.5px solid var(--line);border-radius:12px;padding:10px 12px;font:inherit;font-size:16px;font-weight:700;color-scheme:dark;min-height:46px;min-width:150px}
+.x{width:40px;height:40px;border-radius:12px;background:var(--bads);color:var(--bad);font-weight:900}
+.note{color:var(--mute);font-size:14px;font-weight:600;margin-top:10px}
+.sw{width:56px;height:32px;border-radius:99px;background:var(--track);position:relative;flex:none;transition:background .2s}
+.sw i{position:absolute;top:3px;left:3px;width:26px;height:26px;border-radius:50%;background:#fff;transition:transform .2s}
+.sw.on{background:var(--plum)}.sw.on i{transform:translateX(24px)}
+.btn.danger{background:var(--bads);color:var(--bad);border-color:rgba(240,103,103,.4)}
+.lvl{margin-top:2px;display:flex;align-items:center;gap:10px;font-weight:800;font-size:14px}
+.pbox{padding:14px 16px}.pbh{display:flex;justify-content:space-between;margin-bottom:8px;font-size:17px}.pbh span{font-weight:900}
+.prow{display:grid;grid-template-columns:minmax(0,1.3fr) 1fr 42px;gap:10px;align-items:center;padding:6px 0;font-size:14.5px;font-weight:700}
+.prow>span:first-child{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.pbar2{height:7px;background:var(--track);border-radius:7px;overflow:hidden}.pbar2 i{display:block;height:100%;border-radius:7px}
+.pv{text-align:right;color:var(--mute);font-weight:800}
+.item2{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--bad);border-radius:14px;padding:11px 14px;margin-bottom:8px}
+.item2 small{display:block;color:var(--mute);font-weight:800;font-size:12.5px}
+.calm .bgfx *{animation:none!important}.calm .bgfx .dot{display:none}
+@media (min-width:768px){
+ .wrap{max-width:1000px;padding-top:26px}
+ .top .in{max-width:1000px}
+ .homegrid{grid-template-columns:1.1fr 1fr;align-items:start}
+ .greet h1{font-size:46px}
+ .games{grid-template-columns:repeat(3,1fr)}
+ .tlist{display:grid;grid-template-columns:1fr 1fr}
+ .subj4.big{grid-template-columns:repeat(4,1fr)}
+ nav.bot .in{max-width:560px}
+ h2.q{font-size:24px}
+ .opt{font-size:17px;padding:16px}
+ .flip .fc{min-height:320px}
+ .face .t{font-size:32px}.face .d{font-size:22px}
+ .pass{font-size:16px}
+}
 </style>
 </head>
 <body>
 <div class="bgfx" aria-hidden="true"><div class="grid"></div><i class="blob b1"></i><i class="blob b2"></i><i class="blob b3"></i><i class="blob b4"></i></div>
 <header class="top"><div class="in">
-  <button class="logo" onclick="go('home')"><span class="mk">S</span>Sophia <small>Estudos</small></button>
-  <div class="pills"><span class="pill" id="pStreak">🔥 0</span><span class="pill" id="pXp">⭐ 0 XP</span></div>
+  <button class="logo" aria-label="Início" onclick="go('home')"><span class="mk">S</span>Sophia <small>Estudos</small></button>
+  <div class="pills"><span class="pill" id="pStreak">🔥 0</span><span class="pill" id="pXp">⭐ 0 XP</span><button class="gear" aria-label="Configurações" onclick="go('config')"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg></button></div>
 </div></header>
 <main class="wrap" id="app"></main>
-<nav class="bot"><div class="in">
-  <button data-n="home" onclick="go('home')"><span>🏠</span>Início</button>
-  <button data-n="h" onclick="go('subj','h')"><span>🏛️</span>História</button>
-  <button data-n="g" onclick="go('subj','g')"><span>🌍</span>Geografia</button>
-  <button data-n="q" onclick="go('subj','q')"><span>⚗️</span>Química</button>
-  <button data-n="games" onclick="go('games')"><span>🎮</span>Jogos</button>
+<nav class="bot" aria-label="Navegação principal"><div class="in">
+  <button data-n="home" onclick="go('home')"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"><path d="M3 10l9-7 9 7v10a1 1 0 0 1-1 1h-5v-6h-6v6H4a1 1 0 0 1-1-1z"/></svg>Início</button>
+  <button data-n="mat" onclick="go('materias')"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"><path d="M4 4h11a3 3 0 0 1 3 3v13H7a3 3 0 0 1-3-3z"/><path d="M8 8h6"/></svg>Matérias</button>
+  <button data-n="games" onclick="go('games')"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><rect x="2" y="7" width="20" height="11" rx="5"/><path d="M7 11v3M5.5 12.5h3M15 12h.01M18 13h.01"/></svg>Jogos</button>
+  <button data-n="prog" onclick="go('progresso')"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M4 20V11M10 20V5M16 20v-6M20 20H2"/></svg>Progresso</button>
 </div></nav>
 <div class="toast" id="toast"></div>
 
 <script>
 /* ================== CONTEÚDO ================== */
-const SUBJ={h:{n:'História',e:'🏛️'},g:{n:'Geografia',e:'🌍'},q:{n:'Química',e:'⚗️'}};
+const SUBJ={h:{n:'História',e:'🏛️'},g:{n:'Geografia',e:'🌍'},q:{n:'Química',e:'⚗️'},i:{n:'Inglês',e:'🔤'}};
+const TXT={
+a:"<b>A Day at the Beach</b><br>Last Saturday, Lucas and his sister Maria went to the beach with their parents. They left home early, at 7 a.m., because the beach was far from their city. When they arrived, the sun was hot and the sea was calm. Lucas swam for an hour, but Maria preferred to read a book under an umbrella. At lunchtime, they ate fish and drank fresh coconut water. In the afternoon, it started to rain, so they went back home. Lucas said it was the best day of his summer.",
+b:"<b>From:</b> Julia · <b>To:</b> Ana<br>Hi Ana,<br>How are you? I'm writing to tell you about my trip to London. I arrived there on Monday and stayed for five days. On the first day, I visited the British Museum. It was enormous! On Wednesday, I took a boat on the River Thames and saw Big Ben. The weather wasn't good: it rained almost every day. However, I loved the city. I bought a small gift for you. I can't wait to see you!<br>Love,<br>Julia"};
+const VERBS=[["be","was/were","ser/estar"],["have","had","ter"],["do","did","fazer"],["go","went","ir"],["get","got","conseguir/pegar"],["make","made","fazer"],["say","said","dizer"],["see","saw","ver"],["come","came","vir"],["take","took","pegar/levar"],["eat","ate","comer"],["drink","drank","beber"],["write","wrote","escrever"],["read","read","ler"],["speak","spoke","falar"],["buy","bought","comprar"],["bring","brought","trazer"],["think","thought","pensar"],["teach","taught","ensinar"],["catch","caught","pegar/apanhar"],["know","knew","saber/conhecer"],["give","gave","dar"],["find","found","encontrar"],["leave","left","sair/deixar"],["feel","felt","sentir"],["sleep","slept","dormir"],["meet","met","encontrar/conhecer"],["run","ran","correr"],["swim","swam","nadar"],["begin","began","começar"],["sing","sang","cantar"],["put","put","colocar"],["cut","cut","cortar"],["fly","flew","voar"],["break","broke","quebrar"],["choose","chose","escolher"],["forget","forgot","esquecer"],["lose","lost","perder"],["win","won","vencer"],["tell","told","contar"],["sit","sat","sentar"],["understand","understood","entender"],["pay","paid","pagar"],["send","sent","enviar"],["build","built","construir"],["ride","rode","andar (de bicicleta/cavalo)"],["work","worked","trabalhar"],["play","played","jogar/brincar"],["study","studied","estudar"],["stop","stopped","parar"],["live","lived","morar"],["try","tried","tentar"],["plan","planned","planejar"],["watch","watched","assistir"],["dance","danced","dançar"],["want","wanted","querer"],["visit","visited","visitar"],["cry","cried","chorar"],["enjoy","enjoyed","aproveitar"],["arrive","arrived","chegar"]];
 const TOPICS=[
 /* ---------- HISTÓRIA ---------- */
 {id:'seg',s:'h',t:'Segundo Reinado',e:'👑',per:'1840–1889',
@@ -607,6 +712,88 @@ quiz:[
 ["Os canos de água costumam ser feitos de:","PVC",["PET","Teflon","Baquelite"],"PVC = policloreto de vinila."]],
 tf:[["Na polimerização por adição, os monômeros possuem dupla ligação.",true,"A dupla se abre para que os monômeros se liguem uns aos outros."],["A baquelite é um termoplástico fácil de reciclar.",false,"A baquelite é um termofixo: depois de pronta, não amolece."],["Proteínas e amido são exemplos de polímeros naturais.",true,"Proteínas são formadas por aminoácidos e o amido, por glicose."],["O PET é usado em garrafas de refrigerante.",true,"É um poliéster obtido por condensação."]],
 why:[["Por que os plásticos são um problema ambiental?","A maioria demora centenas de anos para se decompor, se acumula em lixões e oceanos e se quebra em microplásticos, que entram na cadeia alimentar."],["Qual a diferença entre polimerização por adição e por condensação?","Na adição, monômeros com dupla ligação se unem sem perder nada. Na condensação, cada ligação entre monômeros libera uma molécula pequena, como a água."]]}
+,
+/* ---------- INGLÊS ---------- */
+{id:'sp',s:'i',t:'Simple Past',e:'⏪',per:'Inglês · Estrutura do passado simples',
+mnem:"<b>DID</b> é o 'detetive do passado': quando ele aparece (perguntas e negativas), o verbo <b>volta para a forma base</b>. <i>Did you <b>go</b>?</i> ✓ — <i>Did you went?</i> ✗. E o verbo <b>to be</b> não usa did: <i>Were you...? / I wasn't...</i>",
+sum:[
+["Quando usar",["Para ações <b>completamente terminadas no passado</b>, em um momento definido.","Ex.: <i>I <b>visited</b> my grandma yesterday.</i> (Eu visitei minha avó ontem.)","Palavras que indicam passado: <b>yesterday</b>, <b>last</b> week/month/year, <b>ago</b> (two days ago), <b>in</b> 2020, <b>when</b> I was a child."]],
+["Afirmativa",["Sujeito + <b>verbo no passado</b> + complemento.","Regulares: + <b>-ed</b> (play → played). Irregulares: forma própria (go → went).","A forma é <b>igual para todas as pessoas</b>: I/you/he/she/it/we/they <b>played</b>. Não tem -s na 3ª pessoa!"]],
+["Negativa",["Sujeito + <b>did not (didn't)</b> + <b>verbo na forma base</b>.","Ex.: <i>She <b>didn't go</b> to school.</i> (e não 'didn't went')."]],
+["Interrogativa",["<b>Did</b> + sujeito + <b>verbo na forma base</b> + ?","Ex.: <i><b>Did</b> you <b>watch</b> the movie?</i>","Respostas curtas: <i>Yes, I <b>did</b>.</i> / <i>No, I <b>didn't</b>.</i>","Com palavras interrogativas: <i><b>Where did</b> you <b>go</b>? <b>What did</b> she <b>eat</b>?</i>"]],
+["Verbo to be no passado",["O <b>to be</b> é especial: <b>was</b> (I, he, she, it) e <b>were</b> (you, we, they).","Não usa did! Negativa: <i>wasn't / weren't</i>. Pergunta: <i><b>Were</b> you at home?</i>"]]],
+cards:[["Simple past","Ações terminadas no passado"],["Did","Auxiliar do passado em perguntas e negativas"],["Didn't","= did not (forma negativa)"],["Yesterday","Ontem"],["Last week","Semana passada"],["Ago","Atrás (two days ago = dois dias atrás)"],["Was","Passado de to be para I, he, she, it"],["Were","Passado de to be para you, we, they"]],
+quiz:[
+["Qual frase está correta?","She didn't go to the party.",["She didn't went to the party.","She don't went to the party.","She not go to the party."],"Depois de didn't, o verbo volta para a forma base: go."],
+["Complete: ___ you study yesterday?","Did",["Do","Does","Was"],"Yesterday indica passado. Perguntas no simple past usam Did + verbo na forma base."],
+["Qual expressão indica simple past?","Last year",["Tomorrow","Now","Every day"],"Last year = ano passado. Tomorrow é futuro; now e every day, presente."],
+["Complete: They ___ at the cinema last night.","were",["was","are","did"],"They usa were no passado do verbo to be."],
+["Complete: I ___ happy yesterday.","was",["were","am","did"],"I usa was no passado do verbo to be."],
+["Qual é a negativa de 'He played soccer'?","He didn't play soccer.",["He didn't played soccer.","He doesn't played soccer.","He wasn't play soccer."],"Didn't + forma base: play (sem -ed)."],
+["'Did you like the movie?' — 'Yes, ___.'","I did",["I liked","I do","I was"],"A resposta curta usa o auxiliar: Yes, I did. / No, I didn't."],
+["'Two days ago' significa:","Dois dias atrás",["Daqui a dois dias","Por dois dias seguidos","Todos os dias"],"Ago vem depois do tempo e indica passado."]],
+tf:[["No simple past, a 3ª pessoa recebe -s: 'She playeds'.",false,"O passado é igual para todas as pessoas: she played."],["Em perguntas com did, o verbo principal fica na forma base.",true,"Did you go? — o passado já está no did."],["O to be no passado usa did nas perguntas: 'Did you were...?'",false,"To be não usa did: Were you...? / Was she...?"],["'Yesterday' é uma expressão de passado.",true,"Yesterday = ontem."]],
+why:[["Por que dizemos 'Did you go?' e não 'Did you went?'","Porque o did já mostra que é passado. Se o verbo também ficasse no passado, o passado apareceria duas vezes — então o verbo volta para a forma base."],["Quando usar was/were e quando usar did?","Was/were são o passado do verbo to be (ser/estar): I was tired. Did é o auxiliar dos outros verbos: Did you eat? Nunca usamos os dois juntos."]]},
+
+{id:'reg',s:'i',t:'Regular verbs',e:'➕',per:'Inglês · Verbos regulares (-ed)',
+mnem:"Pronúncia do -ed: depois de <b>T ou D</b> → soa <b>/ɪd/</b> (want-ed, need-ed) e ganha uma sílaba. Nos outros casos o 'e' fica mudo: <b>/t/</b> (worked, watched) ou <b>/d/</b> (played, lived). Escrita: <b>consoante + y → ied</b> (study → studied); <b>vogal + y → yed</b> (play → played).",
+sum:[
+["Regra geral",["Verbos regulares formam o passado com <b>-ed</b>.","work → work<b>ed</b> · play → play<b>ed</b> · watch → watch<b>ed</b> · clean → clean<b>ed</b>."]],
+["Regras de escrita",["Terminado em <b>-e</b>: só acrescenta <b>-d</b>. live → live<b>d</b>, dance → dance<b>d</b>, like → like<b>d</b>.","<b>Consoante + y</b>: troca o y por <b>-ied</b>. study → stud<b>ied</b>, cry → cr<b>ied</b>, try → tr<b>ied</b>.","<b>Vogal + y</b>: só acrescenta -ed. play → play<b>ed</b>, enjoy → enjoy<b>ed</b>.","<b>Consoante–vogal–consoante</b> com a sílaba forte no final: <b>dobra</b> a última consoante. stop → sto<b>pped</b>, plan → pla<b>nned</b>, prefer → prefe<b>rred</b>.","Não dobra se terminar em w, x ou y: snow → snowed, fix → fixed."]],
+["Pronúncia do -ed",["<b>/ɪd/</b> (soa 'id'): verbos terminados em som de <b>t</b> ou <b>d</b>. wanted, needed, decided, visited.","<b>/t/</b>: depois de sons 'sem voz' (p, k, s, sh, ch, f). worked, stopped, watched, washed, laughed.","<b>/d/</b>: depois dos demais sons. played, lived, cleaned, called."]],
+["Regulares comuns",["ask, arrive, call, clean, close, cook, dance, finish, help, like, listen, live, love, need, open, play, start, stay, study, talk, try, visit, wait, walk, want, watch, work."]]],
+cards:[["study (estudar)","studied"],["stop (parar)","stopped"],["live (morar)","lived"],["play (jogar/brincar)","played"],["try (tentar)","tried"],["plan (planejar)","planned"],["watch (assistir)","watched"],["dance (dançar)","danced"],["enjoy (aproveitar)","enjoyed"]],
+quiz:[
+["Qual é o passado de 'study'?","studied",["studyed","studed","studding"],"Consoante + y: troca o y por -ied."],
+["Qual é o passado de 'stop'?","stopped",["stoped","stopt","stopping"],"Stop termina em consoante–vogal–consoante: dobra o p."],
+["Qual é o passado de 'dance'?","danced",["danceed","dancied","dancd"],"Verbo terminado em -e: só acrescenta -d."],
+["Qual é o passado de 'play'?","played",["plaied","playd","plaid"],"Vogal + y: só acrescenta -ed."],
+["Em qual verbo o -ed é pronunciado /ɪd/ (como 'id')?","wanted",["worked","played","watched"],"Depois de t ou d o -ed ganha som de /ɪd/: want-ed."],
+["Em qual verbo o -ed tem som de /t/?","watched",["needed","lived","played"],"Depois de sons como ch, o -ed soa /t/: 'watcht'."],
+["Qual destes verbos é regular?","work",["go","eat","see"],"Work → worked. Go, eat e see são irregulares."]],
+tf:[["O passado de 'try' é 'tryed'.",false,"Consoante + y vira -ied: tried."],["Verbos regulares formam o passado com -ed.",true,"Ex.: walk → walked."],["Em 'needed', o -ed é pronunciado como uma sílaba a mais.",true,"Depois de d (ou t), soa /ɪd/: need-ed."],["O passado de 'plan' é 'planed'.",false,"Plan termina em consoante–vogal–consoante: dobra o n → planned."]],
+why:[["Por que 'study' vira 'studied', mas 'play' vira 'played'?","Depende da letra antes do y. Em study, antes do y vem consoante (d), então troca por -ied. Em play, antes do y vem vogal (a), então só acrescenta -ed."],["Por que 'stop' vira 'stopped', com dois p?","Porque termina em consoante–vogal–consoante (t-o-p). Dobrar a consoante mantém o som curto da vogal."]]},
+
+{id:'irr',s:'i',t:'Irregular verbs',e:'🔀',per:'Inglês · Verbos irregulares',
+mnem:"Aprenda em <b>grupos</b>! <b>Não mudam</b>: cut, put, hit, let, cost. <b>-ought/-aught</b>: buy → bought, bring → brought, think → thought, teach → taught, catch → caught. <b>i → a</b>: begin → began, drink → drank, sing → sang, swim → swam. <b>-ow → -ew</b>: know → knew, grow → grew, fly → flew. Treine no <b>Desafio dos Verbos</b>!",
+sum:[
+["O que são",["Verbos irregulares <b>não seguem a regra do -ed</b>: cada um tem sua forma própria no passado.","São os mais usados no dia a dia, por isso aparecem muito em textos e provas.","Precisam ser <b>memorizados</b> — e o jeito mais eficiente é praticar lembrando (flashcards e Desafio dos Verbos), não só lendo a lista."]],
+["Os mais cobrados",["be → <b>was/were</b> · have → <b>had</b> · do → <b>did</b> · go → <b>went</b> · get → <b>got</b>","make → <b>made</b> · say → <b>said</b> · see → <b>saw</b> · come → <b>came</b> · take → <b>took</b>","eat → <b>ate</b> · drink → <b>drank</b> · write → <b>wrote</b> · read → <b>read</b> (pronuncia 'red') · speak → <b>spoke</b>","buy → <b>bought</b> · think → <b>thought</b> · know → <b>knew</b> · give → <b>gave</b> · find → <b>found</b>","leave → <b>left</b> · feel → <b>felt</b> · sleep → <b>slept</b> · meet → <b>met</b> · run → <b>ran</b>"]],
+["Grupos para memorizar",["<b>Iguais</b>: cut, put, hit, let, cost, shut.","<b>-ought / -aught</b>: bring → brought, buy → bought, think → thought, fight → fought, teach → taught, catch → caught.","<b>i → a</b>: begin → began, drink → drank, sing → sang, swim → swam, ring → rang.","<b>-ee / -ea → -e(p)t</b>: sleep → slept, keep → kept, feel → felt, meet → met, leave → left.","<b>-ow → -ew</b>: know → knew, grow → grew, throw → threw, fly → flew, draw → drew."]],
+["Lembre-se",["Na negativa e na pergunta, o irregular também volta à forma base: <i>I <b>went</b>. → I didn't <b>go</b>. → Did you <b>go</b>?</i>"]]],
+cards:[["go (ir)","went"],["eat (comer)","ate"],["see (ver)","saw"],["buy (comprar)","bought"],["take (pegar/levar)","took"],["write (escrever)","wrote"],["think (pensar)","thought"],["come (vir)","came"],["make (fazer)","made"],["have (ter)","had"],["drink (beber)","drank"],["know (saber)","knew"]],
+quiz:[
+["Qual é o passado de 'go'?","went",["goed","gone","goes"],"Go é irregular: go → went. (Gone é o particípio, usado em outros tempos.)"],
+["Qual é o passado de 'buy'?","bought",["buyed","brought","buied"],"Buy → bought. Cuidado: brought é o passado de bring (trazer)."],
+["Complete: Yesterday I ___ a pizza.","ate",["eated","eat","eats"],"Eat → ate."],
+["Qual é o passado de 'see'?","saw",["seed","seen","sees"],"See → saw. (Seen é o particípio.)"],
+["Qual verbo NÃO muda no passado?","put",["take","give","run"],"Put → put. Take → took, give → gave, run → ran."],
+["Complete: She didn't ___ the letter.","write",["wrote","writed","written"],"Depois de didn't, forma base: write."],
+["Qual é o passado de 'think'?","thought",["thinked","thank","taught"],"Think → thought. Taught é o passado de teach (ensinar)."],
+["'I had a dog.' Qual é a forma base do verbo?","have",["had","has","hold"],"Have → had."]],
+tf:[["O passado de 'take' é 'took'.",true,"Take → took."],["Todos os verbos em inglês formam o passado com -ed.",false,"Os irregulares têm formas próprias: go → went, eat → ate."],["'Read' no passado se escreve igual, mas se pronuncia 'red'.",true,"Read (/riːd/) → read (/rɛd/)."],["O passado de 'come' é 'comed'.",false,"Come → came."]],
+why:[["Por que vale a pena aprender os irregulares em grupos?","Porque o cérebro guarda melhor padrões do que listas soltas. Se você sabe que buy → bought, fica mais fácil lembrar que bring → brought e think → thought."],["Por que 'Did you saw?' está errado?","Porque o did já marca o passado; o verbo deve ficar na forma base: Did you see?"]]},
+
+{id:'rd',s:'i',t:'Interpretação de texto',e:'📖',per:'Inglês · Reading',
+mnem:"Antes de ler o texto, <b>leia as perguntas</b>. Depois: <b>1)</b> passe o olho no título e nas imagens (<b>skimming</b>); <b>2)</b> procure no texto as palavras das perguntas (<b>scanning</b>); <b>3)</b> use os <b>cognatos</b> como pistas — mas cuidado com os <b>falsos cognatos</b>!",
+sum:[
+["Estratégias de leitura",["<b>Leia as perguntas primeiro</b>: assim você já sabe o que procurar.","<b>Skimming</b>: leitura rápida para pegar a <b>ideia geral</b> (título, primeira e última frase de cada parágrafo, imagens).","<b>Scanning</b>: busca rápida por uma <b>informação específica</b> (nome, data, número, lugar).","<b>Palavras-chave</b>: sublinhe as palavras importantes da pergunta e encontre-as (ou sinônimos delas) no texto.","<b>Inferência</b>: às vezes a resposta não está escrita diretamente; use o contexto para deduzir."]],
+["Cognatos (amigos)",["Palavras <b>parecidas com o português</b> e com o mesmo significado.","Ex.: <i>important, family, hospital, music, problem, history, different, animal</i>."]],
+["Falsos cognatos (cuidado!)",["Parecem português, mas <b>significam outra coisa</b>:","<b>pretend</b> = fingir (não 'pretender') · <b>actually</b> = na verdade (não 'atualmente')","<b>push</b> = empurrar (não 'puxar') · <b>parents</b> = pais (não 'parentes')","<b>library</b> = biblioteca (não 'livraria') · <b>college</b> = faculdade (não 'colégio')","<b>fabric</b> = tecido (não 'fábrica') · <b>lunch</b> = almoço (não 'lanche')"]],
+["Pistas no texto",["<b>Conectivos</b> mostram a relação entre as ideias: <b>but / however</b> = contraste; <b>because</b> = causa; <b>so</b> = consequência; <b>and</b> = adição; <b>first, then, finally</b> = sequência.","<b>Referência</b>: pronomes como <i>he, she, it, they</i> retomam algo que já apareceu. Volte no texto e descubra a quem se referem.","<b>Gênero textual</b>: e-mail, notícia, anúncio, quadrinho... o formato ajuda a entender o objetivo do texto."]]],
+cards:[["pretend","fingir"],["actually","na verdade"],["push","empurrar"],["parents","pais"],["library","biblioteca"],["college","faculdade"],["however","porém, no entanto"],["because","porque"],["Skimming","Leitura rápida para a ideia geral"],["Scanning","Busca de uma informação específica"]],
+quiz:[
+["Who went to the beach?","Lucas, Maria and their parents",["Only Lucas and Maria","Lucas and his friends","Maria and her grandparents"],"'Lucas and his sister Maria went to the beach with their parents.' Lembre: parents = pais!",TXT.a],
+["Why did they leave home early?","Because the beach was far from their city",["Because it was raining","Because Maria wanted to read","Because they had lunch at 7 a.m."],"O conectivo because mostra a causa: 'because the beach was far from their city'.",TXT.a],
+["What did Maria do at the beach?","She read a book",["She swam for an hour","She played volleyball","She slept all day"],"'Maria preferred to read a book under an umbrella.' Quem nadou foi o Lucas.",TXT.a],
+["Why did they go back home?","It started to rain",["They were hungry","Lucas was tired","The sea was calm"],"'It started to rain, so they went back home.' So indica consequência.",TXT.a],
+["Em 'Lucas swam for an hour, BUT Maria preferred to read', a palavra 'but' indica:","Contraste",["Causa","Consequência","Adição"],"But = mas: mostra ideias opostas (um nadou, a outra preferiu ler).",TXT.a],
+["What is the main purpose of the text?","To tell a friend about a trip",["To sell tickets to London","To explain the history of London","To complain about a museum"],"É um e-mail pessoal: Julia conta para Ana sobre a viagem.",TXT.b],
+["How long did Julia stay in London?","Five days",["One day","Two weeks","A month"],"'I arrived there on Monday and stayed for five days.'",TXT.b],
+["In 'It was enormous!', the word 'It' refers to:","The British Museum",["London","The boat","The gift"],"O pronome it retoma o que foi citado logo antes: the British Museum.",TXT.b],
+["The word 'However' in the text expresses:","Contraste",["Causa","Tempo","Adição"],"However = porém. O tempo estava ruim, porém ela amou a cidade.",TXT.b]],
+tf:[["'Parents' significa 'parentes' em português.",false,"Parents = pais. Parentes = relatives."],["Skimming é uma leitura rápida para entender a ideia geral.",true,"Já o scanning é a busca por uma informação específica."],["'Actually' significa 'atualmente'.",false,"Actually = na verdade. Atualmente = nowadays ou currently."],["Ler as perguntas antes do texto ajuda a encontrar as respostas.",true,"Você já lê sabendo o que procurar."]],
+why:[["Por que é perigoso confiar só nos cognatos?","Porque existem falsos cognatos: palavras parecidas com o português, mas com outro significado (pretend = fingir, push = empurrar). Sempre confira pelo contexto."],["Como descobrir o significado de uma palavra desconhecida sem dicionário?","Use o contexto: veja as palavras ao redor, o assunto do texto, se ela parece com o português e qual a função dela na frase (ação, coisa ou característica)."]]}
 ];
 
 const TL=[[1840,"Golpe da Maioridade",'h'],[1850,"Lei Eusébio de Queirós",'h'],[1864,"Início da Guerra do Paraguai",'h'],[1871,"Lei do Ventre Livre",'h'],[1884,"Conferência de Berlim",'g'],[1888,"Lei Áurea",'h'],[1889,"Proclamação da República",'h'],[1930,"Revolução de 1930",'h'],[1932,"Revolução Constitucionalista",'h'],[1937,"Golpe do Estado Novo",'h'],[1943,"Criação da CLT",'h'],[1948,"Criação do Estado de Israel",'g'],[1949,"Criação da OTAN",'h'],[1953,"Criação da Petrobras",'h'],[1957,"Lançamento do Sputnik",'h'],[1960,"Ano da África",'g'],[1961,"Construção do Muro de Berlim",'h'],[1962,"Crise dos Mísseis",'h'],[1967,"Guerra dos Seis Dias",'g'],[1969,"Homem pisa na Lua",'h'],[1975,"Independência de Angola e Moçambique",'g'],[1978,"Reformas de Deng Xiaoping na China",'g'],[1984,"Campanha Diretas Já",'h'],[1988,"Constituição Cidadã",'h'],[1989,"Queda do Muro de Berlim",'h'],[1991,"Fim da União Soviética",'h'],[1993,"Acordos de Oslo",'g'],[1994,"Plano Real",'h'],[2001,"Atentados de 11 de setembro",'h'],[2003,"EUA invadem o Iraque",'g'],[2008,"Crise financeira mundial",'h'],[2010,"Início da Primavera Árabe",'h'],[2013,"China lança a Nova Rota da Seda",'g'],[2015,"Acordo de Paris",'h'],[2016,"Referendo do Brexit",'g'],[2020,"Pandemia de Covid-19",'h'],[2022,"Rússia invade a Ucrânia",'g'],[2023,"Índia se torna o país mais populoso",'g']];
@@ -618,12 +805,13 @@ const TIPS=[
 ["💬","Explique com suas palavras","Perguntar 'por quê?' e responder sozinha (elaboração) conecta as ideias. Use a aba 'Explique' de cada assunto — se conseguir explicar, você aprendeu."],
 ["🗓️","Ligue datas a histórias","Em vez de decorar números soltos, monte a sequência: o que veio antes, o que causou o quê. O jogo da Linha do Tempo treina exatamente isso."],
 ["🧪","Química: entenda a regra e pratique","Em vez de decorar tudo, entenda a lógica (ex.: Le Chatelier sempre 'foge' da mudança) e use os Macetes de cada resumo. Depois resolva muitas questões: errar e ler a explicação ensina mais do que reler."],
+["🗣️","Inglês: use os verbos em frases suas","Em vez de só repetir 'go – went', crie frases sobre a sua vida: 'Yesterday I went to school', 'Last week I watched a movie'. Falar em voz alta e usar o verbo num contexto fixa muito mais."],
 ["😴","Durma bem antes da prova","É durante o sono que a memória se organiza. Virar a noite estudando atrapalha mais do que ajuda."]];
 
 /* ================== ESTADO ================== */
 const KEY='sophia-estudos-v1';
-const def=()=>({xp:0,streak:0,last:null,best:{},box:{},read:{}});
-let S=(()=>{try{return Object.assign(def(),JSON.parse(localStorage.getItem(KEY)||'{}'))}catch(e){return def()}})();
+const def=()=>({xp:0,streak:0,last:null,best:{},box:{},read:{},errs:{},exams:{},cfg:{anim:true},done:{d:null,k:{}},plan:null});
+let S=(()=>{const d=def();try{const o=JSON.parse(localStorage.getItem(KEY)||'{}');const r=Object.assign(d,o);r.cfg=Object.assign({anim:true},o.cfg||{});['errs','exams','best','box','read'].forEach(k=>{if(!r[k]||typeof r[k]!=='object')r[k]={}});if(!r.done||typeof r.done!=='object'||!r.done.k)r.done={d:null,k:{}};return r}catch(e){return d}})();
 function save(){try{localStorage.setItem(KEY,JSON.stringify(S))}catch(e){}}
 const today=()=>Math.floor((Date.now()-new Date().getTimezoneOffset()*60000)/86400000);
 function touch(){const t=today();if(S.last===t)return;S.streak=(S.last===t-1)?S.streak+1:1;S.last=t;}
@@ -635,69 +823,124 @@ const app=$('#app');
 const shuffle=a=>{a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a};
 const T=id=>TOPICS.find(t=>t.id===id);
 const bySubj=s=>s==='all'?TOPICS:TOPICS.filter(t=>t.s===s);
-function bar(){$('#pStreak').textContent='🔥 '+(S.last!=null&&S.last>=today()-1?S.streak:0);$('#pXp').textContent='⭐ '+S.xp+' XP';}
+const streakNow=()=>S.last!=null&&S.last>=today()-1?S.streak:0;
+function bar(){$('#pStreak').textContent='🔥 '+streakNow();$('#pXp').textContent='⭐ '+S.xp+' XP';}
 function toast(m){const t=$('#toast');t.textContent=m;t.classList.add('on');clearTimeout(t._t);t._t=setTimeout(()=>t.classList.remove('on'),1600)}
 function confetti(){const c=['#F5B942','#F472B6','#E0479A','#C084FC','#FBCFE8'];for(let i=0;i<70;i++){const e=document.createElement('i');e.className='conf';e.style.left=Math.random()*100+'vw';e.style.background=c[i%c.length];e.style.animationDuration=(1.6+Math.random()*1.6)+'s';e.style.animationDelay=Math.random()*.4+'s';e.style.borderRadius=Math.random()>.5?'50%':'2px';document.body.appendChild(e);setTimeout(()=>e.remove(),3800)}}
 const praise=()=>shuffle(['Isso aí!','Mandou bem!','Arrasou!','Exato!','Perfeito!','Boa, Sophia!'])[0];
 const topicPct=t=>S.best[t.id]||0;
 const subjPct=s=>{const ts=bySubj(s);return Math.round(ts.reduce((a,t)=>a+topicPct(t),0)/ts.length)};
+function markDone(k){const t=today();if(S.done.d!==t)S.done={d:t,k:{}};S.done.k[k]=1;save();}
+const isDone=k=>S.done.d===today()&&!!S.done.k[k];
+function applyCfg(){document.body.classList.toggle('calm',!S.cfg.anim);}
+const ICON={
+play:'<svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>',
+check:'<svg aria-hidden="true" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#120D19" stroke-width="3.5"><path d="M5 12l5 5 9-10"/></svg>',
+chev:'<svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M9 6l6 6-6 6"/></svg>',
+err:'<svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#F06767" stroke-width="2.2" stroke-linecap="round"><path d="M4 5h11a3 3 0 0 1 3 3v12H7a3 3 0 0 1-3-3z"/><path d="M9 10l4 4M13 10l-4 4"/></svg>',
+star:'<svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="#F5B942"><path d="M12 2l3 6.5 7 .8-5.2 4.8 1.4 7L12 17.6 5.8 21l1.4-7L2 9.3l7-.8z"/></svg>',
+cal:'<svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#F472B6" stroke-width="2.2" stroke-linecap="round"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>'};
 
-/* ================== NAVEGAÇÃO ================== */
-let view='home',arg=null,Q=null;
-function go(v,a){stopQ();view=v;arg=a;window.scrollTo(0,0);render();}
-function stopQ(){if(Q&&Q.timer)clearInterval(Q.timer);Q=null;}
-function navOn(){const n=view==='home'?'home':view==='subj'?arg:view==='topic'?T(arg.id||arg).s:['games','pick'].includes(view)?'games':'';document.querySelectorAll('nav.bot button').forEach(b=>b.classList.toggle('on',b.dataset.n===n));}
-function render(){bar();const f={home:vHome,subj:vSubj,topic:vTopic,games:vGames,pick:vPick}[view]||vHome;app.innerHTML=f();navOn();}
+/* ================== PROVAS E PLANO ================== */
+const EXAMS=[['h','História'],['g','Geografia'],['qa','Química A'],['qb','Química B'],['i','Inglês']];
+const examKey=t=>t.s==='q'?(t.per.indexOf('Química A')===0?'qa':'qb'):t.s;
+const subjOfExam=k=>(k==='qa'||k==='qb')?'q':k;
+const topicsOfExam=k=>TOPICS.filter(t=>examKey(t)===k);
+function daysTo(iso){if(!iso)return null;const p=iso.split('-').map(Number);if(p.length<3||p.some(isNaN))return null;return Date.UTC(p[0],p[1]-1,p[2])/86400000-today();}
+const dLabel=d=>d===0?'é hoje!':d===1?'amanhã':`em ${d} dias`;
+function upcoming(){return EXAMS.map(([k,n])=>({k,n,d:daysTo(S.exams[k])})).filter(e=>e.d!==null&&e.d>=0).sort((a,b)=>a.d-b.d);}
+const examsOfSubj=s=>upcoming().filter(e=>subjOfExam(e.k)===s);
+function getPlan(){
+  const up=upcoming(),ex=up[0]||null,sig=JSON.stringify(S.exams);
+  if(!S.plan||S.plan.d!==today()||S.plan.sig!==sig){
+    const items=[{k:'rev',t:'Revisão do dia',s:'',act:"startReview(dueKeys(),'Revisão do dia','rev')"}];
+    const pool=ex?topicsOfExam(ex.k):TOPICS;
+    const weak=pool.slice().sort((a,b)=>(topicPct(a)-topicPct(b))||((S.read[a.id]?1:0)-(S.read[b.id]?1:0)))[0];
+    const rd=!!S.read[weak.id];
+    items.push({k:'t:'+weak.id,t:weak.t,s:rd?'Quiz do assunto':'Resumo + flashcards',act:rd?`topicQuiz('${weak.id}')`:`go('topic',{id:'${weak.id}',tab:'sum'})`});
+    if(Object.keys(S.errs).length)items.push({k:'err',t:'Caderno de erros',s:'Refazer o que você errou',act:'startErrs()'});
+    else if(ex&&subjOfExam(ex.k)==='i')items.push({k:'verbos',t:'Desafio dos Verbos',s:'Jogo',act:'startVerbs()'});
+    else{const s=ex?subjOfExam(ex.k):'all';items.push({k:'sim:'+s,t:s==='all'?'Simulado misto':'Simulado de '+SUBJ[s].n,s:'10 questões',act:`startGame('sim','${s}')`});}
+    S.plan={d:today(),sig,items};save();
+  }
+  const items=S.plan.items.map(i=>i.k==='rev'?Object.assign({},i,{s:dueKeys().length+' flashcards'}):i);
+  return {ex,up,items};
+}
+
+/* ================== NAVEGAÇÃO (com botão voltar) ================== */
+let view='home',arg=null,Q=null,R=null,L=null,PR=null,V=null,ignoreHash=false;
+function hashOf(v,a){return ({home:'inicio',materias:'materias',games:'jogos',progresso:'progresso',config:'config',erros:'erros'})[v]||(v==='subj'?'materia-'+a:v==='topic'?'topico-'+a.id+'-'+(a.tab||'sum'):v==='pick'?'jogar-'+a:'inicio');}
+function setHash(h){if(location.hash!=='#'+h){ignoreHash=true;location.hash=h;}}
+function stopAll(){if(Q&&Q.timer)clearInterval(Q.timer);Q=null;R=null;V=null;L=null;PR=null;}
+function go(v,a){stopAll();view=v;arg=a;setHash(hashOf(v,a));window.scrollTo(0,0);render();}
+function enterGame(){if(Q&&Q.timer)clearInterval(Q.timer);view='game';navOn();setHash('jogando');window.scrollTo(0,0);}
+function fromHash(){
+  const h=decodeURIComponent(location.hash.slice(1));let v='home',a=null;
+  if(['materias','jogos','progresso','config','erros'].includes(h))v=h==='jogos'?'games':h;
+  else if(h.indexOf('materia-')===0&&SUBJ[h.slice(8)]){v='subj';a=h.slice(8);}
+  else if(h.indexOf('topico-')===0){const p=h.split('-');if(T(p[1])){v='topic';a={id:p[1],tab:p[2]||'sum'};}}
+  else if(h.indexOf('jogar-')===0&&GAMES.some(g=>g[0]===h.slice(6))){v='pick';a=h.slice(6);}
+  stopAll();view=v;arg=a;window.scrollTo(0,0);render();
+}
+window.addEventListener('hashchange',()=>{if(ignoreHash){ignoreHash=false;return;}fromHash();});
+function navOn(){const n=view==='home'?'home':['materias','subj','topic'].includes(view)?'mat':['games','pick','game'].includes(view)?'games':'prog';document.querySelectorAll('nav.bot button').forEach(b=>b.classList.toggle('on',b.dataset.n===n));}
+function render(){bar();applyCfg();const f={home:vHome,materias:vMat,subj:vSubj,topic:vTopic,games:vGames,pick:vPick,progresso:vProg,config:vConfig,erros:vErros}[view]||vHome;app.innerHTML=f();navOn();}
 
 /* ================== TELAS ================== */
+function subjCard(s){const p=subjPct(s),e=examsOfSubj(s)[0];return `<button class="sc ${s}" onclick="go('subj','${s}')"><span class="sct"><span class="sce">${SUBJ[s].e}</span>${e?`<span class="scd">${e.d===0?'Hoje':e.d+'d'}</span>`:''}</span><b>${SUBJ[s].n}</b><small>${p}% dominado</small><span class="mini"><i style="width:${p}%"></i></span></button>`}
+function errRow(){const n=Object.keys(S.errs).length;return `<button class="row" onclick="go('erros')"><span class="ri" style="background:var(--bads)">${ICON.err}</span><span><b>Caderno de erros</b><small>${n?n+' '+(n===1?'questão':'questões')+' para refazer':'Nenhum erro guardado'}</small></span><span class="chev">${ICON.chev}</span></button>`}
 function vHome(){
-  const l=lvl(),a=lvlMin(l),b=lvlMin(l+1),p=Math.round((S.xp-a)/(b-a)*100);
-  const due=dueKeys().length;
-  return `
-  <section class="hero"><p class="eb">Bons estudos,</p><h1>Sophia ✦</h1>
-   <p>História, Geografia e Química do jeito que o cérebro aprende melhor: lembrando, revisando e jogando.</p>
-   <div class="lvl">Nível ${l}<div class="bar"><i style="width:${p}%"></i></div>${S.xp-a}/${b-a}</div></section>
-  <div class="row2">
-   <button class="big" onclick="startReview(dueKeys(),'Revisão do dia')"><span class="ic">🧠</span><b>Revisão do dia</b><small>${due} cartões para hoje</small></button>
-   <button class="big gold" onclick="go('pick','sim')"><span class="ic">📝</span><b>Simulado</b><small>10 questões misturadas, com relatório</small></button>
-  </div>
-  <h2 class="sec">Matérias</h2>
-  <div class="subjs">
-   ${['h','g','q'].map(s=>`<button class="subj ${s}" onclick="go('subj','${s}')"><span class="ic">${SUBJ[s].e}</span><h3>${SUBJ[s].n}</h3><small>${bySubj(s).length} assuntos · ${subjPct(s)}% dominado</small><div class="mini"><i style="width:${subjPct(s)}%"></i></div></button>`).join('')}
-  </div>
-  <h2 class="sec">Jogos</h2>${gamesGrid()}
-  <h2 class="sec">Como estudar melhor</h2>
-  <div class="plan"><b>Rotina de 25 minutos 💡</b><ol><li>5 min — leia o <b>Resumo</b> de um assunto</li><li>10 min — <b>Flashcards</b> (tente lembrar antes de virar!)</li><li>10 min — <b>Quiz</b> e leia as explicações dos erros</li></ol>No dia seguinte, comece pela <b>Revisão do dia</b>.</div>
-  <div class="tips" style="margin-top:10px">${TIPS.map(t=>`<details class="tip"><summary><span>${t[0]}</span>${t[1]}</summary><p>${t[2]}</p></details>`).join('')}</div>`;
+  const P=getPlan(),ex=P.ex,next=P.items.find(i=>!isDone(i.k)),nd=P.items.filter(i=>isDone(i.k)).length;
+  const hr=new Date().getHours(),greet=hr<12?'Bom dia,':hr<18?'Boa tarde,':'Boa noite,';
+  const exam=ex?`<div class="exhead"><div><p class="lb">Próxima prova</p><p class="nm">${ex.n}</p></div><div class="num">${ex.d===0?'Hoje':ex.d}<small>${ex.d===0?'boa prova!':ex.d===1?'dia':'dias'}</small></div></div>${P.up.length>1?`<div class="chips2">${P.up.slice(1,4).map(e=>`<span>${e.n} · ${dLabel(e.d)}</span>`).join('')}</div>`:''}`
+   :`<div class="exhead"><div><p class="lb">Próxima prova</p><p class="nm">Quando são as provas?</p><p class="exsub">Coloque as datas e o site conta os dias e monta o plano de estudo.</p></div></div><button class="cta2" onclick="go('config')">${ICON.cal} Definir datas das provas</button>`;
+  const cta=next?`<button class="cta" onclick="${next.act}"><span><b>Continuar estudando</b><small>${next.t} · ${next.s}</small></span>${ICON.play}</button>`:`<button class="cta" onclick="go('games')"><span><b>Plano de hoje concluído! 🎉</b><small>Que tal um jogo para relaxar?</small></span>${ICON.play}</button>`;
+  return `<section class="greet"><p>${greet}</p><h1>Sophia</h1></section>
+  <div class="homegrid"><div class="stack">
+   <section class="examcard">${exam}${cta}</section>
+   <section class="plan2"><div class="hd"><span>Plano de hoje</span><span class="muted">${nd} de ${P.items.length}</span></div>
+    ${P.items.map(i=>{const d=isDone(i.k),n=next&&i.k===next.k;return `<button class="pi ${d?'done':''} ${n?'next':''}" onclick="${i.act}"><span class="ck">${d?ICON.check:''}</span><span class="tx">${i.t}<small>${i.s}</small></span><span class="chev">${ICON.chev}</span></button>`}).join('')}
+   </section></div>
+   <div class="stack">
+    <div class="subj4">${['h','g','q','i'].map(subjCard).join('')}</div>
+    ${errRow()}
+    <button class="row" onclick="go('progresso')"><span class="ri" style="background:var(--golds)">${ICON.star}</span><span><b>Nível ${lvl()}</b><small>${S.xp} XP · ${streakNow()} ${streakNow()===1?'dia seguido':'dias seguidos'}</small></span><span class="chev">${ICON.chev}</span></button>
+   </div></div>`;
 }
+function vMat(){return `<h1 class="pt">Matérias</h1><p class="intro" style="margin:0 2px 14px">Escolha uma matéria para ver os assuntos.</p>
+  <div class="subj4 big">${['h','g','q','i'].map(subjCard).join('')}</div>
+  <div class="btns"><button class="btn primary" onclick="startGame('sim','all')">📝 Simulado misto</button><button class="btn" onclick="go('erros')">Caderno de erros</button></div>`}
 const GAMES=[
  ['flash','⚡','Quiz Relâmpago','60 segundos, quantas você acerta?','#30251A'],
  ['vf','✅','Verdadeiro ou Falso','Ache as pegadinhas','#132D1E'],
  ['linha','🗓️','Linha do Tempo','Coloque os fatos em ordem','var(--pinks)'],
  ['pares','🧩','Ligue os Pares','Conceito ↔ significado','#3A2119'],
  ['sim','📝','Simulado','10 questões + relatório','#11302B'],
- ['cards','🃏','Flashcards','Todos os cartões de uma matéria','#2A2236']];
-function gamesGrid(){return `<div class="games">${GAMES.map(g=>`<button class="game" onclick="go('pick','${g[0]}')"><span class="gi" style="background:${g[4]}">${g[1]}</span><span><b>${g[2]}</b><small>${g[3]}</small></span></button>`).join('')}</div>`}
-function vGames(){return `<h1 class="serif" style="font-size:30px;margin:6px 2px 4px">Jogos 🎮</h1><p class="intro" style="margin:0 2px 16px">Aprender jogando é praticar a memória sem perceber.</p>${gamesGrid()}`}
+ ['cards','🃏','Flashcards','Todos os cartões de uma matéria','#2A2236'],
+ ['verbos','✍️','Desafio dos Verbos','Escreva o passado em inglês','#16233F']];
+function gamesGrid(){return `<div class="games">${GAMES.map(g=>`<button class="game" onclick="${g[0]==='verbos'?'startVerbs()':`go('pick','${g[0]}')`}"><span class="gi" style="background:${g[4]}">${g[1]}</span><span><b>${g[2]}</b><small>${g[3]}</small></span></button>`).join('')}</div>`}
+function vGames(){return `<h1 class="pt">Jogos</h1><p class="intro" style="margin:0 2px 16px">Aprender jogando é praticar a memória sem perceber.</p>${gamesGrid()}
+  <h2 class="sec">Como estudar melhor</h2><div class="tips">${TIPS.map(t=>`<details class="tip"><summary><span>${t[0]}</span>${t[1]}</summary><p>${t[2]}</p></details>`).join('')}</div>`}
 function vPick(){
   const g=GAMES.find(x=>x[0]===arg);
   return `<button class="back" onclick="go('games')">← Jogos</button>
-  <h1 class="serif" style="font-size:30px">${g[1]} ${g[2]}</h1><p class="intro">${g[3]}. Escolha o conteúdo:</p>
+  <h1 class="pt">${g[1]} ${g[2]}</h1><p class="intro">${g[3]}. Escolha o conteúdo:</p>
   <div class="chips">
    <button class="chip" onclick="startGame('${arg}','all')"><span class="em">✨</span>Tudo misturado</button>
    <button class="chip h" onclick="startGame('${arg}','h')"><span class="em">🏛️</span>Só História</button>
    <button class="chip g" onclick="startGame('${arg}','g')"><span class="em">🌍</span>Só Geografia</button>
-   ${arg==='linha'?'':`<button class="chip q" onclick="startGame('${arg}','q')"><span class="em">⚗️</span>Só Química</button>`}
+   ${arg==='linha'?'':`<button class="chip q" onclick="startGame('${arg}','q')"><span class="em">⚗️</span>Só Química</button><button class="chip i" onclick="startGame('${arg}','i')"><span class="em">🔤</span>Só Inglês</button>`}
   </div>`;
 }
 function vSubj(){
-  const s=arg;
-  return `<div class="shead ${s}"><h1>${SUBJ[s].e} ${SUBJ[s].n}</h1><p>${subjPct(s)}% dominado · toque em um assunto para estudar</p></div>
+  const s=arg,ex=examsOfSubj(s);
+  return `<button class="back" onclick="go('materias')">← Matérias</button>
+  <div class="shead ${s}"><h1>${SUBJ[s].e} ${SUBJ[s].n}</h1><p>${subjPct(s)}% dominado${ex.length?' · '+ex.map(e=>(s==='q'?e.n+' ':'prova ')+dLabel(e.d)).join(' · '):''}</p></div>
   <div class="tlist">${bySubj(s).map(t=>{const p=topicPct(t);return `<button class="trow ${s}" onclick="go('topic',{id:'${t.id}',tab:'sum'})"><span class="em">${t.e}</span><span><b>${t.t}</b><small>${t.per}${S.read[t.id]?' · ✓ lido':''}</small></span><span class="ring" style="background:conic-gradient(var(--${s}) ${p}%,var(--track) 0)"><span style="background:var(--card);width:36px;height:36px;border-radius:50%;display:grid;place-items:center">${p}%</span></span></button>`}).join('')}</div>
-  <div class="btns"><button class="btn primary" onclick="startGame('sim','${s}')">📝 Simulado de ${SUBJ[s].n}</button></div>`;
+  <div class="btns"><button class="btn primary" onclick="startGame('sim','${s}')">📝 Simulado de ${SUBJ[s].n}</button>${s==='i'?`<button class="btn" onclick="startVerbs()">✍️ Desafio dos Verbos</button>`:''}</div>`;
 }
 function vTopic(){
-  const t=T(arg.id),tab=arg.tab||'sum';
+  const t=T(arg.id),tab=arg.tab||'sum',ek=examKey(t),ed=daysTo(S.exams[ek]);
   const tabs=[['sum','📖 Resumo'],['cards','🃏 Flashcards'],['quiz','❓ Quiz'],['why','💬 Explique']];
   let body='';
   if(tab==='sum'){
@@ -706,76 +949,120 @@ function vTopic(){
     <div class="btns"><button class="btn primary" onclick="markRead('${t.id}');go('topic',{id:'${t.id}',tab:'cards'})">Já li → Flashcards</button><button class="btn" onclick="markRead('${t.id}');go('topic',{id:'${t.id}',tab:'quiz'})">Ir pro Quiz</button></div></div>`;
   } else if(tab==='cards'){
     body=`<div class="box"><p>São <b>${t.cards.length} cartões</b>. Olhe o termo, <b>tente lembrar o significado</b> e só depois vire o cartão. Seja sincera: os que você errar voltam mais cedo na Revisão do dia.</p>
-    <div class="btns"><button class="btn primary full" onclick="startReview(${JSON.stringify(t.cards.map((c,i)=>t.id+':'+i)).replace(/"/g,"'")},'${t.t}')">Começar flashcards</button></div></div>
+    <div class="btns"><button class="btn primary full" onclick="topicCards('${t.id}')">Começar flashcards</button></div></div>
     <div class="box"><h3>Lista de termos</h3><ul>${t.cards.map(c=>`<li><b>${c[0]}</b> — ${c[1]}</li>`).join('')}</ul></div>`;
   } else if(tab==='quiz'){
-    const p=topicPct(t);
-    body=`<div class="box"><p><b>${t.quiz.length} questões</b> de múltipla escolha + <b>${t.tf.length}</b> de verdadeiro ou falso. Cada erro vem com explicação.</p><p style="margin-top:6px;color:var(--mute);font-weight:700">Seu recorde: ${p}%</p>
+    body=`<div class="box"><p><b>${t.quiz.length} questões</b> de múltipla escolha + <b>${t.tf.length}</b> de verdadeiro ou falso. Cada erro vem com explicação e vai para o Caderno de erros.</p><p style="margin-top:6px;color:var(--mute);font-weight:700">Seu recorde: ${topicPct(t)}%</p>
     <div class="btns"><button class="btn primary full" onclick="topicQuiz('${t.id}')">Começar quiz</button></div></div>`;
   } else {
     body=`<p class="intro" style="margin-bottom:10px">Responda com suas palavras (pode ser só de cabeça) e depois compare com a resposta modelo.</p>`+
-    t.why.map((w,i)=>`<div class="why" id="w${i}"><h3>${w[0]}</h3><textarea placeholder="Escreva sua explicação aqui..."></textarea><div class="btns"><button class="btn" onclick="this.closest('.why').classList.add('show');addXP(5)">Ver resposta modelo</button></div><div class="ans">✍️ ${w[1]}</div></div>`).join('');
+    t.why.map(w=>`<div class="why"><h3>${w[0]}</h3><textarea placeholder="Escreva sua explicação aqui..."></textarea><div class="btns"><button class="btn" onclick="this.closest('.why').classList.add('show');addXP(5)">Ver resposta modelo</button></div><div class="ans">✍️ ${w[1]}</div></div>`).join('');
   }
   return `<button class="back" onclick="go('subj','${t.s}')">← ${SUBJ[t.s].n}</button>
-  <div class="thead ${t.s}"><p class="k">${SUBJ[t.s].n} · ${t.per}</p><h1>${t.e} ${t.t}</h1></div>
+  <div class="thead ${t.s}"><p class="k">${t.per}</p><h1>${t.e} ${t.t}</h1>${ed!==null&&ed>=0?`<p class="exchip">📅 Prova ${dLabel(ed)}</p>`:''}</div>
   <div class="tabs">${tabs.map(([k,n])=>`<button class="tab ${k===tab?'on':''}" onclick="go('topic',{id:'${t.id}',tab:'${k}'})">${n}</button>`).join('')}</div>${body}`;
 }
 function markRead(id){if(!S.read[id]){S.read[id]=1;addXP(5);}}
+function vProg(){
+  const l=lvl(),a=lvlMin(l),b=lvlMin(l+1),p=Math.round((S.xp-a)/(b-a)*100);
+  const weak=TOPICS.filter(t=>S.read[t.id]||S.best[t.id]!=null).sort((x,y)=>topicPct(x)-topicPct(y)).slice(0,3);
+  return `<h1 class="pt">Progresso</h1>
+  <section class="examcard"><div class="exhead"><div><p class="lb">Seu nível</p><p class="nm">Nível ${l}</p></div><div class="num">${streakNow()}<small>${streakNow()===1?'dia seguido':'dias seguidos'}</small></div></div>
+   <div class="lvl"><div class="bar"><i style="width:${p}%"></i></div>${S.xp-a}/${b-a} XP</div></section>
+  <h2 class="sec">Provas</h2>
+  <div class="box">${EXAMS.map(([k,n])=>{const d=daysTo(S.exams[k]);return `<div class="field"><span><b>${n}</b></span><span class="muted">${d===null?'sem data':d<0?'já passou':dLabel(d)}</span></div>`}).join('')}
+   <div class="btns"><button class="btn full" onclick="go('config')">📅 Configurar datas das provas</button></div></div>
+  ${weak.length?`<h2 class="sec">Pontos fracos</h2><div class="tlist">${weak.map(t=>`<button class="trow ${t.s}" onclick="go('topic',{id:'${t.id}',tab:'sum'})"><span class="em">${t.e}</span><span><b>${t.t}</b><small>${SUBJ[t.s].n} · ${topicPct(t)}%</small></span><span class="chev" style="margin-left:auto">${ICON.chev}</span></button>`).join('')}</div>`:''}
+  <h2 class="sec">Matérias</h2>
+  ${['h','g','q','i'].map(s=>`<div class="box ${s} pbox"><div class="pbh"><b>${SUBJ[s].e} ${SUBJ[s].n}</b><span>${subjPct(s)}%</span></div>${bySubj(s).map(t=>`<div class="prow"><span>${t.t}</span><span class="pbar2"><i style="width:${topicPct(t)}%;background:var(--${s})"></i></span><span class="pv">${topicPct(t)}%</span></div>`).join('')}</div>`).join('')}
+  ${errRow()}`;
+}
+function vConfig(){
+  return `<button class="back" onclick="go('progresso')">← Progresso</button>
+  <h1 class="pt">Configurações</h1>
+  <h2 class="sec">Datas das provas</h2>
+  <div class="box">${EXAMS.map(([k,n])=>{const v=S.exams[k]||'',d=daysTo(v);return `<div class="field"><label for="ex-${k}"><b>${n}</b><small>${v?(d<0?'Prova já passou':'Prova '+dLabel(d)):'Sem data'}</small></label><span class="fr"><input type="date" id="ex-${k}" value="${v}" onchange="setExam('${k}',this.value)">${v?`<button class="x" aria-label="Apagar data de ${n}" onclick="setExam('${k}','')">✕</button>`:''}</span></div>`}).join('')}
+   <p class="note">O site conta os dias sozinho e monta o plano de estudo começando pela prova mais próxima. As datas ficam salvas neste aparelho.</p></div>
+  <h2 class="sec">Aparência</h2>
+  <div class="box"><div class="field"><span><b>Animações do fundo</b><small>Desligar economiza bateria</small></span><button class="sw ${S.cfg.anim?'on':''}" role="switch" aria-checked="${S.cfg.anim}" aria-label="Animações do fundo" onclick="toggleAnim()"><i></i></button></div></div>
+  <h2 class="sec">Dados</h2>
+  <div class="box" id="rst"><button class="btn full danger" onclick="askReset()">Apagar todo o progresso</button></div>`;
+}
+function setExam(k,v){if(v)S.exams[k]=v;else delete S.exams[k];save();render();toast(v?'Data salva! 📅':'Data apagada');}
+function toggleAnim(){S.cfg.anim=!S.cfg.anim;save();render();}
+function askReset(){$('#rst').innerHTML=`<p style="font-weight:700">Tem certeza? XP, recordes, flashcards e caderno de erros serão apagados. As datas das provas continuam.</p><div class="btns"><button class="btn danger" onclick="doReset()">Sim, apagar</button><button class="btn" onclick="render()">Cancelar</button></div>`;}
+function doReset(){const ex=S.exams,cfg=S.cfg;S=def();S.exams=ex;S.cfg=cfg;save();go('home');toast('Progresso apagado');}
+function qById(id){const p=id.split(':'),t=T(p[0]);if(!t||!p[1])return null;const i=+p[1].slice(1);if(p[1][0]==='q'&&t.quiz[i])return mkQ(t.id,t.quiz[i],i);if(p[1][0]==='t'&&t.tf[i])return mkTF(t.id,t.tf[i],i);return null;}
+function vErros(){
+  const ids=Object.keys(S.errs).filter(id=>qById(id));
+  if(!ids.length)return `<button class="back" onclick="go('home')">← Início</button><div class="empty"><p style="font-size:44px">📒</p><h2 class="serif">Caderno vazio!</h2><p>Toda questão que você errar nos quizzes vem para cá. Quando acertar, ela sai do caderno.</p><div class="btns"><button class="btn primary" onclick="go('games')">Ir para os jogos</button></div></div>`;
+  const by={};ids.forEach(id=>{const s=T(id.split(':')[0]).s;by[s]=(by[s]||0)+1});
+  return `<button class="back" onclick="go('home')">← Início</button><h1 class="pt">Caderno de erros</h1><p class="intro" style="margin-bottom:12px">Toda questão que você erra vem para cá. Quando acertar, ela sai do caderno.</p>
+  <div class="box">${Object.entries(by).map(([s,n])=>`<div class="field"><span><b>${SUBJ[s].e} ${SUBJ[s].n}</b></span><span class="muted">${n}</span></div>`).join('')}
+  <div class="btns"><button class="btn primary full" onclick="startErrs()">Refazer ${Math.min(ids.length,15)} questões</button></div></div>
+  <h2 class="sec">Questões guardadas</h2>${ids.slice(0,40).map(id=>{const q=qById(id);return `<div class="item2"><small>${tagOf(q.tid)}</small><b>${q.q}</b></div>`}).join('')}`;
+}
 
 /* ================== QUIZ ================== */
-const mkQ=(tid,x)=>({q:x[0],a:x[1],opts:shuffle([x[1],...x[2]]),exp:x[3],tid});
-const mkTF=(tid,x)=>({q:x[0],a:x[1]?'Verdadeiro':'Falso',opts:['Verdadeiro','Falso'],exp:x[2],tid,tf:1});
-const allQ=s=>bySubj(s).flatMap(t=>t.quiz.map(x=>mkQ(t.id,x)));
-const allTF=s=>bySubj(s).flatMap(t=>t.tf.map(x=>mkTF(t.id,x)));
-function topicQuiz(id){const t=T(id);startQuiz({title:t.t,tid:id,qs:[...shuffle(t.quiz.map(x=>mkQ(id,x))),...shuffle(t.tf.map(x=>mkTF(id,x)))],back:()=>go('topic',{id,tab:'quiz'})});}
+const mkQ=(tid,x,i)=>({id:tid+':q'+i,q:x[0],a:x[1],opts:shuffle([x[1],...x[2]]),exp:x[3],tid,p:x[4]});
+const mkTF=(tid,x,i)=>({id:tid+':t'+i,q:x[0],a:x[1]?'Verdadeiro':'Falso',opts:['Verdadeiro','Falso'],exp:x[2],tid,tf:1});
+const allQ=s=>bySubj(s).flatMap(t=>t.quiz.map((x,i)=>mkQ(t.id,x,i)));
+const allTF=s=>bySubj(s).flatMap(t=>t.tf.map((x,i)=>mkTF(t.id,x,i)));
+function topicQuiz(id){const t=T(id);startQuiz({title:t.t,tid:id,qs:[...shuffle(t.quiz.map((x,i)=>mkQ(id,x,i))),...shuffle(t.tf.map((x,i)=>mkTF(id,x,i)))],back:()=>go('topic',{id,tab:'quiz'})});}
+function topicCards(id){const t=T(id);startReview(t.cards.map((c,i)=>id+':'+i),t.t,'t:'+id);}
+function startErrs(){const qs=Object.keys(S.errs).map(qById).filter(Boolean);if(!qs.length){go('erros');return;}startQuiz({title:'Caderno de erros',qs:shuffle(qs).slice(0,15),err:1,back:()=>go('erros')});}
 function startGame(g,s){
-  view='games';navOn();const back=()=>go('pick',g);
+  const back=()=>go('pick',g);
   if(g==='flash')startQuiz({title:'Quiz Relâmpago',mode:'flash',qs:shuffle([...allQ(s),...allTF(s)]),back});
   else if(g==='vf')startQuiz({title:'Verdadeiro ou Falso',qs:shuffle(allTF(s)).slice(0,10),back});
-  else if(g==='sim'){const ts=shuffle(bySubj(s));let qs=[];let k=0;while(qs.length<10){const t=ts[k%ts.length];const pool=t.quiz.filter(x=>!qs.some(q=>q.q===x[0]));if(pool.length)qs.push(mkQ(t.id,shuffle(pool)[0]));k++;}startQuiz({title:'Simulado',qs:shuffle(qs),report:1,back});}
+  else if(g==='sim'){const ts=shuffle(bySubj(s));let qs=[],k=0,guard=0;while(qs.length<10&&guard<300){const t=ts[k%ts.length];const idx=t.quiz.map((x,i)=>i).filter(i=>!qs.some(q=>q.id===t.id+':q'+i));if(idx.length){const i=shuffle(idx)[0];qs.push(mkQ(t.id,t.quiz[i],i));}k++;guard++;}startQuiz({title:'Simulado',qs:shuffle(qs),report:1,subj:s,back});}
   else if(g==='linha')startLine(s);
   else if(g==='pares')startPairs(s);
   else if(g==='cards')startReview(bySubj(s).flatMap(t=>t.cards.map((c,i)=>t.id+':'+i)),'Flashcards');
 }
-function startQuiz(o){stopQ();Q=Object.assign({i:0,score:0,wrong:[],combo:0},o);
+function startQuiz(o){enterGame();Q=Object.assign({i:0,score:0,wrong:[],combo:0},o);
   if(Q.mode==='flash'){Q.time=60;Q.timer=setInterval(()=>{if(!Q)return;Q.time--;const e=$('#tm');if(e){e.textContent=Q.time;if(Q.time<=10)e.parentNode.classList.add('low')}if(Q.time<=0)endQuiz();},1000);}
-  drawQ();window.scrollTo(0,0);}
+  drawQ();}
 const tagOf=id=>{const t=T(id);return SUBJ[t.s].e+' '+t.t};
 function drawQ(){
   if(!Q)return;if(Q.i>=Q.qs.length)return endQuiz();
   const q=Q.qs[Q.i];Q.ans=false;const n=Q.qs.length;
-  app.innerHTML=`<div class="qhead"><button class="ghost" onclick="quitQ()">✕</button><div class="pbar"><i style="width:${Q.mode==='flash'?Q.time/60*100:Q.i/n*100}%"></i></div>${Q.mode==='flash'?`<span class="timer ${Q.time<=10?'low':''}">⏱ <b id="tm">${Q.time}</b>s</span>`:`<span class="count">${Q.i+1}/${n}</span>`}</div>
-  <div class="qcard"><p class="qtag">${q.tf?'Verdadeiro ou falso? · ':''}${tagOf(q.tid)}</p><h2 class="q">${q.q}</h2>
+  app.innerHTML=`<div class="qhead"><button class="ghost" aria-label="Sair" onclick="quitQ()">✕</button><div class="pbar"><i style="width:${Q.mode==='flash'?Q.time/60*100:Q.i/n*100}%"></i></div>${Q.mode==='flash'?`<span class="timer ${Q.time<=10?'low':''}">⏱ <b id="tm">${Q.time}</b>s</span>`:`<span class="count">${Q.i+1}/${n}</span>`}</div>
+  <div class="qcard"><p class="qtag">${q.tf?'Verdadeiro ou falso? · ':''}${tagOf(q.tid)}${S.errs[q.id]?' · 📒 do caderno':''}</p>${q.p?`<div class="pass">${q.p}</div>`:''}<h2 class="q">${q.q}</h2>
   <div class="opts ${q.tf?'tfrow':''}">${q.opts.map((o,k)=>`<button class="opt" onclick="answer(${k})">${q.tf?(k?'❌ ':'✅ '):`<span class="l">${'ABCD'[k]}</span>`}${o}</button>`).join('')}</div><div id="fb"></div></div>
   ${Q.mode==='flash'?`<p class="intro" style="text-align:center;margin-top:12px">Acertos: <b>${Q.score}</b>${Q.combo>1?` · combo x${Q.combo} 🔥`:''}</p>`:''}`;
 }
 function answer(k){
   if(!Q||Q.ans)return;Q.ans=true;const q=Q.qs[Q.i],ok=q.opts[k]===q.a;
   document.querySelectorAll('.opt').forEach((b,j)=>{b.disabled=true;if(q.opts[j]===q.a)b.classList.add('right');else if(j===k)b.classList.add('wrong');});
-  if(ok){Q.score++;Q.combo++;addXP(Q.mode==='flash'?4+Math.min(Q.combo,6):10);}else{Q.combo=0;Q.wrong.push(q);}
+  if(ok){Q.score++;Q.combo++;if(S.errs[q.id]){delete S.errs[q.id];Q.fixed=(Q.fixed||0)+1;}addXP(Q.mode==='flash'?4+Math.min(Q.combo,6):10);}
+  else{Q.combo=0;Q.wrong.push(q);S.errs[q.id]=(S.errs[q.id]||0)+1;save();}
   if(Q.mode==='flash'){Q.i++;setTimeout(()=>{if(Q&&!Q.ended)drawQ()},ok?420:1000);return;}
   const last=Q.i+1>=Q.qs.length;
   $('#fb').innerHTML=`<div class="exp ${ok?'ok':'bad'}"><b>${ok?praise():'Quase! A resposta é: '+q.a}</b>${q.exp}</div><button class="btn primary full" onclick="Q.i++;drawQ();window.scrollTo(0,0)">${last?'Ver resultado':'Próxima →'}</button>`;
   setTimeout(()=>{const f=$('#fb');if(f)f.scrollIntoView({behavior:'smooth',block:'nearest'})},50);
 }
-function quitQ(){const b=Q&&Q.back;stopQ();b?b():go('home');}
+function quitQ(){const b=Q&&Q.back;stopAll();b?b():go('home');}
 function endQuiz(){
   if(!Q||Q.ended)return;Q.ended=true;clearInterval(Q.timer);
   const n=Q.mode==='flash'?Q.i:Q.qs.length,pct=n?Math.round(Q.score/n*100):0;
-  if(Q.tid){S.best[Q.tid]=Math.max(S.best[Q.tid]||0,pct);save();}
+  if(Q.tid){S.best[Q.tid]=Math.max(S.best[Q.tid]||0,pct);markDone('t:'+Q.tid);}
+  if(Q.err)markDone('err');
   if(Q.report){const by={};Q.qs.forEach(q=>{(by[q.tid]=by[q.tid]||{n:0,ok:0}).n++});Q.qs.forEach(q=>{if(!Q.wrong.includes(q))by[q.tid].ok++});
-    Object.keys(by).forEach(id=>{const v=Math.round(by[id].ok/by[id].n*100);S.best[id]=Math.max(S.best[id]||0,Math.min(v,(S.best[id]||0)+20));});save();Q.by=by;}
+    Object.keys(by).forEach(id=>{const v=Math.round(by[id].ok/by[id].n*100);S.best[id]=Math.max(S.best[id]||0,Math.min(v,(S.best[id]||0)+20));});Q.by=by;markDone('sim:'+Q.subj);}
+  save();
   if(pct>=70&&n>=3)confetti();
   const msg=Q.mode==='flash'?(Q.score>=12?'Velocidade da luz! ⚡':Q.score>=6?'Muito bom!':'Bora treinar mais um pouco!'):pct===100?'Gabaritou! 🏆':pct>=70?'Mandou muito bem! 🎉':pct>=50?'Tá no caminho certo 💪':'Bora revisar e tentar de novo 📚';
   let rep='';
   if(Q.by){const arr=Object.entries(Q.by).map(([id,v])=>[id,v,v.ok/v.n]).sort((a,b)=>a[2]-b[2]);const weak=arr[0];
     rep=`<div class="report">${arr.map(([id,v])=>`<div class="r">${tagOf(id)}<span style="color:${v.ok===v.n?'var(--ok)':v.ok?'var(--ink)':'var(--bad)'}">${v.ok}/${v.n}</span></div>`).join('')}</div>
     ${weak[2]<1?`<div class="btns"><button class="btn goldb full" onclick="go('topic',{id:'${weak[0]}',tab:'sum'})">Revisar o ponto fraco: ${T(weak[0]).t}</button></div>`:''}`;}
-  const B=Q.back;window._back=B;
+  window._back=Q.back||(()=>go('home'));
   app.innerHTML=`<div class="res"><p class="qtag">${Q.title}</p><div class="score" style="--p:${pct}"><div>${Q.mode==='flash'?Q.score:pct+'%'}</div></div>
-  <h2 class="serif">${msg}</h2><p>${Q.mode==='flash'?`${Q.score} acertos em ${n} respostas`:`${Q.score} de ${n} corretas`}</p>${rep}
-  <div class="btns"><button class="btn primary" onclick="window._back()">Jogar de novo</button><button class="btn" onclick="go('home')">Início</button></div>
-  ${Q.wrong.length?`<div class="rev"><h2 class="sec" style="margin-top:20px">Revise seus erros</h2>${Q.wrong.map(q=>`<div class="item"><b>${q.q}</b><div class="a">✓ ${q.a}</div><div class="x">${q.exp}</div></div>`).join('')}</div>`:''}</div>`;
+  <h2 class="serif">${msg}</h2><p>${Q.mode==='flash'?`${Q.score} acertos em ${n} respostas`:`${Q.score} de ${n} corretas`}</p>
+  ${Q.fixed?`<p style="color:var(--ok);margin-top:6px">📒 ${Q.fixed} ${Q.fixed===1?'questão saiu':'questões saíram'} do caderno de erros!</p>`:''}${rep}
+  <div class="btns"><button class="btn primary" onclick="window._back()">${Q.err?'Voltar ao caderno':'Jogar de novo'}</button><button class="btn" onclick="go('home')">Início</button></div>
+  ${Q.wrong.length?`<div class="rev"><h2 class="sec" style="margin-top:20px">Revise seus erros</h2><p class="intro" style="margin-bottom:10px">Eles foram guardados no Caderno de erros.</p>${Q.wrong.map(q=>`<div class="item"><b>${q.q}</b><div class="a">✓ ${q.a}</div><div class="x">${q.exp}</div></div>`).join('')}</div>`:''}</div>`;
   Q=null;window.scrollTo(0,0);
 }
 
@@ -783,28 +1070,27 @@ function endQuiz(){
 const INT=[0,1,2,4,7,14];
 const card=k=>{const[id,i]=k.split(':');const t=T(id);return{t,f:t.cards[+i][0],b:t.cards[+i][1]}};
 function dueKeys(){const d=today(),all=TOPICS.flatMap(t=>t.cards.map((c,i)=>t.id+':'+i));const due=all.filter(k=>S.box[k]&&S.box[k].d<=d);const fresh=shuffle(all.filter(k=>!S.box[k])).slice(0,Math.max(0,12-due.length));return shuffle(due).concat(fresh);}
-let R=null;
-function startReview(keys,title){stopQ();if(!keys.length){app.innerHTML=`<div class="empty"><p style="font-size:44px">🎉</p><h2 class="serif">Tudo revisado por hoje!</h2><p>Volte amanhã para a próxima revisão — ou jogue um quiz enquanto isso.</p><div class="btns"><button class="btn primary" onclick="go('games')">Ir para os jogos</button></div></div>`;return;}
-  R={keys:shuffle(keys),i:0,ok:0,title};drawCard();window.scrollTo(0,0);}
+function startReview(keys,title,kind){enterGame();if(!keys.length){if(kind)markDone(kind);app.innerHTML=`<div class="empty"><p style="font-size:44px">🎉</p><h2 class="serif">Tudo revisado por hoje!</h2><p>Volte amanhã para a próxima revisão — ou jogue um quiz enquanto isso.</p><div class="btns"><button class="btn primary" onclick="go('games')">Ir para os jogos</button></div></div>`;return;}
+  R={keys:shuffle(keys),i:0,ok:0,title,kind};drawCard();}
 function drawCard(){
-  if(R.i>=R.keys.length){const p=Math.round(R.ok/R.keys.length*100);if(p>=70)confetti();
+  if(!R)return;
+  if(R.i>=R.keys.length){const p=Math.round(R.ok/R.keys.length*100);if(R.kind)markDone(R.kind);if(p>=70)confetti();
     app.innerHTML=`<div class="res"><p class="qtag">${R.title}</p><div class="score" style="--p:${p}"><div>${R.ok}/${R.keys.length}</div></div><h2 class="serif">${p>=70?'Memória afiada! 🧠':'Cada repetição fortalece a memória 💪'}</h2><p>Os cartões que você não lembrou vão aparecer de novo amanhã.</p><div class="btns"><button class="btn primary" onclick="go('home')">Início</button><button class="btn" onclick="go('games')">Jogos</button></div></div>`;R=null;return;}
   const c=card(R.keys[R.i]);
-  app.innerHTML=`<div class="qhead"><button class="ghost" onclick="go('home')">✕</button><div class="pbar"><i style="width:${R.i/R.keys.length*100}%"></i></div><span class="count">${R.i+1}/${R.keys.length}</span></div>
+  app.innerHTML=`<div class="qhead"><button class="ghost" aria-label="Sair" onclick="go('home')">✕</button><div class="pbar"><i style="width:${R.i/R.keys.length*100}%"></i></div><span class="count">${R.i+1}/${R.keys.length}</span></div>
   <div class="flip" id="fl" onclick="flipC()"><div class="fc"><div class="face f"><span class="tg">${SUBJ[c.t.s].e} ${c.t.t}</span><div class="t">${c.f}</div><small>Tente lembrar · toque para virar</small></div><div class="face b"><span class="tg">${c.f}</span><div class="d">${c.b}</div></div></div></div>
   <div id="rt"><button class="btn primary full" onclick="flipC()">Virar cartão</button></div>`;
 }
-function flipC(){const f=$('#fl');if(f.classList.contains('on'))return;f.classList.add('on');$('#rt').innerHTML=`<p class="intro" style="text-align:center;margin-bottom:8px">Você lembrou?</p><div class="rate"><button class="btn no" onclick="rate(0)">😕 Não lembrei</button><button class="btn yes" onclick="rate(1)">😄 Lembrei!</button></div>`;}
-function rate(ok){const k=R.keys[R.i],b=S.box[k]?S.box[k].b:0,nb=ok?Math.min(b+1,5):1;S.box[k]={b:nb,d:today()+(ok?INT[nb]:1)};if(ok){R.ok++;addXP(4)}else save();R.i++;drawCard();}
+function flipC(){const f=$('#fl');if(!f||f.classList.contains('on'))return;f.classList.add('on');$('#rt').innerHTML=`<p class="intro" style="text-align:center;margin-bottom:8px">Você lembrou?</p><div class="rate"><button class="btn no" onclick="rate(0)">😕 Não lembrei</button><button class="btn yes" onclick="rate(1)">😄 Lembrei!</button></div>`;}
+function rate(ok){if(!R)return;const k=R.keys[R.i],b=S.box[k]?S.box[k].b:0,nb=ok?Math.min(b+1,5):1;S.box[k]={b:nb,d:today()+(ok?INT[nb]:1)};if(ok){R.ok++;addXP(4)}else save();R.i++;drawCard();}
 
 /* ================== LINHA DO TEMPO ================== */
-let L=null;
-function startLine(s){stopQ();const pool=shuffle(TL.filter(e=>s==='all'||e[2]===s));const pick=[];for(const e of pool){if(pick.length>=5)break;if(!pick.some(p=>p[0]===e[0]))pick.push(e);}L={s,items:shuffle(pick),done:false};drawLine();window.scrollTo(0,0);}
+function startLine(s){enterGame();const pool=shuffle(TL.filter(e=>s==='all'||e[2]===s));const pick=[];for(const e of pool){if(pick.length>=5)break;if(!pick.some(p=>p[0]===e[0]))pick.push(e);}L={s,items:shuffle(pick),done:false};drawLine();}
 function drawLine(){
-  const sorted=L.items.slice().sort((a,b)=>a[0]-b[0]);let right=0;
-  const rows=L.items.map((e,i)=>{const ok=L.done&&sorted[i]===e;if(ok)right++;return `<div class="tli ${L.done?(ok?'ok':'bad'):''}"><span class="yr">${e[0]}</span><span>${e[1]}</span>${L.done?'':`<span class="mv"><button onclick="mvL(${i},-1)" ${i?'':'disabled style="opacity:.3"'}>▲</button><button onclick="mvL(${i},1)" ${i<L.items.length-1?'':'disabled style="opacity:.3"'}>▼</button></span>`}</div>`}).join('');
+  if(!L)return;const sorted=L.items.slice().sort((a,b)=>a[0]-b[0]);let right=0;
+  const rows=L.items.map((e,i)=>{const ok=L.done&&sorted[i]===e;if(ok)right++;return `<div class="tli ${L.done?(ok?'ok':'bad'):''}"><span class="yr">${e[0]}</span><span>${e[1]}</span>${L.done?'':`<span class="mv"><button aria-label="Subir" onclick="mvL(${i},-1)" ${i?'':'disabled style="opacity:.3"'}>▲</button><button aria-label="Descer" onclick="mvL(${i},1)" ${i<L.items.length-1?'':'disabled style="opacity:.3"'}>▼</button></span>`}</div>`}).join('');
   if(L.done&&!L.paid){L.paid=1;addXP(right*5);if(right===5)confetti();}
-  app.innerHTML=`<div class="qhead"><button class="ghost" onclick="go('pick','linha')">✕</button><h2 class="serif" style="font-size:22px">🗓️ Linha do Tempo</h2></div>
+  app.innerHTML=`<div class="qhead"><button class="ghost" aria-label="Sair" onclick="go('pick','linha')">✕</button><h2 class="serif" style="font-size:22px">🗓️ Linha do Tempo</h2></div>
   <p class="intro">Organize do <b>mais antigo (topo)</b> para o <b>mais recente</b> usando as setas.</p>
   <div class="tl ${L.done?'done':''}">${rows}</div>
   ${L.done?`<div class="exp ${right===5?'ok':'bad'}"><b>${right===5?'Ordem perfeita! 🎉':right+' de 5 na posição certa'}</b>Ordem correta: ${sorted.map(e=>e[0]+' – '+e[1]).join(' → ')}</div><div class="btns"><button class="btn primary" onclick="startLine(L.s)">Nova rodada</button><button class="btn" onclick="go('home')">Início</button></div>`:`<button class="btn primary full" onclick="L.done=true;drawLine()">Conferir ordem</button>`}`;
@@ -812,23 +1098,48 @@ function drawLine(){
 function mvL(i,d){const j=i+d;[L.items[i],L.items[j]]=[L.items[j],L.items[i]];drawLine();}
 
 /* ================== LIGUE OS PARES ================== */
-let P=null;
-function startPairs(s){stopQ();const all=bySubj(s).flatMap(t=>t.cards.map(c=>({f:c[0],b:c[1]})));const items=shuffle(all).slice(0,5).map((x,i)=>Object.assign(x,{id:i}));P={s,items,left:shuffle(items),right:shuffle(items),sel:null,done:{},err:0};drawPairs();window.scrollTo(0,0);}
+function startPairs(s){enterGame();const all=bySubj(s).flatMap(t=>t.cards.map(c=>({f:c[0],b:c[1]})));const items=shuffle(all).slice(0,5).map((x,i)=>Object.assign(x,{id:i}));PR={s,items,left:shuffle(items),right:shuffle(items),sel:null,done:{},err:0};drawPairs();}
 function drawPairs(){
-  const n=Object.keys(P.done).length,fin=n===P.items.length;
-  app.innerHTML=`<div class="qhead"><button class="ghost" onclick="go('pick','pares')">✕</button><div class="pbar"><i style="width:${n/5*100}%"></i></div><span class="count">${n}/5</span></div>
+  if(!PR)return;const n=Object.keys(PR.done).length,fin=n===PR.items.length;
+  app.innerHTML=`<div class="qhead"><button class="ghost" aria-label="Sair" onclick="go('pick','pares')">✕</button><div class="pbar"><i style="width:${n/5*100}%"></i></div><span class="count">${n}/5</span></div>
   <p class="intro">Toque em um <b>conceito</b> e depois no <b>significado</b> certo.</p>
-  <div class="pairs"><div class="pcol">${P.left.map(x=>`<button class="pc term ${P.done[x.id]?'ok':''} ${P.sel===x.id?'sel':''}" ${P.done[x.id]?'disabled':''} onclick="selP(${x.id})">${x.f}</button>`).join('')}</div>
-  <div class="pcol">${P.right.map(x=>`<button class="pc ${P.done[x.id]?'ok':''}" id="pr${x.id}" ${P.done[x.id]?'disabled':''} onclick="matchP(${x.id})">${x.b}</button>`).join('')}</div></div>
-  ${fin?`<div class="exp ok" style="margin-top:16px"><b>${P.err===0?'Sem nenhum erro! 🏆':'Completou!'}</b>${P.err} erro(s) nesta rodada.</div><div class="btns"><button class="btn primary" onclick="startPairs(P.s)">Nova rodada</button><button class="btn" onclick="go('home')">Início</button></div>`:''}`;
+  <div class="pairs"><div class="pcol">${PR.left.map(x=>`<button class="pc term ${PR.done[x.id]?'ok':''} ${PR.sel===x.id?'sel':''}" ${PR.done[x.id]?'disabled':''} onclick="selP(${x.id})">${x.f}</button>`).join('')}</div>
+  <div class="pcol">${PR.right.map(x=>`<button class="pc ${PR.done[x.id]?'ok':''}" id="pr${x.id}" ${PR.done[x.id]?'disabled':''} onclick="matchP(${x.id})">${x.b}</button>`).join('')}</div></div>
+  ${fin?`<div class="exp ok" style="margin-top:16px"><b>${PR.err===0?'Sem nenhum erro! 🏆':'Completou!'}</b>${PR.err} erro(s) nesta rodada.</div><div class="btns"><button class="btn primary" onclick="startPairs(PR.s)">Nova rodada</button><button class="btn" onclick="go('home')">Início</button></div>`:''}`;
 }
-function selP(id){P.sel=id;drawPairs();}
-function matchP(id){if(P.sel===null){toast('Escolha primeiro um conceito à esquerda');return;}
-  if(id===P.sel){P.done[id]=1;P.sel=null;addXP(5);const fin=Object.keys(P.done).length===P.items.length;drawPairs();if(fin&&P.err<=1)confetti();}
-  else{P.err++;const e=$('#pr'+id);e.classList.remove('no');void e.offsetWidth;e.classList.add('no');}}
+function selP(id){PR.sel=id;drawPairs();}
+function matchP(id){if(PR.sel===null){toast('Escolha primeiro um conceito à esquerda');return;}
+  if(id===PR.sel){PR.done[id]=1;PR.sel=null;addXP(5);const fin=Object.keys(PR.done).length===PR.items.length;drawPairs();if(fin&&PR.err<=1)confetti();}
+  else{PR.err++;const e=$('#pr'+id);e.classList.remove('no');void e.offsetWidth;e.classList.add('no');}}
+
+/* ================== DESAFIO DOS VERBOS ================== */
+function startVerbs(){enterGame();V={items:shuffle(VERBS).slice(0,10),i:0,ok:0,wrong:[],ans:false};drawV();}
+function drawV(){
+  if(!V)return;
+  if(V.i>=V.items.length){const p=V.ok*10;markDone('verbos');if(p>=70)confetti();
+    app.innerHTML=`<div class="res"><p class="qtag">Desafio dos Verbos</p><div class="score" style="--p:${p}"><div>${V.ok}/10</div></div><h2 class="serif">${p===100?'Gabaritou! 🏆':p>=70?'Mandou bem! 🎉':'Bora treinar mais! 💪'}</h2>
+    <div class="btns"><button class="btn primary" onclick="startVerbs()">Jogar de novo</button><button class="btn" onclick="go('topic',{id:'irr',tab:'sum'})">Ver lista</button></div>
+    ${V.wrong.length?`<div class="rev"><h2 class="sec" style="margin-top:20px">Revise</h2>${V.wrong.map(w=>`<div class="item"><b>${w[0]} (${w[2]})</b><div class="a">✓ ${w[1]}</div><div class="x">Você escreveu: ${w[3]||'(em branco)'}</div></div>`).join('')}</div>`:''}</div>`;V=null;return;}
+  const v=V.items[V.i];V.ans=false;
+  app.innerHTML=`<div class="qhead"><button class="ghost" aria-label="Sair" onclick="go('games')">✕</button><div class="pbar"><i style="width:${V.i*10}%"></i></div><span class="count">${V.i+1}/10</span></div>
+  <div class="qcard"><p class="qtag">✍️ Escreva o passado (simple past)</p><div class="vbase">${v[0]}</div><p class="vpt">${v[2]}</p>
+  <form onsubmit="event.preventDefault();checkV()"><input class="vin" id="vin" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" placeholder="digite aqui..." aria-label="Passado de ${v[0]}"><button class="btn primary full" style="margin-top:12px" id="vbtn">Conferir</button></form><div id="fb"></div></div>`;
+  setTimeout(()=>{const e=$('#vin');if(e)e.focus()},50);
+}
+function checkV(){
+  if(!V)return;if(V.ans){V.i++;drawV();return;}
+  const v=V.items[V.i],inp=$('#vin'),val=inp.value.trim().toLowerCase();
+  const ok=v[1].split('/').includes(val)||val===v[1];
+  V.ans=true;inp.classList.add(ok?'ok':'bad');inp.readOnly=true;
+  if(ok){V.ok++;addXP(8);}else V.wrong.push([v[0],v[1],v[2],val]);
+  const reg=v[1]===v[0]+'ed'||v[1]===v[0]+'d'||/ied$|([bcdfgklmnprstvz])\1ed$/.test(v[1]);
+  $('#fb').innerHTML=`<div class="exp ${ok?'ok':'bad'}"><b>${ok?praise():'Resposta: '+v[1]}</b>${v[0]} → ${v[1]} · verbo ${reg?'regular':'irregular'}</div>`;
+  $('#vbtn').textContent=V.i+1<V.items.length?'Próximo →':'Ver resultado';
+}
 
 (function(){const f=document.querySelector('.bgfx');for(let i=0;i<22;i++){const d=document.createElement('i');d.className='dot';const z=2+Math.random()*4;d.style.cssText=`left:${Math.random()*100}%;width:${z}px;height:${z}px;animation-duration:${10+Math.random()*14}s;animation-delay:-${Math.random()*20}s`;f.appendChild(d);}})();
-render();
+fromHash();
+
 </script>
 </body>
 </html>
