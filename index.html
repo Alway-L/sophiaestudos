@@ -10,13 +10,13 @@
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="manifest" href="manifest.json">
 <meta name="theme-color" content="#120D19">
-<meta name="description" content="Sophia - Estudos: História, Geografia, Química e Inglês com resumos, flashcards, quizzes e jogos.">
+<meta name="description" content="Sophia - Estudos: História, Geografia, Química, Inglês e Biologia com resumos, flashcards, quizzes e jogos.">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22%3E%3Crect width=%22100%22 height=%22100%22 rx=%2224%22 fill=%22%23E0479A%22/%3E%3Ctext x=%2250%22 y=%2270%22 font-size=%2260%22 text-anchor=%22middle%22 fill=%22white%22 font-family=%22Georgia%22 font-weight=%22bold%22%3ES%3C/text%3E%3C/svg%3E">
 <title>Sophia - Estudos</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,800&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
 <style>
-:root{color-scheme:dark;--bg:#120D19;--card:#1D1628;--ink:#F4EEF8;--mute:#A99FBC;--mute2:#CFC6DD;--line:#2F2640;--track:#2E2540;--plum:#E0479A;--plum2:#F472B6;--pinks:#3A1A33;--h:#E0663E;--hs:#3A2119;--g:#1A9E8A;--gs:#11302B;--q:#8B5CF6;--qs:#241B3D;--i:#3B82F6;--is:#16233F;--gold:#F5B942;--golds:#30251A;--ok:#3DCB7E;--oks:#132D1E;--bad:#F06767;--bads:#3A1A1E;--r:20px;--sh:0 1px 0 rgba(0,0,0,.2),0 10px 28px -12px rgba(0,0,0,.6)}
+:root{color-scheme:dark;--bg:#120D19;--card:#1D1628;--ink:#F4EEF8;--mute:#A99FBC;--mute2:#CFC6DD;--line:#2F2640;--track:#2E2540;--plum:#E0479A;--plum2:#F472B6;--pinks:#3A1A33;--h:#E0663E;--hs:#3A2119;--g:#1A9E8A;--gs:#11302B;--q:#8B5CF6;--qs:#241B3D;--i:#3B82F6;--is:#16233F;--b:#3E9B4F;--bs:#15301B;--gold:#F5B942;--golds:#30251A;--ok:#3DCB7E;--oks:#132D1E;--bad:#F06767;--bads:#3A1A1E;--r:20px;--sh:0 1px 0 rgba(0,0,0,.2),0 10px 28px -12px rgba(0,0,0,.6)}
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
 body{font-family:Nunito,system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.5;-webkit-tap-highlight-color:transparent;padding-bottom:calc(88px + env(safe-area-inset-bottom));font-size:16px;-webkit-text-size-adjust:100%}
@@ -270,7 +270,7 @@ nav.bot button.on{color:var(--plum2)}
 .scd{background:rgba(0,0,0,.22);padding:3px 9px;border-radius:99px;font-size:12.5px;font-weight:900}
 .sc b{font-family:Fraunces,Georgia,serif;font-size:20px}.sc small{font-weight:800;opacity:.92;font-size:13px}
 .sc .mini{margin-top:auto}
-.subj4.big .sc{min-height:150px}
+.subj4.matg .sc{min-height:150px}
 .row{display:flex;align-items:center;gap:12px;background:var(--card);border:1px solid var(--line);border-radius:18px;padding:12px 14px;text-align:left;width:100%;min-height:64px}
 .row .ri{width:42px;height:42px;border-radius:13px;display:grid;place-items:center;flex:none}
 .row b{display:block;font-weight:900}.row small{color:var(--mute);font-weight:700;font-size:14px}
@@ -303,7 +303,7 @@ input[type=date]{-webkit-appearance:none;appearance:none;background:var(--bg);co
  .greet h1{font-size:46px}
  .games{grid-template-columns:repeat(3,1fr)}
  .tlist{display:grid;grid-template-columns:1fr 1fr}
- .subj4.big{grid-template-columns:repeat(4,1fr)}
+ .subj4.matg{grid-template-columns:repeat(4,1fr)}
  nav.bot .in{max-width:560px}
  h2.q{font-size:24px}
  .opt{font-size:17px;padding:16px}
@@ -311,6 +311,15 @@ input[type=date]{-webkit-appearance:none;appearance:none;background:var(--bg);co
  .face .t{font-size:32px}.face .d{font-size:22px}
  .pass{font-size:16px}
 }
+
+.sc.b,.shead.b{background:var(--b)}
+.thead.b{background:var(--bs)}.thead.b .k{color:#86EFAC}
+.trow.b .em{background:var(--bs)}
+.box.b b{color:#86EFAC}
+.chip.b{border-color:rgba(62,155,79,.6)}
+.subj4:not(.matg) .sc:last-child:nth-child(odd){grid-column:1/-1;min-height:auto}
+@media (max-width:767px){.subj4.matg .sc:last-child:nth-child(odd){grid-column:1/-1}}
+@media (min-width:768px){.subj4.matg{grid-template-columns:repeat(3,1fr)}}
 </style>
 </head>
 <body>
@@ -330,7 +339,7 @@ input[type=date]{-webkit-appearance:none;appearance:none;background:var(--bg);co
 
 <script>
 /* ================== CONTEÚDO ================== */
-const SUBJ={h:{n:'História',e:'🏛️'},g:{n:'Geografia',e:'🌍'},q:{n:'Química',e:'⚗️'},i:{n:'Inglês',e:'🔤'}};
+const SUBJ={h:{n:'História',e:'🏛️'},g:{n:'Geografia',e:'🌍'},q:{n:'Química',e:'⚗️'},i:{n:'Inglês',e:'🔤'},b:{n:'Biologia',e:'🧬'}};
 const TXT={
 a:"<b>A Day at the Beach</b><br>Last Saturday, Lucas and his sister Maria went to the beach with their parents. They left home early, at 7 a.m., because the beach was far from their city. When they arrived, the sun was hot and the sea was calm. Lucas swam for an hour, but Maria preferred to read a book under an umbrella. At lunchtime, they ate fish and drank fresh coconut water. In the afternoon, it started to rain, so they went back home. Lucas said it was the best day of his summer.",
 b:"<b>From:</b> Julia · <b>To:</b> Ana<br>Hi Ana,<br>How are you? I'm writing to tell you about my trip to London. I arrived there on Monday and stayed for five days. On the first day, I visited the British Museum. It was enormous! On Wednesday, I took a boat on the River Thames and saw Big Ben. The weather wasn't good: it rained almost every day. However, I loved the city. I bought a small gift for you. I can't wait to see you!<br>Love,<br>Julia"};
@@ -794,9 +803,113 @@ quiz:[
 ["The word 'However' in the text expresses:","Contraste",["Causa","Tempo","Adição"],"However = porém. O tempo estava ruim, porém ela amou a cidade.",TXT.b]],
 tf:[["'Parents' significa 'parentes' em português.",false,"Parents = pais. Parentes = relatives."],["Skimming é uma leitura rápida para entender a ideia geral.",true,"Já o scanning é a busca por uma informação específica."],["'Actually' significa 'atualmente'.",false,"Actually = na verdade. Atualmente = nowadays ou currently."],["Ler as perguntas antes do texto ajuda a encontrar as respostas.",true,"Você já lê sabendo o que procurar."]],
 why:[["Por que é perigoso confiar só nos cognatos?","Porque existem falsos cognatos: palavras parecidas com o português, mas com outro significado (pretend = fingir, push = empurrar). Sempre confira pelo contexto."],["Como descobrir o significado de uma palavra desconhecida sem dicionário?","Use o contexto: veja as palavras ao redor, o assunto do texto, se ela parece com o português e qual a função dela na frase (ação, coisa ou característica)."]]}
+,
+/* ---------- BIOLOGIA ---------- */
+{id:'ale',s:'b',t:'Interações entre genes alelos',e:'🧬',per:'Biologia · Genética',
+mnem:"Proporções-chave no cruzamento <b>Aa × Aa</b>: <b>3 : 1</b> = dominância completa · <b>1 : 2 : 1</b> = sem dominância (incompleta ou codominância) · <b>2 : 1</b> = alelo letal. Sangue: <b>O doa para todos, AB recebe de todos</b>.",
+sum:[
+["Conceitos básicos",["<b>Gene</b>: trecho do DNA com a informação para uma característica. <b>Alelos</b>: versões diferentes de um mesmo gene, que ocupam o mesmo <b>lócus</b> em cromossomos homólogos.","<b>Homozigoto</b> (AA ou aa): alelos iguais. <b>Heterozigoto</b> (Aa): alelos diferentes.","<b>Genótipo</b>: os genes do indivíduo. <b>Fenótipo</b>: a característica que aparece (genótipo + ambiente).","<b>1ª Lei de Mendel</b>: os dois alelos se separam na formação dos gametas; cada gameta leva só um."]],
+["Dominância completa",["O alelo <b>dominante</b> (A) se manifesta mesmo em dose única; o <b>recessivo</b> (a) só aparece em aa.","Aa × Aa → genótipos <b>1 AA : 2 Aa : 1 aa</b>; fenótipos <b>3 dominantes : 1 recessivo</b>.","Ex.: ervilhas amarelas (V) x verdes (v), de Mendel."]],
+["Sem dominância",["<b>Dominância incompleta</b>: o heterozigoto tem fenótipo <b>intermediário</b>. Ex.: flor maravilha vermelha × branca → <b>rosa</b>.","<b>Codominância</b>: os <b>dois alelos se expressam juntos</b>, sem mistura. Ex.: tipo sanguíneo <b>AB</b>; gado com pelagem ruão (pelos vermelhos e brancos misturados).","Nesses casos, Aa × Aa dá fenótipos <b>1 : 2 : 1</b> (igual aos genótipos)."]],
+["Alelos letais",["Alelo que causa a <b>morte</b> do indivíduo, geralmente em homozigose e antes do nascimento.","Ex.: camundongos amarelos (A<sup>Y</sup>): o A<sup>Y</sup>A<sup>Y</sup> morre. Amarelo × amarelo → <b>2 amarelos : 1 cinza</b> (proporção <b>2 : 1</b>)."]],
+["Alelos múltiplos (polialelia)",["Quando um gene tem <b>mais de dois alelos</b> na população (mas cada pessoa tem só dois).","<b>Sistema ABO</b>: alelos I<sup>A</sup>, I<sup>B</sup> e i. I<sup>A</sup> = I<sup>B</sup> (codominantes) > i.","Grupo A: I<sup>A</sup>I<sup>A</sup> ou I<sup>A</sup>i · Grupo B: I<sup>B</sup>I<sup>B</sup> ou I<sup>B</sup>i · Grupo AB: I<sup>A</sup>I<sup>B</sup> · Grupo O: ii.","<b>O</b> é doador universal (hemácias sem aglutinogênios); <b>AB</b> é receptor universal (plasma sem aglutininas).","<b>Fator Rh</b>: Rh+ (RR ou Rr) e Rh– (rr). <b>Eritroblastose fetal</b>: mãe Rh– já sensibilizada e filho Rh+.","Outro exemplo: pelagem de coelhos (C > c<sup>ch</sup> > c<sup>h</sup> > c)."]]],
+cards:[["Alelos","Versões de um mesmo gene, no mesmo lócus de cromossomos homólogos"],["Heterozigoto","Indivíduo com alelos diferentes (Aa)"],["Fenótipo","Característica observável (genótipo + ambiente)"],["Dominância incompleta","Heterozigoto com fenótipo intermediário"],["Codominância","Os dois alelos se expressam juntos (ex.: sangue AB)"],["Alelo letal","Causa a morte em homozigose; proporção 2 : 1"],["Polialelia","Gene com mais de dois alelos na população"],["Grupo sanguíneo O","Genótipo ii; doador universal"],["Eritroblastose fetal","Mãe Rh– sensibilizada produz anticorpos contra o filho Rh+"]],
+quiz:[
+["Qual proporção fenotípica resulta de Aa × Aa com dominância completa?","3 : 1",["1 : 2 : 1","9 : 3 : 3 : 1","2 : 1"],"75% com o fenótipo dominante e 25% com o recessivo."],
+["Flores vermelhas cruzadas com brancas geram só flores rosas. Isso é:","Dominância incompleta",["Codominância","Dominância completa","Alelo letal"],"O heterozigoto tem fenótipo intermediário."],
+["O tipo sanguíneo AB é um exemplo de:","Codominância",["Dominância incompleta","Alelo letal","Herança poligênica"],"Os alelos Iᴬ e Iᴮ se expressam juntos: a hemácia tem os dois aglutinogênios."],
+["Dois camundongos amarelos geram filhotes na proporção 2 amarelos : 1 cinza. Isso indica:","Alelo letal em homozigose",["Dominância incompleta","Codominância","Epistasia"],"O homozigoto AʸAʸ morre, então a proporção 1 : 2 : 1 vira 2 : 1."],
+["Qual é o genótipo de uma pessoa do grupo O?","ii",["IᴬIᴮ","Iᴬi","Iᴮi"],"O alelo i é recessivo; o grupo O só aparece em homozigose."],
+["Um casal tem filhos dos grupos A, B, AB e O. Os genótipos dos pais são:","Iᴬi e Iᴮi",["IᴬIᴬ e IᴮIᴮ","IᴬIᴮ e ii","ii e ii"],"Os dois precisam ter um alelo i (para o filho O), um deles tem Iᴬ e o outro Iᴮ."],
+["Quem é considerado doador universal no sistema ABO?","Grupo O",["Grupo AB","Grupo A","Grupo B"],"As hemácias do grupo O não têm aglutinogênios A nem B."],
+["A eritroblastose fetal pode ocorrer quando:","A mãe é Rh– sensibilizada e o filho é Rh+",["A mãe é Rh+ e o filho é Rh–","Mãe e filho são Rh–","Mãe e filho são do grupo O"],"Os anticorpos anti-Rh da mãe atravessam a placenta e destroem as hemácias do feto."]],
+tf:[["Na codominância, o heterozigoto apresenta um fenótipo intermediário.",false,"Isso é dominância incompleta. Na codominância, as duas características aparecem juntas."],["Cada pessoa tem apenas dois alelos do sistema ABO, mesmo existindo três na população.",true,"Somos diploides: um alelo vem da mãe e o outro do pai."],["O grupo AB é receptor universal.",true,"O plasma do grupo AB não tem aglutininas anti-A nem anti-B."],["Fenótipo e genótipo são a mesma coisa.",false,"Genótipo é a constituição genética; fenótipo é a característica observável, que também sofre influência do ambiente."]],
+why:[["Por que um alelo letal muda a proporção para 2 : 1?","Porque os indivíduos homozigotos para o alelo letal morrem antes de nascer. Sobram só os heterozigotos (2 partes) e os homozigotos normais (1 parte)."],["Por que uma pessoa do grupo O pode doar sangue para todos?","Porque suas hemácias não têm aglutinogênios A nem B, então não são atacadas pelas aglutininas do plasma de quem recebe."]]},
+
+{id:'nale',s:'b',t:'Interações entre genes não alelos',e:'🔗',per:'Biologia · Genética',
+mnem:"Somou <b>16</b>? São <b>2 genes</b>! Decore as 'assinaturas': <b>9 : 3 : 3 : 1</b> interação simples · <b>9 : 7</b> genes complementares · <b>9 : 3 : 4</b> epistasia recessiva · <b>12 : 3 : 1</b> e <b>13 : 3</b> epistasia dominante · <b>15 : 1</b> genes duplicados. Epi = 'em cima': o gene epistático manda no outro.",
+sum:[
+["2ª Lei de Mendel",["Genes em <b>cromossomos diferentes</b> se separam de forma <b>independente</b> na formação dos gametas.","Um diíbrido AaBb forma <b>4 tipos de gametas</b>: AB, Ab, aB e ab (25% cada).","AaBb × AaBb → <b>9 A_B_ : 3 A_bb : 3 aaB_ : 1 aabb</b> (16 combinações).","Número de tipos de gametas = <b>2ⁿ</b> (n = número de pares heterozigotos)."]],
+["Interação gênica",["Dois ou mais pares de genes <b>não alelos</b> atuam juntos sobre a <b>mesma característica</b>.","Exemplo clássico, a <b>crista das galinhas</b>: R_E_ = noz · R_ee = rosa · rrE_ = ervilha · rree = simples → <b>9 : 3 : 3 : 1</b>, mas com 4 fenótipos de uma só característica."]],
+["Epistasia",["Um gene (<b>epistático</b>) <b>inibe</b> a manifestação de outro gene não alelo (<b>hipostático</b>).","<b>Epistasia dominante</b>: o alelo dominante inibe. Ex.: cor das penas de galinhas → <b>13 brancas : 3 coloridas</b>; cor dos frutos de abóbora → <b>12 : 3 : 1</b>.","<b>Epistasia recessiva</b>: o par recessivo inibe. Ex.: pelagem de labradores, em que ee impede o depósito de pigmento → <b>9 pretos : 3 marrons : 4 dourados</b>.","<b>Genes complementares</b>: é preciso ter pelo menos um alelo dominante de cada gene. Ex.: flores da ervilha-de-cheiro → <b>9 coloridas : 7 brancas</b>."]],
+["Como reconhecer na prova",["Se as proporções somam <b>16</b>, há <b>dois pares de genes</b> envolvidos.","9 : 3 : 3 : 1 com 4 fenótipos da mesma característica → interação gênica simples.","9 : 7 → complementares · 9 : 3 : 4 → epistasia recessiva · 12 : 3 : 1 ou 13 : 3 → epistasia dominante · 15 : 1 → genes duplicados (um dominante basta).","Probabilidade com dois genes: calcule cada um separado e <b>multiplique</b>. Ex.: P(aabb) = 1/4 × 1/4 = 1/16."]]],
+cards:[["Genes não alelos","Genes em lócus diferentes"],["2ª Lei de Mendel","Segregação independente de genes em cromossomos diferentes"],["AaBb × AaBb","Proporção 9 : 3 : 3 : 1"],["Interação gênica","Genes não alelos atuam juntos na mesma característica"],["Epistasia","Um gene inibe a expressão de outro gene não alelo"],["Gene epistático","O gene que inibe"],["Gene hipostático","O gene que é inibido"],["9 : 7","Genes complementares"],["9 : 3 : 4","Epistasia recessiva"],["13 : 3 ou 12 : 3 : 1","Epistasia dominante"]],
+quiz:[
+["Quantos tipos de gametas forma um indivíduo AaBb (genes independentes)?","4",["2","8","16"],"AB, Ab, aB e ab: 2² = 4."],
+["Qual a proporção fenotípica clássica de AaBb × AaBb (dominância completa)?","9 : 3 : 3 : 1",["3 : 1","1 : 2 : 1","9 : 7"],"É a proporção da 2ª Lei de Mendel."],
+["O que é epistasia?","Um gene inibe a manifestação de outro gene não alelo",["Dois alelos se expressam juntos","Um alelo causa a morte","Muitos genes somam efeitos"],"O gene que inibe é o epistático; o inibido, hipostático."],
+["Uma proporção fenotípica de 9 : 7 indica:","Genes complementares",["Epistasia dominante","Codominância","Herança poligênica"],"O fenótipo só aparece com pelo menos um dominante de cada gene (9/16); o resto (7/16) não."],
+["Em labradores, pretos : marrons : dourados = 9 : 3 : 4. Isso é:","Epistasia recessiva",["Epistasia dominante","Genes complementares","Dominância incompleta"],"O par ee impede o depósito do pigmento, seja preto ou marrom."],
+["Se as proporções de um cruzamento somam 16, provavelmente:","Há dois pares de genes envolvidos",["Há um único par de genes","Há um alelo letal","Há só codominância"],"16 = 4 × 4 combinações de gametas de dois diíbridos."],
+["A forma da crista em galinhas (noz, rosa, ervilha e simples) é um exemplo de:","Interação gênica",["Polialelia","Codominância","Pleiotropia"],"Dois pares de genes não alelos determinam juntos uma só característica, na proporção 9 : 3 : 3 : 1."],
+["Qual a probabilidade de AaBb × AaBb gerar um filho aabb?","1/16",["1/4","3/16","9/16"],"P(aa) × P(bb) = 1/4 × 1/4 = 1/16."]],
+tf:[["Na epistasia, o gene que inibe é chamado de hipostático.",false,"Quem inibe é o epistático; quem é inibido é o hipostático."],["A 2ª Lei de Mendel vale para genes localizados em cromossomos diferentes.",true,"Genes no mesmo cromossomo tendem a ser herdados juntos (ligação gênica)."],["A proporção 12 : 3 : 1 é típica de epistasia dominante.",true,"Ex.: cor dos frutos de abóbora."],["Interação gênica envolve alelos do mesmo gene.",false,"Envolve genes não alelos, em lócus diferentes."]],
+why:[["Por que a epistasia muda a proporção 9 : 3 : 3 : 1?","Porque o gene epistático 'esconde' o efeito do outro. Algumas classes que seriam diferentes passam a ter o mesmo fenótipo e se somam (ex.: 3 + 1 = 4 em 9 : 3 : 4)."],["Como calcular a chance de um genótipo com dois genes independentes?","Calcule a probabilidade de cada gene separadamente e multiplique (regra do 'e'). Ex.: AaBb × AaBb → P(A_bb) = 3/4 × 1/4 = 3/16."]]},
+
+{id:'polig',s:'b',t:'Herança poligênica e pleiotropia',e:'📏',per:'Biologia · Genética',
+mnem:"<b>POLI</b>genia = <b>muitos</b> genes → <b>1</b> característica (altura, cor da pele). <b>PLEIO</b>tropia = <b>1</b> gene → <b>muitas</b> características (síndrome de Marfan). Na poligenia, nº de fenótipos = <b>nº de alelos + 1</b>. Com 2 pares: <b>1 : 4 : 6 : 4 : 1</b>.",
+sum:[
+["Herança poligênica (quantitativa)",["Vários pares de genes <b>somam seus efeitos</b> para uma mesma característica (genes <b>aditivos</b>, ou poligenes).","Cada alelo efetivo (aditivo) acrescenta um pouco ao fenótipo.","Gera <b>variação contínua</b>, com muitos fenótipos intermediários: <b>altura</b>, <b>cor da pele</b>, cor dos olhos, peso.","O <b>ambiente</b> também influencia (alimentação, exposição ao sol).","No gráfico, as frequências formam uma <b>curva em forma de sino</b> (curva normal): os intermediários são mais comuns e os extremos são raros."]],
+["Fórmulas da herança poligênica",["Número de fenótipos = <b>número de alelos envolvidos + 1</b> (ou 2n + 1, sendo n o número de pares de genes).","Ex.: 2 pares de genes (4 alelos) → <b>5 fenótipos</b>, na proporção <b>1 : 4 : 6 : 4 : 1</b>. Com 3 pares → 7 fenótipos.","Valor de cada alelo efetivo = (fenótipo máximo – fenótipo mínimo) ÷ número de alelos.","Para descobrir o número de pares: a frequência de um extremo é <b>1/4ⁿ</b> (1/16 → 2 pares; 1/64 → 3 pares)."]],
+["Pleiotropia",["É o <b>contrário</b> da poligenia: <b>um único gene</b> afeta <b>várias características</b>.","Ex.: <b>síndrome de Marfan</b> — um gene afeta ossos (membros longos), olhos e coração.","Ex.: <b>fenilcetonúria</b> — um gene afeta o metabolismo, o desenvolvimento do sistema nervoso e a pigmentação.","Ex.: <b>anemia falciforme</b> — um gene altera a hemoglobina e causa vários sintomas no corpo."]],
+["Comparando",["<b>Poligenia</b>: muitos genes → uma característica.","<b>Pleiotropia</b>: um gene → muitas características.","<b>Interação gênica</b>: genes não alelos interagem, mas sem simplesmente somar efeitos."]]],
+cards:[["Herança poligênica","Vários genes somam efeitos para uma característica"],["Genes aditivos","Cada alelo efetivo acrescenta um pouco ao fenótipo"],["Variação contínua","Muitos fenótipos intermediários (ex.: altura)"],["Curva normal","Gráfico em forma de sino da herança poligênica"],["Número de fenótipos","Número de alelos + 1"],["Pleiotropia","Um gene afeta várias características"],["Síndrome de Marfan","Exemplo de pleiotropia: ossos, olhos e coração"],["2 pares de poligenes","Proporção 1 : 4 : 6 : 4 : 1"]],
+quiz:[
+["A cor da pele humana é um exemplo de:","Herança poligênica",["Pleiotropia","Codominância","Alelo letal"],"Vários genes somam efeitos, gerando muitos tons intermediários."],
+["O que é pleiotropia?","Um único gene influenciando várias características",["Vários genes influenciando uma característica","Dois alelos se expressando juntos","Um gene inibindo outro"],"Ex.: síndrome de Marfan."],
+["Uma característica determinada por 3 pares de genes aditivos tem quantos fenótipos possíveis?","7",["3","6","9"],"3 pares = 6 alelos → 6 + 1 = 7 fenótipos."],
+["Na herança poligênica, o gráfico das frequências dos fenótipos tem forma de:","Sino (curva normal)",["Linha reta","Degraus","Letra U"],"Os intermediários são mais frequentes e os extremos, raros."],
+["Uma planta aabb mede 10 cm e uma AABB mede 30 cm. Quanto cada alelo aditivo acrescenta?","5 cm",["10 cm","20 cm","2,5 cm"],"(30 – 10) ÷ 4 alelos = 5 cm por alelo efetivo."],
+["Qual destas características NÃO é poligênica?","Grupo sanguíneo ABO",["Altura","Cor da pele","Peso"],"O sistema ABO é um caso de alelos múltiplos de um único gene."],
+["A síndrome de Marfan afeta ossos, olhos e coração por causa de um único gene. Isso é:","Pleiotropia",["Herança poligênica","Epistasia","Genes complementares"],"Um gene, vários efeitos no corpo."]],
+tf:[["A herança poligênica produz variação contínua.",true,"Há muitos fenótipos intermediários entre os extremos."],["Na pleiotropia, vários genes determinam uma única característica.",false,"É o contrário: um gene afeta várias características. Vários genes para uma característica é poligenia."],["O ambiente pode influenciar características poligênicas, como a altura.",true,"Alimentação e saúde também afetam a altura final."],["Com 2 pares de genes aditivos, existem 5 fenótipos possíveis.",true,"4 alelos + 1 = 5 fenótipos, na proporção 1 : 4 : 6 : 4 : 1."]],
+why:[["Por que existem tantos tons de pele e tantas alturas diferentes?","Porque essas características dependem de vários genes com efeito somado, e cada combinação gera um valor um pouco diferente. O ambiente ainda acrescenta mais variação."],["Qual a diferença entre poligenia e pleiotropia?","Na poligenia, muitos genes atuam numa só característica (ex.: altura). Na pleiotropia, um só gene afeta várias características (ex.: síndrome de Marfan)."]]},
+
+{id:'evo',s:'b',t:'Evolução biológica',e:'🦕',per:'Biologia · Evolução',
+mnem:"<b>Lamarck</b> = o ser vivo <b>muda porque precisa</b> e passa a mudança adiante (ideia derrubada). <b>Darwin</b> = a variação <b>já existe</b> e o ambiente <b>seleciona</b> quem sobrevive. Órgãos <b>H</b>omólogos = mesma origem (<b>h</b>erança comum); <b>A</b>nálogos = mesma função (<b>a</b>tuação).",
+sum:[
+["Evidências da evolução",["<b>Fósseis</b>: restos ou marcas de seres do passado mostram as mudanças ao longo do tempo.","<b>Órgãos homólogos</b>: mesma origem embrionária, funções podem ser diferentes (braço humano, asa de morcego, nadadeira de baleia) → <b>ancestral comum</b> (divergência evolutiva).","<b>Órgãos análogos</b>: mesma função, origens diferentes (asa de inseto e asa de ave) → <b>convergência evolutiva</b>.","<b>Órgãos vestigiais</b>: reduzidos, sem função importante hoje (apêndice, cóccix).","<b>Semelhanças moleculares</b>: quanto mais parecidos o DNA e as proteínas, mais próximo o parentesco.","<b>Embriologia comparada</b>: embriões de vertebrados são muito parecidos nas fases iniciais."]],
+["Lamarck (1809)",["<b>Lei do uso e desuso</b>: órgãos usados se desenvolvem; os não usados atrofiam.","<b>Herança dos caracteres adquiridos</b>: essas mudanças seriam passadas aos filhos.","Ex. clássico: girafas esticariam o pescoço e passariam o pescoço longo aos filhos.","Hoje sabemos que características adquiridas (como músculos de academia) <b>não são herdadas</b>."]],
+["Darwin e Wallace (1859)",["<b>Seleção natural</b>: os indivíduos de uma população são <b>diferentes</b> (variabilidade); nascem mais indivíduos do que o ambiente suporta; os mais <b>adaptados</b> sobrevivem e se reproduzem mais, deixando mais descendentes.","Ex.: girafas que já nasciam com pescoço maior alcançavam mais alimento e deixavam mais filhotes.","Livro: <i>A Origem das Espécies</i> (1859).","Darwin não sabia explicar a <b>origem</b> das variações, porque ainda não se conhecia a genética."]],
+["Teoria sintética (neodarwinismo)",["Une as ideias de Darwin com a genética.","Fatores evolutivos: <b>mutação</b> e <b>recombinação gênica</b> (criam variabilidade), <b>seleção natural</b> (seleciona), <b>migração</b> e <b>deriva genética</b> (alteram as frequências dos genes).","A evolução acontece nas <b>populações</b>, não no indivíduo."]],
+["Especiação",["É a formação de novas espécies.","<b>Alopátrica</b>: uma barreira geográfica (rio, montanha, mar) separa as populações → elas acumulam diferenças → <b>isolamento reprodutivo</b> → novas espécies.","<b>Simpátrica</b>: sem barreira geográfica (ex.: poliploidia em plantas).","Espécie = grupo que cruza entre si gerando descendentes <b>férteis</b>. Cavalo × jumenta → mula, que é estéril."]],
+["Exemplos atuais",["<b>Bactérias resistentes</b> a antibióticos: o antibiótico mata as sensíveis e as resistentes se multiplicam (é seleção, não 'costume').","<b>Mariposas Biston betularia</b> na Revolução Industrial: troncos escurecidos pela fuligem favoreceram as mariposas escuras (<b>melanismo industrial</b>)."]]],
+cards:[["Seleção natural","Os mais adaptados sobrevivem e deixam mais descendentes"],["Lei do uso e desuso","Ideia de Lamarck: órgãos usados se desenvolvem"],["Órgãos homólogos","Mesma origem embrionária; indicam ancestral comum"],["Órgãos análogos","Mesma função, origens diferentes; convergência evolutiva"],["Órgão vestigial","Órgão reduzido, sem função importante (ex.: apêndice)"],["Teoria sintética","Darwin + genética: mutação, recombinação e seleção"],["Especiação alopátrica","Nova espécie formada após uma barreira geográfica"],["Isolamento reprodutivo","Populações não cruzam mais ou geram filhos estéreis"],["Melanismo industrial","Mariposas escuras favorecidas pela poluição"]],
+quiz:[
+["Segundo Lamarck, as girafas têm pescoço longo porque:","Esticavam o pescoço e passavam essa característica aos filhos",["As que nasciam com pescoço longo sobreviviam mais","Sofreram mutações causadas pelo sol","Sempre foram exatamente assim"],"É a lei do uso e desuso + a herança dos caracteres adquiridos."],
+["Segundo Darwin, as girafas têm pescoço longo porque:","As que já nasciam com pescoço maior sobreviviam e se reproduziam mais",["Esticavam o pescoço de tanto usar","O ambiente fez o pescoço crescer","Todas nasceram iguais"],"A variação já existia; a seleção natural favoreceu as mais adaptadas."],
+["Braço humano, asa de morcego e nadadeira de baleia são órgãos:","Homólogos",["Análogos","Vestigiais","Idênticos"],"Têm a mesma origem embrionária, indicando um ancestral comum."],
+["Asa de inseto e asa de ave são órgãos:","Análogos",["Homólogos","Vestigiais","Pleiotrópicos"],"Mesma função (voar), mas origens diferentes: convergência evolutiva."],
+["Qual destes é um órgão vestigial no ser humano?","Apêndice",["Coração","Fígado","Pulmão"],"É reduzido e não tem função digestiva importante em humanos."],
+["Por que surgem bactérias resistentes a antibióticos?","O antibiótico elimina as sensíveis e as resistentes se multiplicam",["As bactérias se acostumam com o remédio","O antibiótico cria a resistência nelas","As bactérias aprendem com o tempo"],"A resistência já existia em algumas bactérias (por mutação); o antibiótico só seleciona."],
+["O que a teoria sintética acrescentou às ideias de Darwin?","A genética: mutação e recombinação explicam a variabilidade",["A herança dos caracteres adquiridos","A ideia de que as espécies não mudam","A lei do uso e desuso"],"Darwin não sabia de onde vinha a variação entre os indivíduos."],
+["Na especiação alopátrica, o primeiro passo é:","Uma barreira geográfica separar as populações",["A poliploidia","Os indivíduos decidirem mudar","O cruzamento entre espécies"],"Separadas, as populações acumulam diferenças até ficarem isoladas reprodutivamente."]],
+tf:[["Para Darwin, o ambiente provoca as variações nos indivíduos.",false,"Para Darwin, as variações já existem; o ambiente apenas seleciona as mais vantajosas."],["A evolução acontece nas populações, ao longo das gerações.",true,"Um indivíduo não evolui; o que muda são as frequências dos genes na população."],["Características adquiridas, como músculos de academia, são passadas aos filhos.",false,"Elas não alteram o DNA dos gametas, então não são herdadas. Essa era a ideia de Lamarck."],["A mula é estéril, o que mostra que cavalo e jumento são espécies diferentes.",true,"Espécies diferentes podem até cruzar, mas geram descendentes estéreis."]],
+why:[["Qual a diferença entre a explicação de Lamarck e a de Darwin?","Lamarck dizia que o ser vivo muda durante a vida para se adaptar e passa isso aos filhos. Darwin dizia que os indivíduos já nascem diferentes e o ambiente seleciona os mais adaptados, que deixam mais descendentes."],["Por que tomar antibiótico sem necessidade é perigoso?","Porque seleciona bactérias resistentes: as sensíveis morrem, as resistentes sobrevivem e se multiplicam, e o remédio funciona menos no futuro."]]},
+
+{id:'pop',s:'b',t:'Genética de populações e evolução humana',e:'👣',per:'Biologia · Evolução',
+mnem:"Hardy-Weinberg: <b>p + q = 1</b> e <b>p² + 2pq + q² = 1</b>. Na conta, <b>comece pelo aa</b>: tire a raiz de q² e ache o q! Evolução humana: <b>Australopithecus anda</b> (bípede) → <b>habilis faz ferramenta</b> → <b>erectus faz fogo e viaja</b> → <b>sapiens</b> se espalha pelo mundo.",
+sum:[
+["Genética de populações",["Estuda as <b>frequências dos alelos</b> e dos genótipos em uma população.","<b>Pool gênico</b>: o conjunto de todos os alelos de uma população.","Desse ponto de vista, evolução é a <b>mudança das frequências dos alelos</b> ao longo das gerações."]],
+["Equilíbrio de Hardy-Weinberg",["Em uma população em equilíbrio, as frequências <b>não mudam</b> de uma geração para outra.","<b>p + q = 1</b> (p = frequência do alelo A; q = frequência do alelo a).","<b>p² + 2pq + q² = 1</b> → p² = AA, 2pq = Aa, q² = aa.","Condições: população <b>muito grande</b>, cruzamentos <b>ao acaso</b> e <b>nenhuma</b> mutação, seleção natural ou migração.","Na natureza essas condições quase nunca acontecem — por isso as populações evoluem."]],
+["Como resolver exercícios",["Comece sempre pelo <b>recessivo</b>: a frequência de aa = q².","Ex.: 16% da população é aa → q² = 0,16 → <b>q = 0,4</b> → p = 1 – 0,4 = <b>0,6</b>.","AA = p² = 0,36 (36%) · Aa = 2pq = 2 · 0,6 · 0,4 = 0,48 (48%)."]],
+["Fatores que mudam as frequências",["<b>Mutação</b>: cria alelos novos.","<b>Seleção natural</b>: favorece os alelos vantajosos.","<b>Migração</b> (fluxo gênico): entrada ou saída de alelos.","<b>Deriva genética</b>: mudanças <b>ao acaso</b>, mais fortes em populações pequenas. Casos: <b>efeito gargalo</b> (uma catástrofe reduz muito a população) e <b>efeito fundador</b> (poucos indivíduos fundam uma nova população)."]],
+["Evolução humana",["Humanos e chimpanzés têm um <b>ancestral comum</b> — não 'viemos do macaco'.","Sequência simplificada: <b>Australopithecus</b> (bípede, cérebro pequeno; ex.: o fóssil 'Lucy') → <b>Homo habilis</b> (primeiras ferramentas de pedra) → <b>Homo erectus</b> (domínio do fogo, saiu da África) → <b>Homo sapiens</b>.","O <b>Homo sapiens</b> surgiu na <b>África</b> há cerca de 300 mil anos e se espalhou pelo mundo (hipótese 'Fora da África').","Os <b>neandertais</b> viveram na Europa e na Ásia e conviveram com o Homo sapiens; parte do DNA de muitas pessoas hoje vem de cruzamentos com eles.","Tendências: <b>bipedalismo</b>, aumento do cérebro, redução da face e dos dentes, uso de ferramentas e cultura."]]],
+cards:[["Pool gênico","Conjunto de todos os alelos de uma população"],["p + q = 1","Soma das frequências dos dois alelos"],["p² + 2pq + q²","Frequências de AA, Aa e aa"],["Deriva genética","Mudança ao acaso nas frequências, forte em populações pequenas"],["Efeito fundador","Poucos indivíduos fundam uma população nova"],["Efeito gargalo","Uma catástrofe reduz muito a população"],["Fluxo gênico","Entrada ou saída de alelos por migração"],["Australopithecus","Hominídeo bípede de cérebro pequeno (ex.: Lucy)"],["Homo erectus","Dominou o fogo e saiu da África"],["Homo sapiens","Surgiu na África há cerca de 300 mil anos"]],
+quiz:[
+["Em Hardy-Weinberg, o que representa q²?","A frequência dos homozigotos recessivos (aa)",["A frequência do alelo dominante","A frequência dos heterozigotos","A frequência dos homozigotos dominantes"],"p² = AA; 2pq = Aa; q² = aa."],
+["Numa população em equilíbrio, 9% dos indivíduos são aa. Qual a frequência do alelo a?","0,3",["0,09","0,7","0,81"],"q² = 0,09 → q = √0,09 = 0,3."],
+["Se q = 0,3, qual a frequência de heterozigotos (Aa)?","42%",["21%","49%","9%"],"p = 0,7. 2pq = 2 × 0,7 × 0,3 = 0,42."],
+["Qual destas é uma condição do equilíbrio de Hardy-Weinberg?","Ausência de seleção natural",["População pequena","Migração constante","Muitas mutações"],"Também: população grande, cruzamentos ao acaso, sem mutação e sem migração."],
+["Uma epidemia mata a maior parte de uma população, e as frequências dos alelos mudam ao acaso. Isso é:","Efeito gargalo (deriva genética)",["Seleção artificial","Efeito fundador","Fluxo gênico"],"Os sobreviventes são uma amostra ao acaso. No efeito fundador, poucos indivíduos colonizam um lugar novo."],
+["Onde surgiu o Homo sapiens?","Na África",["Na Europa","Na Ásia","Na América"],"Há cerca de 300 mil anos; depois se espalhou pelo mundo."],
+["Qual hominídeo é associado ao domínio do fogo e à saída da África?","Homo erectus",["Australopithecus","Homo habilis","Homo neanderthalensis"],"O Homo erectus foi o primeiro a se espalhar pela Ásia e pela Europa."],
+["Qual afirmação sobre humanos e chimpanzés está correta?","Têm um ancestral comum",["Humanos descendem dos chimpanzés atuais","Não têm nenhum parentesco","Chimpanzés vão virar humanos"],"As duas linhagens se separaram de um ancestral comum há milhões de anos."]],
+tf:[["A evolução pode ser definida como a mudança nas frequências dos alelos de uma população.",true,"É a visão da genética de populações."],["A deriva genética tem mais efeito em populações grandes.",false,"Tem mais efeito em populações pequenas, onde o acaso pesa mais."],["Os neandertais conviveram com o Homo sapiens.",true,"E houve cruzamentos: parte do DNA de muitas pessoas hoje vem dos neandertais."],["Em Hardy-Weinberg, p + q = 2.",false,"p + q = 1 (100% dos alelos)."]],
+why:[["Por que quase nenhuma população real está em equilíbrio de Hardy-Weinberg?","Porque na natureza sempre há algum fator evolutivo agindo: mutações, seleção natural, migração, cruzamentos que não são ao acaso ou populações pequenas sujeitas à deriva."],["Por que é errado dizer que 'o homem veio do macaco'?","Porque humanos e macacos atuais são como 'primos': os dois descendem de um ancestral comum já extinto. Os chimpanzés de hoje também evoluíram."]]}
 ];
 
-const TL=[[1840,"Golpe da Maioridade",'h'],[1850,"Lei Eusébio de Queirós",'h'],[1864,"Início da Guerra do Paraguai",'h'],[1871,"Lei do Ventre Livre",'h'],[1884,"Conferência de Berlim",'g'],[1888,"Lei Áurea",'h'],[1889,"Proclamação da República",'h'],[1930,"Revolução de 1930",'h'],[1932,"Revolução Constitucionalista",'h'],[1937,"Golpe do Estado Novo",'h'],[1943,"Criação da CLT",'h'],[1948,"Criação do Estado de Israel",'g'],[1949,"Criação da OTAN",'h'],[1953,"Criação da Petrobras",'h'],[1957,"Lançamento do Sputnik",'h'],[1960,"Ano da África",'g'],[1961,"Construção do Muro de Berlim",'h'],[1962,"Crise dos Mísseis",'h'],[1967,"Guerra dos Seis Dias",'g'],[1969,"Homem pisa na Lua",'h'],[1975,"Independência de Angola e Moçambique",'g'],[1978,"Reformas de Deng Xiaoping na China",'g'],[1984,"Campanha Diretas Já",'h'],[1988,"Constituição Cidadã",'h'],[1989,"Queda do Muro de Berlim",'h'],[1991,"Fim da União Soviética",'h'],[1993,"Acordos de Oslo",'g'],[1994,"Plano Real",'h'],[2001,"Atentados de 11 de setembro",'h'],[2003,"EUA invadem o Iraque",'g'],[2008,"Crise financeira mundial",'h'],[2010,"Início da Primavera Árabe",'h'],[2013,"China lança a Nova Rota da Seda",'g'],[2015,"Acordo de Paris",'h'],[2016,"Referendo do Brexit",'g'],[2020,"Pandemia de Covid-19",'h'],[2022,"Rússia invade a Ucrânia",'g'],[2023,"Índia se torna o país mais populoso",'g']];
+const TL=[[1840,"Golpe da Maioridade",'h'],[1850,"Lei Eusébio de Queirós",'h'],[1864,"Início da Guerra do Paraguai",'h'],[1871,"Lei do Ventre Livre",'h'],[1884,"Conferência de Berlim",'g'],[1888,"Lei Áurea",'h'],[1889,"Proclamação da República",'h'],[1930,"Revolução de 1930",'h'],[1932,"Revolução Constitucionalista",'h'],[1937,"Golpe do Estado Novo",'h'],[1943,"Criação da CLT",'h'],[1948,"Criação do Estado de Israel",'g'],[1949,"Criação da OTAN",'h'],[1953,"Criação da Petrobras",'h'],[1957,"Lançamento do Sputnik",'h'],[1960,"Ano da África",'g'],[1961,"Construção do Muro de Berlim",'h'],[1962,"Crise dos Mísseis",'h'],[1967,"Guerra dos Seis Dias",'g'],[1969,"Homem pisa na Lua",'h'],[1975,"Independência de Angola e Moçambique",'g'],[1978,"Reformas de Deng Xiaoping na China",'g'],[1984,"Campanha Diretas Já",'h'],[1988,"Constituição Cidadã",'h'],[1989,"Queda do Muro de Berlim",'h'],[1991,"Fim da União Soviética",'h'],[1993,"Acordos de Oslo",'g'],[1994,"Plano Real",'h'],[2001,"Atentados de 11 de setembro",'h'],[2003,"EUA invadem o Iraque",'g'],[2008,"Crise financeira mundial",'h'],[2010,"Início da Primavera Árabe",'h'],[2013,"China lança a Nova Rota da Seda",'g'],[2015,"Acordo de Paris",'h'],[2016,"Referendo do Brexit",'g'],[2020,"Pandemia de Covid-19",'h'],[2022,"Rússia invade a Ucrânia",'g'],[2023,"Índia se torna o país mais populoso",'g'],[1809,"Lamarck publica a teoria do uso e desuso",'b'],[1859,"Darwin publica A Origem das Espécies",'b'],[1866,"Mendel publica suas leis da hereditariedade",'b'],[1908,"Formulação do equilíbrio de Hardy-Weinberg",'b'],[1953,"Descoberta da estrutura do DNA",'b'],[1974,"Descoberta do fóssil Lucy (Australopithecus)",'b'],[2003,"Conclusão do Projeto Genoma Humano",'b']];
 
 const TIPS=[
 ["🧠","Teste-se em vez de só reler","Tentar lembrar (com flashcards e quizzes) fixa muito mais do que reler o caderno. Pesquisas mostram que essa 'prática de recuperação' está entre as técnicas mais eficazes que existem. Errar faz parte — é no erro que o cérebro ajusta."],
@@ -806,6 +919,7 @@ const TIPS=[
 ["🗓️","Ligue datas a histórias","Em vez de decorar números soltos, monte a sequência: o que veio antes, o que causou o quê. O jogo da Linha do Tempo treina exatamente isso."],
 ["🧪","Química: entenda a regra e pratique","Em vez de decorar tudo, entenda a lógica (ex.: Le Chatelier sempre 'foge' da mudança) e use os Macetes de cada resumo. Depois resolva muitas questões: errar e ler a explicação ensina mais do que reler."],
 ["🗣️","Inglês: use os verbos em frases suas","Em vez de só repetir 'go – went', crie frases sobre a sua vida: 'Yesterday I went to school', 'Last week I watched a movie'. Falar em voz alta e usar o verbo num contexto fixa muito mais."],
+["🧬","Genética: faça os cruzamentos no papel","Monte o quadro de Punnett (a tabelinha com os gametas) em todo exercício e decore as proporções-assinatura: 3:1, 1:2:1, 2:1, 9:3:3:1, 9:7, 9:3:4, 12:3:1, 13:3 e 15:1. Na prova, a proporção já entrega o tipo de herança."],
 ["😴","Durma bem antes da prova","É durante o sono que a memória se organiza. Virar a noite estudando atrapalha mais do que ajuda."]];
 
 /* ================== ESTADO ================== */
@@ -842,7 +956,7 @@ star:'<svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="#
 cal:'<svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#F472B6" stroke-width="2.2" stroke-linecap="round"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>'};
 
 /* ================== PROVAS E PLANO ================== */
-const EXAMS=[['h','História'],['g','Geografia'],['qa','Química A'],['qb','Química B'],['i','Inglês']];
+const EXAMS=[['h','História'],['g','Geografia'],['qa','Química A'],['qb','Química B'],['i','Inglês'],['b','Biologia']];
 const examKey=t=>t.s==='q'?(t.per.indexOf('Química A')===0?'qa':'qb'):t.s;
 const subjOfExam=k=>(k==='qa'||k==='qb')?'q':k;
 const topicsOfExam=k=>TOPICS.filter(t=>examKey(t)===k);
@@ -902,13 +1016,13 @@ function vHome(){
     ${P.items.map(i=>{const d=isDone(i.k),n=next&&i.k===next.k;return `<button class="pi ${d?'done':''} ${n?'next':''}" onclick="${i.act}"><span class="ck">${d?ICON.check:''}</span><span class="tx">${i.t}<small>${i.s}</small></span><span class="chev">${ICON.chev}</span></button>`}).join('')}
    </section></div>
    <div class="stack">
-    <div class="subj4">${['h','g','q','i'].map(subjCard).join('')}</div>
+    <div class="subj4">${['h','g','q','i','b'].map(subjCard).join('')}</div>
     ${errRow()}
     <button class="row" onclick="go('progresso')"><span class="ri" style="background:var(--golds)">${ICON.star}</span><span><b>Nível ${lvl()}</b><small>${S.xp} XP · ${streakNow()} ${streakNow()===1?'dia seguido':'dias seguidos'}</small></span><span class="chev">${ICON.chev}</span></button>
    </div></div>`;
 }
 function vMat(){return `<h1 class="pt">Matérias</h1><p class="intro" style="margin:0 2px 14px">Escolha uma matéria para ver os assuntos.</p>
-  <div class="subj4 big">${['h','g','q','i'].map(subjCard).join('')}</div>
+  <div class="subj4 matg">${['h','g','q','i','b'].map(subjCard).join('')}</div>
   <div class="btns"><button class="btn primary" onclick="startGame('sim','all')">📝 Simulado misto</button><button class="btn" onclick="go('erros')">Caderno de erros</button></div>`}
 const GAMES=[
  ['flash','⚡','Quiz Relâmpago','60 segundos, quantas você acerta?','#30251A'],
@@ -930,6 +1044,7 @@ function vPick(){
    <button class="chip h" onclick="startGame('${arg}','h')"><span class="em">🏛️</span>Só História</button>
    <button class="chip g" onclick="startGame('${arg}','g')"><span class="em">🌍</span>Só Geografia</button>
    ${arg==='linha'?'':`<button class="chip q" onclick="startGame('${arg}','q')"><span class="em">⚗️</span>Só Química</button><button class="chip i" onclick="startGame('${arg}','i')"><span class="em">🔤</span>Só Inglês</button>`}
+   <button class="chip b" onclick="startGame('${arg}','b')"><span class="em">🧬</span>Só Biologia</button>
   </div>`;
 }
 function vSubj(){
@@ -974,7 +1089,7 @@ function vProg(){
    <div class="btns"><button class="btn full" onclick="go('config')">📅 Configurar datas das provas</button></div></div>
   ${weak.length?`<h2 class="sec">Pontos fracos</h2><div class="tlist">${weak.map(t=>`<button class="trow ${t.s}" onclick="go('topic',{id:'${t.id}',tab:'sum'})"><span class="em">${t.e}</span><span><b>${t.t}</b><small>${SUBJ[t.s].n} · ${topicPct(t)}%</small></span><span class="chev" style="margin-left:auto">${ICON.chev}</span></button>`).join('')}</div>`:''}
   <h2 class="sec">Matérias</h2>
-  ${['h','g','q','i'].map(s=>`<div class="box ${s} pbox"><div class="pbh"><b>${SUBJ[s].e} ${SUBJ[s].n}</b><span>${subjPct(s)}%</span></div>${bySubj(s).map(t=>`<div class="prow"><span>${t.t}</span><span class="pbar2"><i style="width:${topicPct(t)}%;background:var(--${s})"></i></span><span class="pv">${topicPct(t)}%</span></div>`).join('')}</div>`).join('')}
+  ${['h','g','q','i','b'].map(s=>`<div class="box ${s} pbox"><div class="pbh"><b>${SUBJ[s].e} ${SUBJ[s].n}</b><span>${subjPct(s)}%</span></div>${bySubj(s).map(t=>`<div class="prow"><span>${t.t}</span><span class="pbar2"><i style="width:${topicPct(t)}%;background:var(--${s})"></i></span><span class="pv">${topicPct(t)}%</span></div>`).join('')}</div>`).join('')}
   ${errRow()}`;
 }
 function vConfig(){
